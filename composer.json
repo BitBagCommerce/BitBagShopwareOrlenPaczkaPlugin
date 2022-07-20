@@ -14,5 +14,10 @@
       "de-DE": "Skeleton plugin",
       "en-GB": "Skeleton plugin"
     }
+  },
+  "require": {
+    "bitbag/coding-standard": "^2.0",
+    "psalm/plugin-symfony": "^3.1",
+    "shopware/core": "^6.4"
   }
 }
