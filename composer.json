@@ -1,23 +1,28 @@
 {
-  "name": "swag/plugin-skeleton",
-  "description": "Skeleton plugin",
-  "type": "shopware-platform-plugin",
-  "license": "MIT",
-  "autoload": {
-    "psr-4": {
-      "BitBagShopwareOrlenPaczkaPlugin\\": "src/"
+    "name": "swag/shopware-orlen-plugin",
+    "description": "Skeleton plugin",
+    "type": "shopware-platform-plugin",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "BitBagShopwareOrlenPaczkaPlugin\\": "src/"
+        }
+    },
+    "extra": {
+        "shopware-plugin-class": "BitBagShopwareOrlenPaczkaPlugin\\BitBagShopwareOrlenPaczkaPlugin",
+        "label": {
+            "de-DE": "Skeleton plugin",
+            "en-GB": "Skeleton plugin"
+        }
+    },
+    "require": {
+        "bitbag/coding-standard": "^2.0",
+        "psalm/plugin-symfony": "^3.1",
+        "shopware/core": "^6.4"
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
     }
-  },
-  "extra": {
-    "shopware-plugin-class": "BitBagShopwareOrlenPaczkaPlugin\\BitBagShopwareOrlenPaczkaPlugin",
-    "label": {
-      "de-DE": "Skeleton plugin",
-      "en-GB": "Skeleton plugin"
-    }
-  },
-  "require": {
-    "bitbag/coding-standard": "^2.0",
-    "psalm/plugin-symfony": "^3.1",
-    "shopware/core": "^6.4"
-  }
 }
