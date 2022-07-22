@@ -12,13 +12,13 @@
         </service>
 
         <service class="BitBagShopwareOrlenPaczkaPlugin\Finder\RuleFinder"
-                 id="BitBag\ShopwareInPostPlugin\Finder\RuleFinder"
+                 id="BitBagShopwareOrlenPaczkaPlugin\Finder\RuleFinder"
         >
             <argument type="service" id="rule.repository" />
         </service>
 
         <service class="BitBagShopwareOrlenPaczkaPlugin\Finder\ShippingMethodFinder"
-                 id="BitBag\ShopwareInPostPlugin\Finder\ShippingMethodFinder"
+                 id="BitBagShopwareOrlenPaczkaPlugin\Finder\ShippingMethodFinder"
         >
             <argument type="service" id="shipping_method.repository" />
         </service>

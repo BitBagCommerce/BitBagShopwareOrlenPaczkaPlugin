@@ -17,11 +17,12 @@ final class OrlenConfigService implements OrlenConfigServiceInterface
         $this->systemConfigService = $systemConfigService;
     }
 
-    public function getInPostApiConfig(?string $salesChannelId = null): OrlenApiConfig
+    public function getApiConfig(?string $salesChannelId = null): OrlenApiConfig
     {
-        $organizationId = $this->systemConfigService->getString(self:: SYSTEM_CONFIG_PREFIX . '.inPostOrganizationId', $salesChannelId) ?: null;
-        $accessToken = $this->systemConfigService->getString(self:: SYSTEM_CONFIG_PREFIX . '.inPostAccessToken', $salesChannelId) ?: null;
-        $environment = $this->systemConfigService->getString(self:: SYSTEM_CONFIG_PREFIX . '.inPostEnvironment', $salesChannelId) ?: null;
+        // TODO: Change credentials structure
+        $organizationId = $this->systemConfigService->getString(self:: SYSTEM_CONFIG_PREFIX . '.OrganizationId', $salesChannelId) ?: null;
+        $accessToken = $this->systemConfigService->getString(self:: SYSTEM_CONFIG_PREFIX . '.AccessToken', $salesChannelId) ?: null;
+        $environment = $this->systemConfigService->getString(self:: SYSTEM_CONFIG_PREFIX . '.Environment', $salesChannelId) ?: null;
 
         if (null === $organizationId || null === $accessToken || null === $environment) {
             throw new ApiDataException('api.credentialsDataNotFound');

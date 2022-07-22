@@ -14,7 +14,7 @@
 
         <service id="BitBagShopwareOrlenPaczkaPlugin\Plugin\RuleConfigurator"
         >
-            <argument type="service" id="BitBag\ShopwareInPostPlugin\Finder\RuleFinder" />
+            <argument type="service" id="BitBagShopwareOrlenPaczkaPlugin\Finder\RuleFinder" />
             <argument type="service" id="BitBagShopwareOrlenPaczkaPlugin\Finder\CashOnDeliveryPaymentMethodFinder" />
             <argument type="service" id="BitBagShopwareOrlenPaczkaPlugin\Factory\RulePayloadFactory" />
             <argument type="service" id="rule.repository" />
@@ -22,7 +22,7 @@
 
         <service id="BitBagShopwareOrlenPaczkaPlugin\Plugin\ShippingMethodConfigurator"
         >
-            <argument type="service" id="BitBag\ShopwareInPostPlugin\Finder\ShippingMethodFinder" />
+            <argument type="service" id="BitBagShopwareOrlenPaczkaPlugin\Finder\ShippingMethodFinder" />
             <argument type="service" id="BitBagShopwareOrlenPaczkaPlugin\Factory\ShippingMethodPayloadFactory" />
             <argument type="service" id="shipping_method.repository" />
         </service>
