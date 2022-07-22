@@ -3,8 +3,29 @@
 <container xmlns="http://symfony.com/schema/dic/services"
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <imports>
+        <import resource="services/*.xml"/>
+    </imports>
 
     <services>
+        <service class="BitBagShopwareOrlenPaczkaPlugin\BitBagShopwareOrlenPaczkaPlugin"
+                 id="BitBagShopwareOrlenPaczkaPlugin\BitBagShopwareOrlenPaczkaPlugin"
+        >
+            <call method="setCustomFieldSetConfigurator">
+                <argument type="service" id="BitBagShopwareOrlenPaczkaPlugin\Plugin\CustomFieldSetConfigurator" />
+            </call>
 
+            <call method="setRuleConfigurator">
+                <argument type="service" id="BitBagShopwareOrlenPaczkaPlugin\Plugin\RuleConfigurator" />
+            </call>
+
+            <call method="setShippingMethodConfigurator">
+                <argument type="service" id="BitBagShopwareOrlenPaczkaPlugin\Plugin\ShippingMethodConfigurator" />
+            </call>
+
+            <call method="setConnection">
+                <argument type="service" id="Doctrine\DBAL\Connection" />
+            </call>
+        </service>
     </services>
 </container>
