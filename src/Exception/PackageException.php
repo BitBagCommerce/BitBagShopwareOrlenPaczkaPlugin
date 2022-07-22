@@ -11,7 +11,7 @@ final class PackageException extends ShopwareHttpException
 {
     public function getErrorCode(): string
     {
-        return 'BITBAG_ORLEN_PLUGIN__PACKAGE_EXCEPTION';
+        return 'BITBAG_ORLEN_PACZKA_PLUGIN__PACKAGE_EXCEPTION';
     }
 
     public function getStatusCode(): int
