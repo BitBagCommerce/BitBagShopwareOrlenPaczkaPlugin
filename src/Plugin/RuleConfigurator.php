@@ -15,20 +15,16 @@ final class RuleConfigurator implements RuleConfiguratorInterface
 {
     private RuleFinderInterface $ruleFinder;
 
-    private CashOnDeliveryPaymentMethodFinderInterface $cashOnDeliveryPaymentMethodFinder;
-
     private RulePayloadFactoryInterface $rulePayloadFactory;
 
     private EntityRepositoryInterface $ruleRepository;
 
     public function __construct(
         RuleFinderInterface $ruleFinder,
-        CashOnDeliveryPaymentMethodFinderInterface $cashOnDeliveryPaymentMethodFinder,
         RulePayloadFactoryInterface $rulePayloadFactory,
         EntityRepositoryInterface $ruleRepository
     ) {
         $this->ruleFinder = $ruleFinder;
-        $this->cashOnDeliveryPaymentMethodFinder = $cashOnDeliveryPaymentMethodFinder;
         $this->rulePayloadFactory = $rulePayloadFactory;
         $this->ruleRepository = $ruleRepository;
     }
