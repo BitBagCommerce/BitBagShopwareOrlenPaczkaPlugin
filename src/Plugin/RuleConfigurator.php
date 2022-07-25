@@ -6,7 +6,6 @@ namespace BitBagShopwareOrlenPaczkaPlugin\Plugin;
 
 use BitBagShopwareOrlenPaczkaPlugin\Exception\RuleNotFoundException;
 use BitBagShopwareOrlenPaczkaPlugin\Factory\RulePayloadFactoryInterface;
-use BitBagShopwareOrlenPaczkaPlugin\Finder\CashOnDeliveryPaymentMethodFinderInterface;
 use BitBagShopwareOrlenPaczkaPlugin\Finder\RuleFinderInterface;
 use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepositoryInterface;
