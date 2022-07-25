@@ -7,7 +7,7 @@ namespace BitBagShopwareOrlenPaczkaPlugin\Exception;
 use Shopware\Core\Framework\ShopwareHttpException;
 use Symfony\Component\HttpFoundation\Response;
 
-final class ApiDataException extends ShopwareHttpException
+final class MissingApiConfigException extends ShopwareHttpException
 {
     public function getErrorCode(): string
     {

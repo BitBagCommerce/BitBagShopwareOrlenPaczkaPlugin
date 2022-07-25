@@ -1,5 +1,5 @@
 {
-    "name": "swag/shopware-orlen-plugin",
+    "name": "bitbag/shopware-orlen-plugin",
     "description": "Orlen Paczka plugin",
     "version": "1.0.0",
     "type": "shopware-platform-plugin",

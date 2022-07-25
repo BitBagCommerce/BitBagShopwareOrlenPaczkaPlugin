@@ -36,6 +36,7 @@ final class RuleConfigurator implements RuleConfiguratorInterface
     public function getRuleId(Context $context): string
     {
         $ruleName = RulePayloadFactoryInterface::ALWAYS_VALID;
+
         $rule = $this->ruleFinder->getRuleIdsByName($ruleName, $context);
         if (0 === $rule->getTotal()) {
             $rule = $this->rulePayloadFactory->create($ruleName);
