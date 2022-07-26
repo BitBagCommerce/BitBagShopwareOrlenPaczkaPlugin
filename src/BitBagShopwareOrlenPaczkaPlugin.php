@@ -70,7 +70,6 @@ final class BitBagShopwareOrlenPaczkaPlugin extends Plugin
 
         $db = $this->connection;
 
-
         $db->executeStatement('DROP TABLE IF EXISTS `' . OrderOrlenExtensionDefinition::ENTITY_NAME . '`;');
 
         $db->executeStatement(
