@@ -15,7 +15,14 @@
         <PropertyNotSetInConstructor>
             <errorLevel type="suppress">
                 <file name="src/BitBagShopwareOrlenPaczkaPlugin.php" />
+                <file name="src/Extension/Content/Order/OrderOrlenExtensionDefinition.php" />
             </errorLevel>
         </PropertyNotSetInConstructor>
+
+        <DeprecatedClass>
+            <errorLevel type="suppress">
+                <directory name="src/"/>
+            </errorLevel>
+        </DeprecatedClass>
     </issueHandlers>
 </psalm>

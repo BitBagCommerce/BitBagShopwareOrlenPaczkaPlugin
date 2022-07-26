@@ -1,6 +1,7 @@
 {
-    "name": "swag/shopware-orlen-plugin",
-    "description": "Skeleton plugin",
+    "name": "bitbag/shopware-orlen-plugin",
+    "description": "Orlen Paczka plugin",
+    "version": "1.0.0",
     "type": "shopware-platform-plugin",
     "license": "MIT",
     "autoload": {
@@ -11,8 +12,8 @@
     "extra": {
         "shopware-plugin-class": "BitBagShopwareOrlenPaczkaPlugin\\BitBagShopwareOrlenPaczkaPlugin",
         "label": {
-            "de-DE": "Skeleton plugin",
-            "en-GB": "Skeleton plugin"
+            "de-DE": "Orlen Paczka",
+            "en-GB": "Orlen Paczka"
         }
     },
     "require": {
