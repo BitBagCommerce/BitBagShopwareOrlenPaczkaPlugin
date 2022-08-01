@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace BitBagShopwareOrlenPaczkaPlugin\Config;
 
-use BitBagShopwareOrlenPaczkaPlugin\Exception\MissingApiConfigException;
+use BitBagShopwareOrlenPaczkaPlugin\Exception\ApiConfigNotFoundException;
 use BitBagShopwareOrlenPaczkaPlugin\Model\OrlenApiConfig;
 use Shopware\Core\System\SystemConfig\SystemConfigService;
 
@@ -25,7 +25,7 @@ final class OrlenConfigService implements OrlenConfigServiceInterface
         $environment = $this->systemConfigService->getString(self:: SYSTEM_CONFIG_PREFIX . '.Environment', $salesChannelId) ?: null;
 
         if (null === $organizationId || null === $accessToken || null === $environment) {
-            throw new MissingApiConfigException('api.credentialsDataNotFound');
+            throw new ApiConfigNotFoundException('api.credentialsDataNotFound');
         }
 
         return new OrlenApiConfig($organizationId, $accessToken, $environment);
