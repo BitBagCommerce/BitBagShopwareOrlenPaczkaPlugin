@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace BitBagShopwareOrlenPaczkaPlugin\Extension\Content\Order;
+namespace BitBagShopwareOrlenPaczkaPlugin\Extension\Order;
 
 use Shopware\Core\Checkout\Order\OrderDefinition;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityDefinition;
@@ -17,7 +17,7 @@ use Shopware\Core\Framework\DataAbstractionLayer\FieldCollection;
 
 final class OrderOrlenExtensionDefinition extends EntityDefinition
 {
-    public const ENTITY_NAME = 'bitbag_orlen_point_order_extension';
+    public const ENTITY_NAME = 'bitbag_orlen_order_extension';
 
     public function getEntityName(): string
     {

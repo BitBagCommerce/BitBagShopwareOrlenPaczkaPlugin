@@ -1,0 +1,32 @@
+{% sw_extends '@Storefront/storefront/component/shipping/shipping-method.html.twig' %}
+
+{% block component_shipping_method_label %}
+    {{ parent() }}
+
+    {% set technicalName = null %}
+
+    {% if context.shippingMethod.customFields.technical_name is not empty %}
+        {% set technicalName = context.shippingMethod.customFields.technical_name %}
+    {% endif %}
+
+    {% if context.shippingMethod.translated.customFields.technical_name is not empty %}
+        {% set technicalName = context.shippingMethod.translated.customFields.technical_name %}
+    {% endif %}
+
+    {% if (shipping.id is same as(context.shippingMethod.id)) and technicalName == constant('BitBagShopwareOrlenPaczkaPlugin\\Factory\\ShippingMethodPayloadFactoryInterface::SHIPPING_KEY') %}
+
+        <a class="btn btn-primary" id="orlen-change-point" style="color: white">{{ 'pointName.changePoint'|trans }}</a>
+        <script>
+            const orlenPoint = document.getElementById('orlen-change-point');
+
+            orlenPoint.onclick = function(){
+                PPWidgetApp.toggleMap(callback, false, '',["ORLEN"]);
+            };
+
+            function callback(point)
+            {
+                console.log(point);
+            }
+        </script>
+    {% endif %}
+{% endblock %}

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace BitBagShopwareOrlenPaczkaPlugin;
 
 use BitBagShopwareOrlenPaczkaPlugin\Config\OrlenConfigServiceInterface;
-use BitBagShopwareOrlenPaczkaPlugin\Extension\Content\Order\OrderOrlenExtensionDefinition;
+use BitBagShopwareOrlenPaczkaPlugin\Extension\Order\OrderOrlenExtensionDefinition;
 use BitBagShopwareOrlenPaczkaPlugin\Factory\CustomFieldsForPackageDetailsPayloadFactoryInterface;
 use BitBagShopwareOrlenPaczkaPlugin\Plugin\CustomFieldSetConfiguratorInterface;
 use BitBagShopwareOrlenPaczkaPlugin\Plugin\RuleConfiguratorInterface;

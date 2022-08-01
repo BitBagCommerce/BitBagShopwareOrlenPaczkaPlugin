@@ -5,14 +5,14 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd"
 >
     <services>
-        <service id="BitBagShopwareOrlenPaczkaPlugin\Extension\Content\Order\OrderOrlenExtension"
+        <service id="BitBagShopwareOrlenPaczkaPlugin\Extension\Order\OrderOrlenExtension"
         >
             <tag name="shopware.entity.extension" />
         </service>
 
-        <service id="BitBagShopwareOrlenPaczkaPlugin\Extension\Content\Order\OrderOrlenExtensionDefinition"
+        <service id="BitBagShopwareOrlenPaczkaPlugin\Extension\Order\OrderOrlenExtensionDefinition"
         >
-            <tag name="shopware.entity.definition" entity="bitbag_orlen_point_order_extension" />
+            <tag name="shopware.entity.definition" entity="bitbag_orlen_order_extension" />
         </service>
     </services>
 </container>

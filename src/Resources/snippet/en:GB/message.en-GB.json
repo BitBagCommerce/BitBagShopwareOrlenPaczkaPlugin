@@ -1,0 +1,6 @@
+{
+    "pointName": {
+        "notFound": "You need to select point before create an order",
+        "changePoint": "Change point"
+    }
+}

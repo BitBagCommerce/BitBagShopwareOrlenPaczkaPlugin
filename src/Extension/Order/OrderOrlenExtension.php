@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace BitBagShopwareOrlenPaczkaPlugin\Extension\Content\Order;
+namespace BitBagShopwareOrlenPaczkaPlugin\Extension\Order;
 
 use Shopware\Core\Checkout\Order\OrderDefinition;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityExtension;
@@ -15,7 +15,7 @@ final class OrderOrlenExtension extends EntityExtension
     {
         $collection->add(
             new OneToOneAssociationField(
-                OrderOrlenExtensionInterface::PROPERTY_KEY,
+                'orlen',
                 'id',
                 'order_id',
                 OrderOrlenExtensionDefinition::class,
