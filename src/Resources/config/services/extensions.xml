@@ -12,7 +12,7 @@
 
         <service id="BitBagShopwareOrlenPaczkaPlugin\Extension\Order\OrderOrlenExtensionDefinition"
         >
-            <tag name="shopware.entity.definition" entity="bitbag_orlen_point_order_extension" />
+            <tag name="shopware.entity.definition" entity="bitbag_orlen_order_extension" />
         </service>
     </services>
 </container>
