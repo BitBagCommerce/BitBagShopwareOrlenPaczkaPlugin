@@ -6,7 +6,7 @@ namespace BitBagShopwareOrlenPaczkaPlugin\Factory;
 
 use BitBagShopwareOrlenPaczkaPlugin\Finder\DeliveryTimeFinderInterface;
 use Shopware\Core\Framework\Context;
-use Shopware\Core\Framework\DataAbstractionLayer\EntityRepositoryInterface;
+use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 
 final class ShippingMethodPayloadFactory implements ShippingMethodPayloadFactoryInterface
 {
@@ -14,12 +14,12 @@ final class ShippingMethodPayloadFactory implements ShippingMethodPayloadFactory
 
     private DeliveryTimePayloadFactoryInterface $createDeliveryTimeFactory;
 
-    private EntityRepositoryInterface $deliveryTimeRepository;
+    private EntityRepository $deliveryTimeRepository;
 
     public function __construct(
         DeliveryTimeFinderInterface $deliveryTimeFinder,
         DeliveryTimePayloadFactoryInterface $createDeliveryTimeFactory,
-        EntityRepositoryInterface $deliveryTimeRepository
+        EntityRepository $deliveryTimeRepository
     ) {
         $this->deliveryTimeFinder = $deliveryTimeFinder;
         $this->createDeliveryTimeFactory = $createDeliveryTimeFactory;

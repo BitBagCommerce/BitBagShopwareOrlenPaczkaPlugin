@@ -8,7 +8,7 @@ use BitBagShopwareOrlenPaczkaPlugin\Exception\RuleNotFoundException;
 use BitBagShopwareOrlenPaczkaPlugin\Factory\RulePayloadFactoryInterface;
 use BitBagShopwareOrlenPaczkaPlugin\Finder\RuleFinderInterface;
 use Shopware\Core\Framework\Context;
-use Shopware\Core\Framework\DataAbstractionLayer\EntityRepositoryInterface;
+use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 
 final class RuleConfigurator implements RuleConfiguratorInterface
 {
@@ -16,12 +16,12 @@ final class RuleConfigurator implements RuleConfiguratorInterface
 
     private RulePayloadFactoryInterface $rulePayloadFactory;
 
-    private EntityRepositoryInterface $ruleRepository;
+    private EntityRepository $ruleRepository;
 
     public function __construct(
         RuleFinderInterface $ruleFinder,
         RulePayloadFactoryInterface $rulePayloadFactory,
-        EntityRepositoryInterface $ruleRepository
+        EntityRepository $ruleRepository
     ) {
         $this->ruleFinder = $ruleFinder;
         $this->rulePayloadFactory = $rulePayloadFactory;
