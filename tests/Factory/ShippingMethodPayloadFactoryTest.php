@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Factory;
+namespace BitBagShopwareOrlenPaczkaPlugin\Test\Factory;
 
 use BitBagShopwareOrlenPaczkaPlugin\Factory\DeliveryTimePayloadFactoryInterface;
 use BitBagShopwareOrlenPaczkaPlugin\Factory\ShippingMethodPayloadFactory;
