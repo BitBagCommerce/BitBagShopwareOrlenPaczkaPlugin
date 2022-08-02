@@ -6,30 +6,30 @@ namespace BitBagShopwareOrlenPaczkaPlugin\Model;
 
 final class OrlenApiConfig
 {
-    private string $organizationId;
+    private string $username;
 
-    private string $accessToken;
+    private string $password;
 
     private string $environment;
 
     public function __construct(
-        string $organizationId,
-        string $accessToken,
+        string $username,
+        string $password,
         string $environment
     ) {
-        $this->organizationId = $organizationId;
-        $this->accessToken = $accessToken;
+        $this->username = $username;
+        $this->password = $password;
         $this->environment = $environment;
     }
 
-    public function getOrganizationId(): string
+    public function getUsername(): string
     {
-        return $this->organizationId;
+        return $this->username;
     }
 
-    public function getAccessToken(): string
+    public function getPassword(): string
     {
-        return $this->accessToken;
+        return $this->password;
     }
 
     public function getEnvironment(): string
