@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace BitBagShopwareOrlenPaczkaPlugin;
 
-use BitBagShopwareOrlenPaczkaPlugin\Config\OrlenConfigServiceInterface;
 use BitBagShopwareOrlenPaczkaPlugin\Extension\Order\OrderOrlenExtensionDefinition;
 use BitBagShopwareOrlenPaczkaPlugin\Factory\CustomFieldsForPackageDetailsPayloadFactoryInterface;
 use BitBagShopwareOrlenPaczkaPlugin\Plugin\CustomFieldSetConfiguratorInterface;
 use BitBagShopwareOrlenPaczkaPlugin\Plugin\RuleConfiguratorInterface;
 use BitBagShopwareOrlenPaczkaPlugin\Plugin\ShippingMethodConfiguratorInterface;
+use BitBagShopwareOrlenPaczkaPlugin\Service\OrlenConfigServiceInterface;
 use Doctrine\DBAL\Connection;
 use Shopware\Core\Framework\Plugin;
 use Shopware\Core\Framework\Plugin\Context\ActivateContext;
