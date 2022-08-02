@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace BitBagShopwareOrlenPaczkaPlugin\Config;
+namespace BitBagShopwareOrlenPaczkaPlugin\Service;
 
 use BitBagShopwareOrlenPaczkaPlugin\Model\OrlenApiConfig;
 
