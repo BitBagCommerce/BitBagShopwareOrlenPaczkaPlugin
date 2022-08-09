@@ -78,7 +78,7 @@ final class CartConvertedSubscriber implements EventSubscriberInterface
         $street = $this->formFieldValidator->validatePresenceOrThrow($request, 'orlenPickupPointStreet');
         $zipCode = $this->formFieldValidator->validatePresenceOrThrow($request, 'orlenPickupPointZipCode');
 
-        $orderZipCode = $delivery['shippingOrderAddress']['zipcode'] ?? null;
+        $orderZipCode = $delivery['shippingOrderAddress']['zipcode'] ?? '';
         $validatedZipCode = $this->validateZipCodeOrThrow($orderZipCode);
         $delivery['shippingOrderAddress']['zipcode'] = trim(substr_replace($validatedZipCode, '-', 2, 0));
 
@@ -101,9 +101,9 @@ final class CartConvertedSubscriber implements EventSubscriberInterface
         $matches = [];
         \preg_match('(\d{5})', $zipCode, $matches);
 
-        $validatedZipCode = $matches[1] ?? null;
+        $validatedZipCode = $matches[1] ?? '';
 
-        if (5 !== \strlen($validatedZipCode) || null === $validatedZipCode) {
+        if (5 !== \strlen($validatedZipCode)) {
             throw new InvalidZipCodeException($validatedZipCode);
         }
 

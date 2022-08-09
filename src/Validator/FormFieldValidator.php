@@ -11,6 +11,7 @@ final class FormFieldValidator implements FormFieldValidatorInterface
 {
     public function validatePresenceOrThrow(Request $request, string $fieldName): string
     {
+        /** @var string|null $field */
         $field = $request->request->get($fieldName);
 
         if (null !== $field) {
