@@ -30,11 +30,6 @@ export default class OrlenPlugin extends Plugin {
         const $this = this;
 
         changePickupPointButton.addEventListener('click', function (e) {
-            // console.log(e);
-            //
-            // const isVisible = e.target.classList.contains('hidden');
-            //
-            // console.log(isVisible);
 
             PPWidgetApp.toggleMap({
                 elementId: 'orlen-plugin-widget',
