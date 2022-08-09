@@ -11,7 +11,7 @@ use Shopware\Core\Framework\DataAbstractionLayer\FieldCollection;
 
 final class OrlenOrderExtension extends EntityExtension
 {
-    const PROPERTY_KEY = 'orlen';
+    public const PROPERTY_KEY = 'orlen';
 
     public function extendFields(FieldCollection $collection): void
     {

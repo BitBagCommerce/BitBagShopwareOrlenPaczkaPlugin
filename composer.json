@@ -18,7 +18,7 @@
     },
     "require": {
         "shopware/core": "^6.4",
-        "bitbag/pp-client": "dev-feature/pickup-point-SHOP-80"
+        "bitbag/pp-client": "^0.2"
     },
     "require-dev": {
         "bitbag/coding-standard": "^1.0",
