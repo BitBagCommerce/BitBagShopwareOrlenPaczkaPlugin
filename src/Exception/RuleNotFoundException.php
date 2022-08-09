@@ -11,7 +11,7 @@ final class RuleNotFoundException extends ShopwareHttpException
 {
     public function getErrorCode(): string
     {
-        return 'BITBAG_ORLEN_PACZKA_PLUGIN__RULE_NOT_FOUND_EXCEPTION';
+        return 'BITBAG_ORLEN_PACZKA_PLUGIN__RULE_NOT_FOUND';
     }
 
     public function getStatusCode(): int

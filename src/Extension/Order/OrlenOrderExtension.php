@@ -9,8 +9,10 @@ use Shopware\Core\Framework\DataAbstractionLayer\EntityExtension;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\OneToOneAssociationField;
 use Shopware\Core\Framework\DataAbstractionLayer\FieldCollection;
 
-final class OrderOrlenExtension extends EntityExtension
+final class OrlenOrderExtension extends EntityExtension
 {
+    public const PROPERTY_KEY = 'orlen';
+
     public function extendFields(FieldCollection $collection): void
     {
         $collection->add(
@@ -18,7 +20,7 @@ final class OrderOrlenExtension extends EntityExtension
                 'orlen',
                 'id',
                 'order_id',
-                OrderOrlenExtensionDefinition::class,
+                OrlenOrderExtensionDefinition::class,
                 true
             )
         );

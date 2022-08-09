@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace BitBagShopwareOrlenPaczkaPlugin;
 
-use BitBagShopwareOrlenPaczkaPlugin\Extension\Order\OrderOrlenExtensionDefinition;
+use BitBagShopwareOrlenPaczkaPlugin\Extension\Order\OrlenOrderExtensionDefinition;
 use BitBagShopwareOrlenPaczkaPlugin\Factory\CustomFieldsForPackageDetailsPayloadFactoryInterface;
 use BitBagShopwareOrlenPaczkaPlugin\Plugin\CustomFieldSetConfiguratorInterface;
 use BitBagShopwareOrlenPaczkaPlugin\Plugin\RuleConfiguratorInterface;
@@ -70,7 +70,7 @@ final class BitBagShopwareOrlenPaczkaPlugin extends Plugin
 
         $db = $this->connection;
 
-        $db->executeStatement('DROP TABLE IF EXISTS `' . OrderOrlenExtensionDefinition::ENTITY_NAME . '`;');
+        $db->executeStatement('DROP TABLE IF EXISTS `' . OrlenOrderExtensionDefinition::ENTITY_NAME . '`;');
 
         $db->executeStatement(
             'DELETE FROM system_config

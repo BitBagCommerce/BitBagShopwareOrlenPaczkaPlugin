@@ -16,17 +16,14 @@
     {% if (shipping.id is same as(context.shippingMethod.id)) and technicalName == constant('BitBagShopwareOrlenPaczkaPlugin\\Factory\\ShippingMethodPayloadFactoryInterface::SHIPPING_KEY') %}
 
         <a class="btn btn-primary" id="orlen-change-point" style="color: white">{{ 'pointName.changePoint'|trans }}</a>
-        <script>
-            const orlenPoint = document.getElementById('orlen-change-point');
+        <script src="https://mapa.ecommerce.poczta-polska.pl/widget/scripts/ppwidget.js"></script>
+        <div id="orlen-plugin-widget" data-orlen-plugin-widget></div>
 
-            orlenPoint.onclick = function(){
-                PPWidgetApp.toggleMap(callback, false, '',["ORLEN"]);
-            };
-
-            function callback(point)
-            {
-                console.log(point);
-            }
-        </script>
+        <input type="hidden" id="orlen-pickup-point-pni" name="orlenPickupPointPni" form="confirmOrderForm">
+        <input type="hidden" id="orlen-pickup-point-city" name="orlenPickupPointCity" form="conformOrderForm">
+        <input type="hidden" id="orlen-pickup-point-name" name="orlenPickupPointName" form="conformOrderForm">
+        <input type="hidden" id="orlen-pickup-point-province" name="orlenPickupPointProvince" form="conformOrderForm">
+        <input type="hidden" id="orlen-pickup-point-street" name="orlenPickupPointStreet" form="conformOrderForm">
+        <input type="hidden" id="orlen-pickup-point-zipCode" name="orlenPickupPointZipCode" form="conformOrderForm">
     {% endif %}
 {% endblock %}

@@ -15,7 +15,7 @@
         <PropertyNotSetInConstructor>
             <errorLevel type="suppress">
                 <file name="src/BitBagShopwareOrlenPaczkaPlugin.php" />
-                <file name="src/Extension/Order/OrderOrlenExtensionDefinition.php" />
+                <file name="src/Extension/Order/OrlenOrderExtensionDefinition.php" />
             </errorLevel>
         </PropertyNotSetInConstructor>
 
