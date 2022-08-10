@@ -9,6 +9,11 @@
             "BitBagShopwareOrlenPaczkaPlugin\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "BitBagShopwareOrlenPaczkaPlugin\\Tests\\": "tests/"
+        }
+    },
     "extra": {
         "shopware-plugin-class": "BitBagShopwareOrlenPaczkaPlugin\\BitBagShopwareOrlenPaczkaPlugin",
         "label": {

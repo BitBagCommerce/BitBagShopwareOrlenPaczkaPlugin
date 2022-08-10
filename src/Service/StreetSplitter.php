@@ -1,0 +1,19 @@
+<?php
+
+declare(strict_types=1);
+
+namespace BitBagShopwareOrlenPaczkaPlugin\Service;
+
+use BitBagShopwareOrlenPaczkaPlugin\Exception\StreetCannotBeSplitException;
+
+final class StreetSplitter implements StreetSplitterInterface
+{
+    public function splitStreet(string $street): array
+    {
+        if (!preg_match('/^(.+)\s(\d.*)/', $street, $streetAddress)) {
+            throw new StreetCannotBeSplitException('order.order_address.invalid_street');
+        }
+
+        return $streetAddress;
+    }
+}
