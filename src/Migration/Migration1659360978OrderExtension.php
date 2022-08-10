@@ -19,8 +19,12 @@ class Migration1659360978OrderExtension extends MigrationStep
         $sql = <<<SQL
 CREATE TABLE IF NOT EXISTS `bitbag_orlen_order_extension` (
     `id` BINARY(16) NOT NULL,
-    `point_name` VARCHAR(20) NOT NULL,
-    `package_id` INT(11) NULL,
+    `pickup_point_pni` VARCHAR(10) NOT NULL,
+    `pickup_point_city` VARCHAR(255) NOT NULL,
+    `pickup_point_name` VARCHAR(255) NOT NULL,
+    `pickup_point_province` VARCHAR(255) NOT NULL,
+    `pickup_point_street` VARCHAR(255) NOT NULL,
+    `pickup_point_zip_code` VARCHAR(255) NOT NULL,
     `order_id` BINARY(16) NULL,
     `created_at` DATETIME(3) NOT NULL,
     `updated_at` DATETIME(3) NULL,
