@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace BitBagShopwareOrlenPaczkaPlugin\Migration;
 
@@ -20,7 +22,6 @@ DROP COLUMN `point_name`;
 SQL;
 
         $connection->executeStatement($sql);
-
     }
 
     public function updateDestructive(Connection $connection): void
