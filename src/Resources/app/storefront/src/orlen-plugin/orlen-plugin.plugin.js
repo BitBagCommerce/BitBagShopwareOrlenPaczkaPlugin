@@ -33,6 +33,7 @@ export default class OrlenPlugin extends Plugin {
 
         changePickupPointButton.addEventListener('click', function () {
 
+            /*global PPWidgetApp */
             PPWidgetApp.toggleMap({
                 elementId: 'orlen-plugin-widget',
                 callback: $this.changePickupPoint.bind($this),
