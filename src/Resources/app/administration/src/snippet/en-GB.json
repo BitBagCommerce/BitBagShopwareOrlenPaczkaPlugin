@@ -1,0 +1,25 @@
+{
+    "order": {
+        "extension": {
+            "notFound": "InPost data cannot be empty"
+        },
+        "orderAddress": {
+            "invalid_street": "Invalid street value"
+        },
+        "products": {
+            "nullWeight": "Package weight must be greater than 0.0 kg",
+            "tooHeavy": "Package is too heavy (maximum 50 kg)"
+        },
+        "customFields": {
+            "depthInvalid": "Package details: depth is invalid",
+            "heightInvalid": "Package details: height is invalid",
+            "widthInvalid": "Package details: width is invalid",
+            "packageContentsInvalid": "Package details: is package contents invalid",
+            "plannedShippingDateInvalid": "Package details: shipping date is invalid"
+        }
+    },
+    "package": {
+        "depthTooLarge": "Package is too large (depth cannot be larger than 120cm)",
+        "tooLarge": "Package is too large (area of height, width and depth cannot be larger than 250cm)"
+    }
+}

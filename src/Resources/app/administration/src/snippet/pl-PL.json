@@ -1,0 +1,25 @@
+{
+    "order": {
+        "extension": {
+            "notFound": "Nie znaleziono informacji InPost dla zamówienia %s"
+        },
+        "orderAddress": {
+            "invalid_street": "Ulica jest niepoprawna"
+        },
+        "products": {
+            "nullWeight": "Paczka musi być cięższa niż 0.0 kg",
+            "tooHeavy": "Paczka jest za ciężka (maksymalnie 50 kg)"
+        },
+        "customFields": {
+            "depthInvalid": "Głębokość w szczegółach paczki jest niepoprawna",
+            "heightInvalid": "Wysokość w szczegółach paczki jest niepoprawna",
+            "widthInvalid": "Szerokość w szczegółach paczki jest niepoprawna",
+            "packageContentsInvalid": "Zawartość paczki w szczegółach paczki jest niepoprawna",
+            "plannedShippingDateInvalid": "Data nadania w szczegółach paczki jest niepoprawna"
+        }
+    },
+    "package": {
+        "depthTooLarge": "Paczka jest za duża (głębokość nie może być większa niż 120cm)",
+        "tooLarge": "Paczka jest za duża (suma wysokości, szerokości i głębokości nie może być większa niż 250cm)"
+    }
+}
