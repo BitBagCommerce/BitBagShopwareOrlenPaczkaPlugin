@@ -15,7 +15,12 @@
 
     {% if (shipping.id is same as(context.shippingMethod.id)) and technicalName == constant('BitBagShopwareOrlenPaczkaPlugin\\Factory\\ShippingMethodPayloadFactoryInterface::SHIPPING_KEY') %}
 
-        <a class="btn btn-primary" id="orlen-change-point" style="color: white">{{ 'pointName.changePoint'|trans }}</a>
+        <div class="orlen-pickup-point-container">
+            <p class="pni-hint" id="orlen-pickup-point-pni-hint"></p>
+            <p id="orlen-pickup-point-city-hint"></p>
+            <p id="orlen-pickup-point-street-hint"></p>
+            <a class="btn btn-primary" id="orlen-change-point" style="color: white">{{ 'pointName.changePoint'|trans }}</a>
+        </div>
         <script src="https://mapa.ecommerce.poczta-polska.pl/widget/scripts/ppwidget.js"></script>
         <div id="orlen-plugin-widget" data-orlen-plugin-widget></div>
 
