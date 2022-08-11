@@ -15,15 +15,20 @@
 
     {% if (shipping.id is same as(context.shippingMethod.id)) and technicalName == constant('BitBagShopwareOrlenPaczkaPlugin\\Factory\\ShippingMethodPayloadFactoryInterface::SHIPPING_KEY') %}
 
-        <a class="btn btn-primary" id="orlen-change-point" style="color: white">{{ 'pointName.changePoint'|trans }}</a>
+        <div class="orlen-pickup-point-container">
+            <p class="pni-hint" id="orlen-pickup-point-pni-hint"></p>
+            <p id="orlen-pickup-point-city-hint"></p>
+            <p id="orlen-pickup-point-street-hint"></p>
+            <a class="btn btn-primary" id="orlen-change-point" style="color: white">{{ 'pointName.changePoint'|trans }}</a>
+        </div>
         <script src="https://mapa.ecommerce.poczta-polska.pl/widget/scripts/ppwidget.js"></script>
         <div id="orlen-plugin-widget" data-orlen-plugin-widget></div>
 
         <input type="hidden" id="orlen-pickup-point-pni" name="orlenPickupPointPni" form="confirmOrderForm">
-        <input type="hidden" id="orlen-pickup-point-city" name="orlenPickupPointCity" form="conformOrderForm">
-        <input type="hidden" id="orlen-pickup-point-name" name="orlenPickupPointName" form="conformOrderForm">
-        <input type="hidden" id="orlen-pickup-point-province" name="orlenPickupPointProvince" form="conformOrderForm">
-        <input type="hidden" id="orlen-pickup-point-street" name="orlenPickupPointStreet" form="conformOrderForm">
-        <input type="hidden" id="orlen-pickup-point-zipCode" name="orlenPickupPointZipCode" form="conformOrderForm">
+        <input type="hidden" id="orlen-pickup-point-city" name="orlenPickupPointCity" form="confirmOrderForm">
+        <input type="hidden" id="orlen-pickup-point-name" name="orlenPickupPointName" form="confirmOrderForm">
+        <input type="hidden" id="orlen-pickup-point-province" name="orlenPickupPointProvince" form="confirmOrderForm">
+        <input type="hidden" id="orlen-pickup-point-street" name="orlenPickupPointStreet" form="confirmOrderForm">
+        <input type="hidden" id="orlen-pickup-point-zipCode" name="orlenPickupPointZipCode" form="confirmOrderForm">
     {% endif %}
 {% endblock %}

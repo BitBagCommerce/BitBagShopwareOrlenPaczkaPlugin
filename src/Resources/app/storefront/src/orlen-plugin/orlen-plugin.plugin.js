@@ -23,20 +23,45 @@ export default class OrlenPlugin extends Plugin {
         orlenPickupPointProvince.value = pickupPoint.province;
         orlenPickupPointStreet.value = pickupPoint.street;
         orlenPickupPointZipCode.value = pickupPoint.zipCode;
+
+        this.updatePickupPointHints(pickupPoint);
     }
 
     assignEventListeners() {
         const changePickupPointButton = document.querySelector('#orlen-change-point');
         const $this = this;
 
-        changePickupPointButton.addEventListener('click', function (e) {
+        changePickupPointButton.addEventListener('click', function () {
 
+            /*global PPWidgetApp */
             PPWidgetApp.toggleMap({
                 elementId: 'orlen-plugin-widget',
-                callback: $this.changePickupPoint,
+                callback: $this.changePickupPoint.bind($this),
                 payOnPickup: false,
+                address: $this.getAddress(),
                 type: ['ORLEN']
             });
         });
+    }
+
+    updatePickupPointHints(pickupPoint) {
+        const pniHint = document.querySelector('#orlen-pickup-point-pni-hint');
+        const cityHint = document.querySelector('#orlen-pickup-point-city-hint');
+        const streetHint = document.querySelector('#orlen-pickup-point-street-hint');
+
+        pniHint.innerHTML = pickupPoint.pni;
+        cityHint.innerHTML = pickupPoint.city;
+        streetHint.innerHTML = pickupPoint.street;
+    }
+
+    getAddress() {
+        const streetAddress = document.querySelector('#orlen-pickup-point-street').value;
+        const city = document.querySelector('#orlen-pickup-point-city').value;
+
+        if ('' === streetAddress || '' === city) {
+            return '';
+        }
+
+        return streetAddress + ', ' + city;
     }
 }
