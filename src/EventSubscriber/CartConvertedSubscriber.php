@@ -57,18 +57,18 @@ final class CartConvertedSubscriber implements EventSubscriberInterface
 
         $shippingMethodTranslations = $this->shippingMethodTranslationRepository->search($criteria, $event->getContext());
         if (0 === $shippingMethodTranslations->count()) {
-            throw new MissingShippingMethodTranslationException();
+            return;
         }
 
         /** @var ShippingMethodTranslationEntity|null $shippingMethodTranslation */
         $shippingMethodTranslation = $shippingMethodTranslations->first();
         if (null === $shippingMethodTranslation) {
-            throw new MissingShippingMethodTranslationException();
+            return;
         }
 
         $delivery = $orderData['deliveries'][0];
         if ($delivery['shippingMethodId'] !== $shippingMethodTranslation->getShippingMethodId()) {
-            throw new MissingShippingMethodTranslationException();
+            return;
         }
 
         $pni = $this->formFieldValidator->validatePresenceOrThrow($request, 'orlenPickupPointPni');
