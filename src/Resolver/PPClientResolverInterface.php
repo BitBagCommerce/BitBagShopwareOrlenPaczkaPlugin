@@ -9,5 +9,5 @@ use BitBagShopwareOrlenPaczkaPlugin\Model\OrlenApiConfig;
 
 interface PPClientResolverInterface
 {
-    public function resolve(OrlenApiConfig $config, string $salesChannelId): PPClient;
+    public function resolve(OrlenApiConfig $config): PPClient;
 }

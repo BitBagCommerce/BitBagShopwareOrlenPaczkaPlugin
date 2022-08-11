@@ -19,7 +19,7 @@ final class PPClientResolver implements PPClientResolverInterface
 {
     private const PRODUCTION_ENVIRONMENT = 'production';
 
-    public function resolve(OrlenApiConfig $config, string $salesChannelId): PPClient
+    public function resolve(OrlenApiConfig $config): PPClient
     {
         $arrayNormalizer = new ArrayNormalizer();
         $soapClientFactory = new SoapClientFactory();
