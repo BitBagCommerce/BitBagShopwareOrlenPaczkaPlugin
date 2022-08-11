@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace BitBagShopwareOrlenPaczkaPlugin\EventSubscriber;
 
 use BitBagShopwareOrlenPaczkaPlugin\Exception\InvalidZipCodeException;
-use BitBagShopwareOrlenPaczkaPlugin\Exception\MissingShippingMethodTranslationException;
 use BitBagShopwareOrlenPaczkaPlugin\Exception\NoRequestException;
 use BitBagShopwareOrlenPaczkaPlugin\Extension\Order\OrlenOrderExtension;
 use BitBagShopwareOrlenPaczkaPlugin\Factory\ShippingMethodPayloadFactoryInterface;
