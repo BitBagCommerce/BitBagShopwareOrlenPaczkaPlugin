@@ -21,29 +21,29 @@ final class OrderWeightCalculatorTest extends WebTestCase
 {
     public function testCalculate(): void
     {
-        $context = $this->createMock(Context::class);
-
         $order = new OrderEntity();
 
         $product = new ProductEntity();
-        $product->weight = 0.8;
+        $product->setWeight(0.8);
         $product->setUniqueIdentifier('foo_product');
 
         $orderLineItem = new OrderLineItemEntity();
-        $orderLineItem->quantity = 1;
-        $orderLineItem->product = $product;
+        $orderLineItem->setQuantity(1);
+        $orderLineItem->setProduct($product);
         $orderLineItem->setUniqueIdentifier('foo_order_line');
 
         $product2 = new ProductEntity();
-        $product2->weight = 0.45;
+        $product2->setWeight(0.45);
         $product2->setUniqueIdentifier('foo_product_2');
 
         $orderLineItem2 = new OrderLineItemEntity();
-        $orderLineItem2->quantity = 1;
-        $orderLineItem2->product = $product2;
+        $orderLineItem2->setQuantity(1);
+        $orderLineItem2->setProduct($product2);
         $orderLineItem2->setUniqueIdentifier('foo_order_line_2');
 
-        $order->lineItems = new OrderLineItemCollection([$orderLineItem, $orderLineItem2]);
+        $order->setLineItems(new OrderLineItemCollection([$orderLineItem, $orderLineItem2]));
+
+        $context = $this->createMock(Context::class);
 
         $productRepository = $this->createMock(EntityRepository::class);
         $productRepository
@@ -74,15 +74,15 @@ final class OrderWeightCalculatorTest extends WebTestCase
         $order = new OrderEntity();
 
         $product = new ProductEntity();
-        $product->weight = 52.25;
+        $product->setWeight(52.25);
         $product->setUniqueIdentifier('foo');
 
         $orderLineItem = new OrderLineItemEntity();
-        $orderLineItem->quantity = 1;
-        $orderLineItem->product = $product;
+        $orderLineItem->setQuantity(1);
+        $orderLineItem->setProduct($product);
         $orderLineItem->setUniqueIdentifier('foo');
 
-        $order->lineItems = new OrderLineItemCollection([$orderLineItem]);
+        $order->setLineItems( new OrderLineItemCollection([$orderLineItem]));
 
         $context = $this->createMock(Context::class);
 

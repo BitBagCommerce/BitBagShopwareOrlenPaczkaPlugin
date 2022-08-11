@@ -7,11 +7,11 @@ namespace BitBagShopwareOrlenPaczkaPlugin\Exception\Order;
 use Shopware\Core\Framework\ShopwareHttpException;
 use Symfony\Component\HttpFoundation\Response;
 
-final class OrderWeightException extends ShopwareHttpException
+final class OrderWeightCalculatorException extends ShopwareHttpException
 {
     public function getErrorCode(): string
     {
-        return 'BITBAG_ORLEN_PACZKA_PLUGIN__ORDER_WEIGHT';
+        return 'BITBAG_ORLEN_PACZKA_PLUGIN__ORDER_WEIGHT_CALCULATOR';
     }
 
     public function getStatusCode(): int

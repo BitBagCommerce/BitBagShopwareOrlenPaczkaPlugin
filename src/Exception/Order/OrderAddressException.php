@@ -11,7 +11,7 @@ final class OrderAddressException extends ShopwareHttpException
 {
     public function getErrorCode(): string
     {
-        return 'BITBAG_ORLEN_PACZKA_PLUGIN__ORDER_ORDER_ADDRESS';
+        return 'BITBAG_ORLEN_PACZKA_PLUGIN__ORDER_ADDRESS';
     }
 
     public function getStatusCode(): int

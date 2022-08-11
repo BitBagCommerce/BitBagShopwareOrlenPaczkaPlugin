@@ -27,7 +27,7 @@ final class AddressFactory implements AddressFactoryInterface
 
     public function create(OrderAddressEntity $orderAddress, string $email): Address
     {
-        $addressStreet = str_replace(['  ', ' / '], ['', '/'], $orderAddress->street);
+        $addressStreet = str_replace(['  ', ' / '], ['', '/'], $orderAddress->getStreet());
 
         $flatNumber = null;
         [, $street, $houseNumber] = $this->streetSplitter->splitStreet($addressStreet);
@@ -38,16 +38,16 @@ final class AddressFactory implements AddressFactoryInterface
             [$houseNumber, $flatNumber] = $explodedHouseNumber;
         }
 
-        $phoneNumber = $orderAddress->phoneNumber;
+        $phoneNumber = $orderAddress->getPhoneNumber();
         $this->throwOnConstraintViolations($phoneNumber, new IsPhoneNumber());
 
         $postalCode = $orderAddress->zipcode;
         $this->throwOnConstraintViolations($postalCode, new IsPostalCode());
 
         $address = new Address();
-        $address->setName($orderAddress->firstName . ' ' . $orderAddress->lastName);
+        $address->setName($orderAddress->getFirstName() . ' ' . $orderAddress->getLastName());
         $address->setEmail($email);
-        $address->setCity($orderAddress->city);
+        $address->setCity($orderAddress->getCity());
         $address->setPostCode($postalCode);
         $address->setStreet($street);
         $address->setFlatNumber(trim($flatNumber ?? ''));

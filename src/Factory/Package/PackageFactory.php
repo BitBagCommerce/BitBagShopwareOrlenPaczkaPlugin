@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace BitBagShopwareOrlenPaczkaPlugin\Factory\Package;
 
+use BitBag\PPClient\Guid\Guid;
 use BitBag\PPClient\Model\Address;
 use BitBag\PPClient\Model\COD;
 use BitBag\PPClient\Model\EpoSimple;
@@ -14,7 +15,6 @@ use BitBag\PPClient\Model\PaidByReceiverEnum;
 use BitBag\PPClient\Model\PocztexCourier;
 use BitBag\PPClient\Model\RecordedDelivery;
 use BitBagShopwareOrlenPaczkaPlugin\Calculator\OrderWeightCalculatorInterface;
-use BitBagShopwareOrlenPaczkaPlugin\Guid\Guid;
 use BitBagShopwareOrlenPaczkaPlugin\Resolver\OrderCustomFieldResolverInterface;
 use BitBagShopwareOrlenPaczkaPlugin\Resolver\OrderExtensionDataResolverInterface;
 use BitBagShopwareOrlenPaczkaPlugin\Resolver\PackageSizeResolverInterface;

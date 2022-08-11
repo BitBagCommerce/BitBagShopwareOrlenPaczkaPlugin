@@ -23,7 +23,7 @@
     },
     "require": {
         "shopware/core": "^6.4",
-        "bitbag/pp-client": "^0.2"
+        "bitbag/pp-client": "^0.3"
     },
     "require-dev": {
         "bitbag/coding-standard": "^1.0",

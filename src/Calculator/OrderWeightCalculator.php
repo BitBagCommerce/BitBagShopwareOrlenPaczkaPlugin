@@ -6,7 +6,7 @@ namespace BitBagShopwareOrlenPaczkaPlugin\Calculator;
 
 use BitBag\PPClient\Model\PocztexPackageSizeEnum;
 use BitBagShopwareOrlenPaczkaPlugin\Exception\Order\OrderException;
-use BitBagShopwareOrlenPaczkaPlugin\Exception\Order\OrderWeightException;
+use BitBagShopwareOrlenPaczkaPlugin\Exception\Order\OrderWeightCalculatorException;
 use Shopware\Core\Checkout\Order\Aggregate\OrderLineItem\OrderLineItemEntity;
 use Shopware\Core\Checkout\Order\OrderEntity;
 use Shopware\Core\Content\Product\ProductEntity;
@@ -37,11 +37,10 @@ final class OrderWeightCalculator implements OrderWeightCalculatorInterface
         $products = array_filter($products);
         $parentIds = array_filter($products, static fn (ProductEntity $product) => null !== $product->getParentId());
 
-        $searchParentProductsCriteria = (new Criteria())
-            ->setIds(array_column($parentIds, 'parentId'));
-        $searchParentProducts = $this->productRepository->search($searchParentProductsCriteria, $context);
+        $criteria = new Criteria(array_column($parentIds, 'parentId'));
+        $searchResult = $this->productRepository->search($criteria, $context);
 
-        $parentProducts = $searchParentProducts->getEntities()->getElements();
+        $parentProducts = $searchResult->getEntities()->getElements();
 
         foreach ($lineItems as $item) {
             $product = $item->getProduct();
@@ -62,11 +61,11 @@ final class OrderWeightCalculator implements OrderWeightCalculatorInterface
         }
 
         if (0.0 === $totalWeight) {
-            throw new OrderWeightException('order.products.nullWeight');
+            throw new OrderWeightCalculatorException('order.products.nullWeight');
         }
 
         if (PocztexPackageSizeEnum::MAX_WEIGHT_2XL <= $totalWeight) {
-            throw new OrderWeightException('order.products.tooHeavy');
+            throw new OrderWeightCalculatorException('order.products.tooHeavy');
         }
 
         return $totalWeight;

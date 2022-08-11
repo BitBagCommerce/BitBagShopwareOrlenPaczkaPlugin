@@ -11,7 +11,7 @@ final class OrderExtensionNotFoundException extends ShopwareHttpException
 {
     public function getErrorCode(): string
     {
-        return 'BITBAG_ORLEN_PACZKA_PLUGIN__ORDER_ORDER_EXTENSION_NOT_FOUND';
+        return 'BITBAG_ORLEN_PACZKA_PLUGIN__ORDER_EXTENSION_NOT_FOUND';
     }
 
     public function getStatusCode(): int

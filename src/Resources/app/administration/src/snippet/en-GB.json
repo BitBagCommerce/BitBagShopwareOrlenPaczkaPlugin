@@ -1,7 +1,7 @@
 {
     "order": {
         "extension": {
-            "notFound": "InPost data cannot be empty"
+            "notFound": "Orlen Paczka data cannot be empty"
         },
         "orderAddress": {
             "invalid_street": "Invalid street value"

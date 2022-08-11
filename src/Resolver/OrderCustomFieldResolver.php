@@ -8,7 +8,6 @@ use BitBagShopwareOrlenPaczkaPlugin\Exception\Order\OrderCustomFieldException;
 use BitBagShopwareOrlenPaczkaPlugin\Model\OrderCustomFieldModel;
 use BitBagShopwareOrlenPaczkaPlugin\Validator\OrderCustomFieldValidatorInterface;
 use Shopware\Core\Checkout\Order\OrderEntity;
-use Symfony\Component\Validator\ConstraintViolationInterface;
 
 final class OrderCustomFieldResolver implements OrderCustomFieldResolverInterface
 {
@@ -26,14 +25,7 @@ final class OrderCustomFieldResolver implements OrderCustomFieldResolverInterfac
 
         $violations = $this->orderCustomFieldValidator->validate($orderCustomFields);
         if (0 !== $violations->count()) {
-            $orderCustomFieldsMessage = '';
-
-            /** @var ConstraintViolationInterface $violation */
-            foreach ($violations as $violation) {
-                $orderCustomFieldsMessage .= $violation->getMessage() . '. <br />';
-            }
-
-            throw new OrderCustomFieldException($orderCustomFieldsMessage);
+            throw new OrderCustomFieldException($violations->get(0)->getMessage());
         }
 
         $depthKey = $packageDetailsKey . '_depth';

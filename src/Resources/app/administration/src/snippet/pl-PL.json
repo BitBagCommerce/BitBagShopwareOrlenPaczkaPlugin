@@ -1,7 +1,7 @@
 {
     "order": {
         "extension": {
-            "notFound": "Nie znaleziono informacji InPost dla zamówienia %s"
+            "notFound": "Nie znaleziono informacji Orlen Paczka dla zamówienia %s"
         },
         "orderAddress": {
             "invalid_street": "Ulica jest niepoprawna"
