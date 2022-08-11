@@ -4,13 +4,9 @@
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
     <services>
-        <service id="BitBagShopwareOrlenPaczkaPlugin\Validator\OrderCustomFieldValidator" />
-
-        <service id="BitBagShopwareOrlenPaczkaPlugin\Validator\FormFieldValidator" />
-
-        <service id="BitBagShopwareOrlenPaczkaPlugin\Core\Checkout\Cart\Validator\CartValidator"
+        <service id="BitBagShopwareOrlenPaczkaPlugin\Calculator\OrderWeightCalculator"
         >
-            <tag name="shopware.cart.validator"/>
+            <argument type="service" id="product.repository"/>
         </service>
     </services>
 </container>
