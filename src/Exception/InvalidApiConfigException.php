@@ -7,11 +7,16 @@ namespace BitBagShopwareOrlenPaczkaPlugin\Exception;
 use Shopware\Core\Framework\ShopwareHttpException;
 use Symfony\Component\HttpFoundation\Response;
 
-final class ApiConfigNotFoundException extends ShopwareHttpException
+final class InvalidApiConfigException extends ShopwareHttpException
 {
+    public function __construct()
+    {
+        parent::__construct('config.invalid');
+    }
+
     public function getErrorCode(): string
     {
-        return 'BITBAG_ORLEN_PACZKA_PLUGIN__API_CONFIG_NOT_FOUND';
+        return 'BITBAG_ORLEN_PACZKA_PLUGIN__INVALID_API_CONFIG';
     }
 
     public function getStatusCode(): int

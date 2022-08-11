@@ -1,0 +1,6 @@
+{
+  "config": {
+    "credentialsWarning": "Poczta Polska has the right to block your account after three unsuccessful attempts to log in. This includes testing the credentials for validity.",
+    "checkCredentials": "Check credentials"
+  }
+}

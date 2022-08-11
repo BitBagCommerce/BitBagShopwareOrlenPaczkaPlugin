@@ -2,5 +2,10 @@
     "pointName": {
         "notFound": "You need to select a pickup point before creating an order",
         "changePoint": "Change the pickup point"
+    },
+    "config": {
+        "apiConfiguration": "API configuration",
+        "checkCredentials": "Check credentials",
+        "invalid": "Provided API config is invalid"
     }
 }
