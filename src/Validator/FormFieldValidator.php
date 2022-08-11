@@ -14,7 +14,7 @@ final class FormFieldValidator implements FormFieldValidatorInterface
         /** @var string|null $field */
         $field = $request->request->get($fieldName);
 
-        if (null !== $field) {
+        if (null !== $field && '' !== $field) {
             return $field;
         }
 

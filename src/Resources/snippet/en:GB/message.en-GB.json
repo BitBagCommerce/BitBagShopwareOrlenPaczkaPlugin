@@ -7,5 +7,11 @@
         "apiConfiguration": "API configuration",
         "checkCredentials": "Check credentials",
         "invalid": "Provided API config is invalid"
+    },
+    "order": {
+        "zipCode": {
+            "missing": "Zip code is missing",
+            "invalid": "Provided zip code is invalid"
+        }
     }
 }

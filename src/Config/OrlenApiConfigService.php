@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace BitBagShopwareOrlenPaczkaPlugin\Service;
+namespace BitBagShopwareOrlenPaczkaPlugin\Config;
 
 use BitBagShopwareOrlenPaczkaPlugin\Exception\InvalidApiConfigException;
 use BitBagShopwareOrlenPaczkaPlugin\Model\OrlenApiConfig;
@@ -24,16 +24,9 @@ final class OrlenApiConfigService implements OrlenApiConfigServiceInterface
         $environment = $this->systemConfigService->getString(self:: SYSTEM_CONFIG_PREFIX . 'environment', $salesChannelId) ?: null;
 
         if (null === $username || null === $password || null === $environment) {
-            throw new InvalidApiConfigException('api.credentialsDataNotFound');
+            throw new InvalidApiConfigException();
         }
 
         return new OrlenApiConfig($username, $password, $environment);
-    }
-
-    public function updateApiConfig(OrlenApiConfig $config, ?string $salesChannelId): void
-    {
-        $this->systemConfigService->set(self::SYSTEM_CONFIG_PREFIX . 'username', $config->getUsername(), $salesChannelId);
-        $this->systemConfigService->set(self::SYSTEM_CONFIG_PREFIX . 'password', $config->getPassword(), $salesChannelId);
-        $this->systemConfigService->set(self::SYSTEM_CONFIG_PREFIX . 'environment', $config->getEnvironment(), $salesChannelId);
     }
 }

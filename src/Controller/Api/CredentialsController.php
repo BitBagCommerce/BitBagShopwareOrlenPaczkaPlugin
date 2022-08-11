@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace BitBagShopwareOrlenPaczkaPlugin\Controller;
+namespace BitBagShopwareOrlenPaczkaPlugin\Controller\Api;
 
+use BitBagShopwareOrlenPaczkaPlugin\Config\OrlenApiConfigServiceInterface;
 use BitBagShopwareOrlenPaczkaPlugin\Exception\InvalidApiConfigException;
 use BitBagShopwareOrlenPaczkaPlugin\Model\OrlenApiConfig;
 use BitBagShopwareOrlenPaczkaPlugin\Resolver\PPClientResolverInterface;
-use BitBagShopwareOrlenPaczkaPlugin\Service\OrlenApiConfigServiceInterface;
 use BitBagShopwareOrlenPaczkaPlugin\Validator\FormFieldValidator;
 use Shopware\Core\Framework\Routing\Annotation\RouteScope;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -22,8 +22,6 @@ final class CredentialsController
     private const STATUS_UNAUTHORIZED = 'Unauthorized';
 
     private FormFieldValidator $formFieldValidator;
-
-    private OrlenApiConfigServiceInterface $orlenApiConfigService;
 
     private PPClientResolverInterface $clientResolver;
 
@@ -43,31 +41,16 @@ final class CredentialsController
     public function check(Request $request): JsonResponse
     {
         $apiConfig = $this->getApiConfigFromRequest($request);
-        $salesChannelId = $request->request->get('salesChannelId');
+//        $client = $this->clientResolver->resolve($apiConfig);
 
-        $client = $this->clientResolver->resolve($apiConfig, $salesChannelId);
-
-        try {
-            // Nothing special but will throw if credentials are wrong
-            $client->getOriginOffice();
-        } catch (\SoapFault $e) {
-            if (self::STATUS_UNAUTHORIZED === $e->getMessage()) {
-                throw new InvalidApiConfigException();
-            }
-        }
-
-        return new JsonResponse();
-    }
-
-    /**
-     * @Route("/api/_action/bitbag-orlen-paczka-plugin/credentials/save", name="api.action.bitbag_orlen_paczka_plugin.credentials.save", methods={"POST"})
-     */
-    public function save(Request $request): JsonResponse
-    {
-        $apiConfig = $this->getApiConfigFromRequest($request);
-        $salesChannelId = $request->request->get('salesChannelId');
-
-        $this->orlenApiConfigService->updateApiConfig($apiConfig, $salesChannelId);
+//        try {
+//            // Nothing special but will throw if credentials are wrong
+//            $client->getOriginOffices();
+//        } catch (\SoapFault $e) {
+//            if (self::STATUS_UNAUTHORIZED === $e->getMessage()) {
+//                throw new InvalidApiConfigException();
+//            }
+//        }
 
         return new JsonResponse();
     }
@@ -83,5 +66,11 @@ final class CredentialsController
             $password,
             $environment
         );
+
+//        return new OrlenApiConfig(
+//            'jakub.groncki@bitbag.pl',
+//            '',
+//            'sandbox'
+//        );
     }
 }

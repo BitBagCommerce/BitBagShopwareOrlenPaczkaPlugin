@@ -5,26 +5,13 @@ export default class OrlenCredentialsService extends ApiService {
         super(httpClient, loginService, apiEndpoint);
     }
 
-    async checkCredentials(username, password, environment) {
+     async checkCredentials(username, password, environment) {
         return await this.httpClient.post(
             `_action/${this.getApiBasePath()}/credentials/check`,
             {
                 username,
                 password,
                 environment
-            },
-            { headers: this.getBasicHeaders() }
-        );
-    }
-
-    async saveCredentials(username, password, environment, salesChannelId) {
-        return await this.httpClient.post(
-            `_action/${this.getApiBasePath()}/credentials/save`,
-            {
-                username,
-                password,
-                environment,
-                salesChannelId
             },
             { headers: this.getBasicHeaders() }
         );

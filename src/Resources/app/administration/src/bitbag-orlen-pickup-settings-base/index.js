@@ -23,49 +23,50 @@ Shopware.Component.register('bitbag-orlen-pickup-settings-base', {
         this.isLoading = false;
     },
     methods: {
-        checkCredentials() {
+        async checkCredentials() {
             const systemConfig = this.$refs.systemConfig;
             const actualConfigData = systemConfig.actualConfigData;
             const currentSalesChannelId = systemConfig.currentSalesChannelId;
-            const dataPrefix = this.pluginDomain + '.inPost';
 
-            console.error(actualConfigData[currentSalesChannelId]);
+            const prefix = this.pluginDomain + '.';
+            const getConfigValue = (name) => {
+                const prefixedName = prefix + name;
 
-            let username = actualConfigData[currentSalesChannelId][dataPrefix + 'Username'];
+                let configValue = actualConfigData[currentSalesChannelId][prefixedName];
+                if (null === configValue || undefined === configValue) {
+                    configValue = actualConfigData[null][prefixedName];
+                }
 
-            if (null === username || undefined === username) {
-                username = actualConfigData.null[dataPrefix + 'Username'];
-            }
-
-            let password = actualConfigData[currentSalesChannelId][dataPrefix + 'Password'];
-
-            if (null === password || undefined === password) {
-                password = actualConfigData.null[dataPrefix + 'Password'];
-            }
-
-            let environment = actualConfigData[currentSalesChannelId][dataPrefix + 'Environment'];
-
-            if (null === environment || undefined === environment) {
-                environment = actualConfigData.null[dataPrefix + 'Environment'];
-            }
-
-            const values = {
-                username,
-                password,
-                environment
+                return configValue;
             };
 
+            const createMissingFieldNotification = (name) => {
+                return this.createNotificationError({
+                    title: this.$tc('config.field.missing'),
+                    message: this.$tc('config.field.missing') + ': ' + this.$tc('config.field.' + name)
+                })
+            }
 
-            // Check using the Orlen service
+            const username = getConfigValue('username');
+            const password = getConfigValue('password');
+            const environment = getConfigValue('environment');
+
+            try {
+                await this.orlenCredentialsService.checkCredentials(username, password, environment);
+
+                this.createNotificationSuccess({
+                    message: this.$tc('config.saved')
+                });
+            } catch (e) {
+                const field = e.response.data.errors[0].detail;
+                createMissingFieldNotification(field);
+            }
         },
 
-        async saveCredentials() {
-            await this.orlenCredentialsService.saveCredentials('', '', '', '');
+        saveCredentials() {
+            this.$refs.systemConfig.saveAll();
+
+            this.createNotificationSuccess({message: this.$tc('config.saved')});
         }
-        // saveSystemConfig() {
-        //     this.$refs.systemConfig.saveAll();
-        //
-        //     this.createNotificationSuccess({message: this.$tc('config.saved')});
-        // }
     }
 });
