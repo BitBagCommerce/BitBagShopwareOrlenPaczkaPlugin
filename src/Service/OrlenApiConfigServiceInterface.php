@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace BitBagShopwareOrlenPaczkaPlugin\Service;
 
 use BitBagShopwareOrlenPaczkaPlugin\Model\OrlenApiConfig;
-use Shopware\Core\System\SalesChannel\SalesChannelContext;
 
 interface OrlenApiConfigServiceInterface
 {
