@@ -38,7 +38,7 @@ final class AddressFactory implements AddressFactoryInterface
             [$houseNumber, $flatNumber] = $explodedHouseNumber;
         }
 
-        $phoneNumber = $orderAddress->getPhoneNumber();
+        $phoneNumber = $orderAddress->getPhoneNumber() ?? '';
         $this->throwOnConstraintViolations($phoneNumber, new IsPhoneNumber());
 
         $postalCode = $orderAddress->zipcode;

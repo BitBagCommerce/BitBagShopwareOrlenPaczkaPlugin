@@ -82,7 +82,7 @@ final class OrderWeightCalculatorTest extends WebTestCase
         $orderLineItem->setProduct($product);
         $orderLineItem->setUniqueIdentifier('foo');
 
-        $order->setLineItems( new OrderLineItemCollection([$orderLineItem]));
+        $order->setLineItems(new OrderLineItemCollection([$orderLineItem]));
 
         $context = $this->createMock(Context::class);
 

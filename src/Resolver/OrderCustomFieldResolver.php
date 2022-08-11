@@ -25,7 +25,7 @@ final class OrderCustomFieldResolver implements OrderCustomFieldResolverInterfac
 
         $violations = $this->orderCustomFieldValidator->validate($orderCustomFields);
         if (0 !== $violations->count()) {
-            throw new OrderCustomFieldException($violations->get(0)->getMessage());
+            throw new OrderCustomFieldException((string) $violations->get(0)->getMessage());
         }
 
         $depthKey = $packageDetailsKey . '_depth';
