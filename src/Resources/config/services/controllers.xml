@@ -8,7 +8,6 @@
         <service id="BitBagShopwareOrlenPaczkaPlugin\Controller\Api\CredentialsController"
         >
             <argument id="BitBagShopwareOrlenPaczkaPlugin\Validator\FormFieldValidator" type="service"/>
-            <argument id="BitBagShopwareOrlenPaczkaPlugin\Config\OrlenApiConfigService" type="service"/>
             <argument id="BitBagShopwareOrlenPaczkaPlugin\Resolver\PPClientResolver" type="service"/>
 
             <tag name="controller.service_arguments"/>

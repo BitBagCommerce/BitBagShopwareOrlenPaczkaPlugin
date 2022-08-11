@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace BitBagShopwareOrlenPaczkaPlugin;
 
+use BitBagShopwareOrlenPaczkaPlugin\Config\OrlenApiConfigServiceInterface;
 use BitBagShopwareOrlenPaczkaPlugin\Extension\Order\OrlenOrderExtensionDefinition;
 use BitBagShopwareOrlenPaczkaPlugin\Factory\CustomFieldsForPackageDetailsPayloadFactoryInterface;
 use BitBagShopwareOrlenPaczkaPlugin\Plugin\CustomFieldSetConfiguratorInterface;
 use BitBagShopwareOrlenPaczkaPlugin\Plugin\RuleConfiguratorInterface;
 use BitBagShopwareOrlenPaczkaPlugin\Plugin\ShippingMethodConfiguratorInterface;
-use BitBagShopwareOrlenPaczkaPlugin\Service\OrlenConfigServiceInterface;
 use Doctrine\DBAL\Connection;
 use Shopware\Core\Framework\Plugin;
 use Shopware\Core\Framework\Plugin\Context\ActivateContext;
@@ -76,7 +76,7 @@ final class BitBagShopwareOrlenPaczkaPlugin extends Plugin
             'DELETE FROM system_config
             WHERE configuration_key LIKE :domain',
             [
-                'domain' => OrlenConfigServiceInterface::SYSTEM_CONFIG_PREFIX . '.%',
+                'domain' => OrlenApiConfigServiceInterface::SYSTEM_CONFIG_PREFIX . '.%',
             ],
         );
 

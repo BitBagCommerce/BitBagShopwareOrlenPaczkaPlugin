@@ -27,11 +27,9 @@ final class CredentialsController
 
     public function __construct(
         FormFieldValidator $formFieldValidator,
-        OrlenApiConfigServiceInterface $orlenApiConfigService,
         PPClientResolverInterface $clientResolver
     ) {
         $this->formFieldValidator = $formFieldValidator;
-        $this->orlenApiConfigService = $orlenApiConfigService;
         $this->clientResolver = $clientResolver;
     }
 
