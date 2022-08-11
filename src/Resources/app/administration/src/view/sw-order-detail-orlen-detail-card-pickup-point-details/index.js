@@ -1,8 +1,8 @@
-import template from './sw-order-detail-orlen-detail-card--point-details.html.twig';
+import template from './sw-order-detail-orlen-detail-card-pickup-point-details.html.twig';
 
 const { Component } = Shopware;
 
-Component.register('sw-order-detail-orlen-detail-card--point-details', {
+Component.register('sw-order-detail-orlen-detail-card-pickup-point-details', {
     template,
     props: [
         'order'
@@ -30,7 +30,7 @@ Component.register('sw-order-detail-orlen-detail-card--point-details', {
 
             const streetEl = this.$refs.street;
             if (streetEl) {
-                streetEl.textContent = data.PickupPointStreet;
+                streetEl.textContent = data.pickupPointStreet;
             }
 
             const postCodeEl = this.$refs.postCode;
