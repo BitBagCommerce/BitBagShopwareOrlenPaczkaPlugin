@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace BitBagShopwareOrlenPaczkaPlugin\Controller\Api;
 
-use BitBagShopwareOrlenPaczkaPlugin\Config\OrlenApiConfigServiceInterface;
 use BitBagShopwareOrlenPaczkaPlugin\Exception\InvalidApiConfigException;
 use BitBagShopwareOrlenPaczkaPlugin\Model\OrlenApiConfig;
 use BitBagShopwareOrlenPaczkaPlugin\Resolver\PPClientResolverInterface;
