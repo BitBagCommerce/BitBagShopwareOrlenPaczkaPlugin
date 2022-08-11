@@ -41,16 +41,16 @@ final class CredentialsController
     public function check(Request $request): JsonResponse
     {
         $apiConfig = $this->getApiConfigFromRequest($request);
-//        $client = $this->clientResolver->resolve($apiConfig);
+        $client = $this->clientResolver->resolve($apiConfig);
 
-//        try {
-//            // Nothing special but will throw if credentials are wrong
-//            $client->getOriginOffices();
-//        } catch (\SoapFault $e) {
-//            if (self::STATUS_UNAUTHORIZED === $e->getMessage()) {
-//                throw new InvalidApiConfigException();
-//            }
-//        }
+        try {
+            // Nothing special but will throw if credentials are wrong
+            $client->getOriginOffices();
+        } catch (\SoapFault $e) {
+            if (self::STATUS_UNAUTHORIZED === $e->getMessage()) {
+                throw new InvalidApiConfigException();
+            }
+        }
 
         return new JsonResponse();
     }
@@ -66,11 +66,5 @@ final class CredentialsController
             $password,
             $environment
         );
-
-//        return new OrlenApiConfig(
-//            'jakub.groncki@bitbag.pl',
-//            '',
-//            'sandbox'
-//        );
     }
 }
