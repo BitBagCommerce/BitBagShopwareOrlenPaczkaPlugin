@@ -9,7 +9,7 @@ use BitBagShopwareOrlenPaczkaPlugin\Exception\InvalidApiConfigException;
 use PHPUnit\Framework\TestCase;
 use Shopware\Core\System\SystemConfig\SystemConfigService;
 
-final class OrlenConfigServiceTest extends TestCase
+final class OrlenApiConfigServiceTest extends TestCase
 {
     private SystemConfigService $systemConfigService;
 
@@ -28,7 +28,7 @@ final class OrlenConfigServiceTest extends TestCase
 
         $orlenConfigService = new OrlenApiConfigService($this->systemConfigService);
 
-        $orlenConfigService->getApiConfig();
+        $orlenConfigService->getApiConfig(null);
     }
 
     public function testGetConfig(): void
@@ -39,7 +39,7 @@ final class OrlenConfigServiceTest extends TestCase
 
         $orlenConfigService = new OrlenApiConfigService($this->systemConfigService);
 
-        $config = $orlenConfigService->getApiConfig();
+        $config = $orlenConfigService->getApiConfig(null);
 
         self::assertSame('username', $config->getUsername());
         self::assertSame('password', $config->getPassword());
