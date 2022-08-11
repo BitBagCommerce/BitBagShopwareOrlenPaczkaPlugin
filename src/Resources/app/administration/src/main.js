@@ -1,5 +1,5 @@
-import './view/sw-order-detail-orlen-detail-card';
-import './view/sw-order-detail-orlen-detail-card-pickup-point-details';
+import './view/orlen-detail-card';
+import './view/orlen-pickup-point-details';
 import './extension/sw-order/sw-order-detail-base';
 
 Shopware.Module.register('bitbag-orlen', {

@@ -1,9 +1,9 @@
-import template from './sw-order-detail-orlen-detail-card.html.twig';
-import './sw-order-detail-orlen-detail-card.scss';
+import template from './orlen-detail-card.html.twig';
+import './orlen-detail-card.scss';
 
 const { Component } = Shopware;
 
-Component.register('sw-order-detail-orlen-detail-card', {
+Component.register('orlen-detail-card', {
     template,
     props: [
         'order'

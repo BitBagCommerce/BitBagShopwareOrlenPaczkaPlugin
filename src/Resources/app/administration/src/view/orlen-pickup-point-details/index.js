@@ -1,8 +1,8 @@
-import template from './sw-order-detail-orlen-detail-card-pickup-point-details.html.twig';
+import template from './orlen-pickup-point-details.html.twig';
 
 const { Component } = Shopware;
 
-Component.register('sw-order-detail-orlen-detail-card-pickup-point-details', {
+Component.register('orlen-pickup-point-details', {
     template,
     props: [
         'order',
