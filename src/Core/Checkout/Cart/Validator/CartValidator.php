@@ -5,8 +5,7 @@ declare(strict_types=1);
 namespace BitBagShopwareOrlenPaczkaPlugin\Core\Checkout\Cart\Validator;
 
 use BitBagShopwareOrlenPaczkaPlugin\Core\Checkout\Cart\Custom\Error\InvalidPhoneNumberError;
-use BitBagShopwareOrlenPaczkaPlugin\Core\Checkout\Cart\Custom\Error\InvalidPostCodeError;
-use BitBagShopwareOrlenPaczkaPlugin\Core\Checkout\Cart\Custom\Error\NullWeightError;
+use BitBagShopwareOrlenPaczkaPlugin\Core\Checkout\Cart\Custom\Error\InvalidZipCodeError;
 use BitBagShopwareOrlenPaczkaPlugin\Core\Checkout\Cart\Custom\Error\StreetSplittingError;
 use BitBagShopwareOrlenPaczkaPlugin\Factory\ShippingMethodPayloadFactoryInterface;
 use Shopware\Core\Checkout\Cart\Cart;
@@ -20,7 +19,7 @@ final class CartValidator implements CartValidatorInterface
 
     public const STREET_WITH_BUILDING_NUMBER_REGEX = "/^([^\d]*[^\d\s]) *(\d.*)$/";
 
-    public const POST_CODE_REGEX = "/^(\d{2})(-\d{3})?$/i";
+    public const ZIP_CODE_REGEX = "/^(\d{2})(-\d{3})?$/i";
 
     public const PHONE_NUMBER_REGEX = "/(?:(?:\+|00)[0-9]{1,3})?(\d{9,12})/";
 
@@ -45,25 +44,14 @@ final class CartValidator implements CartValidatorInterface
             return;
         }
 
-        $postCode = $address->getZipcode();
+        $zipCode = $address->getZipcode();
 
-        $this->checkPostCodeValidity($postCode, $address->getId(), $errors);
+        $this->checkZipCodeValidity($zipCode, $address->getId(), $errors);
 
         if (!preg_match(self::STREET_WITH_BUILDING_NUMBER_REGEX, $address->getStreet())) {
             $errors->add(new StreetSplittingError($address->getId()));
 
             return;
-        }
-
-        foreach ($cart->getLineItems()->getElements() as $lineItem) {
-            $deliveryInformation = $lineItem->getDeliveryInformation();
-
-            /** @psalm-suppress DeprecatedMethod */
-            if (null !== $deliveryInformation && 0.0 === $deliveryInformation->getWeight()) {
-                $errors->add(new NullWeightError($cart->getToken()));
-
-                return;
-            }
         }
 
         $phoneNumber = $address->getPhoneNumber();
@@ -88,20 +76,20 @@ final class CartValidator implements CartValidatorInterface
         }
     }
 
-    private function isPostCodeValid(string $postCode): bool
+    private function isZipCodeValid(string $zipCode): bool
     {
-        return (bool) preg_match(self::POST_CODE_REGEX, $postCode);
+        return (bool) preg_match(self::ZIP_CODE_REGEX, $zipCode);
     }
 
-    private function checkPostCodeValidity(
-        string $postCode,
+    private function checkZipCodeValidity(
+        string $zipCode,
         string $addressId,
         ErrorCollection $errors
     ): void {
-        if (!$this->isPostCodeValid($postCode)) {
-            $postCode = trim(substr_replace($postCode, '-', 2, 0));
-            if (!$this->isPostCodeValid($postCode)) {
-                $errors->add(new InvalidPostCodeError($addressId));
+        if (!$this->isZipCodeValid($zipCode)) {
+            $zipCode = trim(substr_replace($zipCode, '-', 2, 0));
+            if (!$this->isZipCodeValid($zipCode)) {
+                $errors->add(new InvalidZipCodeError($addressId));
             }
         }
     }

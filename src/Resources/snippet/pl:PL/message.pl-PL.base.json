@@ -5,8 +5,7 @@
     },
     "checkout": {
         "streetSplittingError": "Podana ulica jest niepoprawna (wymagany format: \"Polna 11/2\")",
-        "postCodeInvalid": "Podany kod pocztowy jest niepoprawny (wymagany format: 12-345)",
-        "nullWeightError": "Nie znaleziono wagi dla jednego z produktów",
+        "zipCodeInvalid": "Podany kod pocztowy jest niepoprawny (wymagany format: 12-345)",
         "invalidPhoneNumberError": "Podany numer telefonu jest niepoprawny (wymagany format: 111-222-333)"
     }
 }

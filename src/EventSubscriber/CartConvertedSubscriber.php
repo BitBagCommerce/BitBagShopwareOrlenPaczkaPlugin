@@ -78,7 +78,7 @@ final class CartConvertedSubscriber implements EventSubscriberInterface
         $zipCode = $this->formFieldValidator->validatePresenceOrThrow($request, 'orlenPickupPointZipCode');
 
         $deliveryZipCode = $delivery['shippingOrderAddress']['zipcode'];
-        if (!$this->isPostCodeValid($deliveryZipCode)) {
+        if (!$this->isZipCodeValid($deliveryZipCode)) {
             $delivery['shippingOrderAddress']['zipcode'] = trim(substr_replace($deliveryZipCode, '-', 2, 0));
 
             $orderData['deliveries'][0] = $delivery;
@@ -97,8 +97,8 @@ final class CartConvertedSubscriber implements EventSubscriberInterface
         $event->setConvertedCart($orderData);
     }
 
-    private function isPostCodeValid(string $postCode): bool
+    private function isZipCodeValid(string $zipCode): bool
     {
-        return (bool) preg_match(CartValidator::POST_CODE_REGEX, $postCode);
+        return (bool) preg_match(CartValidator::ZIP_CODE_REGEX, $zipCode);
     }
 }
