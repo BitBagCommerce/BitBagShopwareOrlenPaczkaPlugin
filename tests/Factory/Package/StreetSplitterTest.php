@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace BitBag\ShopwareOrlenPaczkaPlugin\Tests\Service;
+namespace BitBag\ShopwareOrlenPaczkaPlugin\Tests\Factory\Package;
 
 use BitBag\ShopwareOrlenPaczkaPlugin\Exception\StreetCannotBeSplitException;
-use BitBag\ShopwareOrlenPaczkaPlugin\Service\StreetSplitter;
-use BitBag\ShopwareOrlenPaczkaPlugin\Service\StreetSplitterInterface;
+use BitBag\ShopwareOrlenPaczkaPlugin\Factory\Package\AddressService;
+use BitBag\ShopwareOrlenPaczkaPlugin\Factory\Package\StreetSplitterInterface;
 use PHPUnit\Framework\TestCase;
 
 class StreetSplitterTest extends TestCase
@@ -29,7 +29,7 @@ class StreetSplitterTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->splitStreetProvider = new StreetSplitter();
+        $this->splitStreetProvider = new AddressService();
     }
 
     public function testSingleStreetName(): void

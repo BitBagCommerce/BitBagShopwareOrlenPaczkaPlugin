@@ -58,7 +58,7 @@ Shopware.Component.register('bitbag-orlen-pickup-settings-base', {
                     message: this.$tc('config.saved')
                 });
             } catch (e) {
-                const field = e.response.data.errors[0].detail;
+                const field = e.response.data?.errors[0]?.detail;
                 createMissingFieldNotification(field);
             }
         },

@@ -6,7 +6,6 @@ namespace BitBag\ShopwareOrlenPaczkaPlugin\Factory\Package;
 
 use BitBag\PPClient\Model\Address;
 use BitBag\ShopwareOrlenPaczkaPlugin\Exception\Order\OrderAddressException;
-use BitBag\ShopwareOrlenPaczkaPlugin\Service\StreetSplitterInterface;
 use BitBag\ShopwareOrlenPaczkaPlugin\Validator\IsPhoneNumber;
 use BitBag\ShopwareOrlenPaczkaPlugin\Validator\IsPostalCode;
 use Shopware\Core\Checkout\Order\Aggregate\OrderAddress\OrderAddressEntity;

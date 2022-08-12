@@ -20,7 +20,7 @@
         <service id="BitBag\ShopwareOrlenPaczkaPlugin\Factory\RulePayloadFactory" />
 
         <service id="BitBag\ShopwareOrlenPaczkaPlugin\Factory\Package\AddressFactory">
-            <argument type="service" id="BitBag\ShopwareOrlenPaczkaPlugin\Service\StreetSplitter" />
+            <argument type="service" id="BitBag\ShopwareOrlenPaczkaPlugin\Factory\Package\StreetSplitter" />
             <argument type="service" id="validator" />
         </service>
 
