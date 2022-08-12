@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace BitBagShopwareOrlenPaczkaPlugin\Resolver;
+namespace BitBag\ShopwareOrlenPaczkaPlugin\Resolver;
 
 use BitBag\PPClient\Client\PPClient;
 use BitBag\PPClient\Client\PPClientConfiguration;
@@ -13,7 +13,7 @@ use BitBag\PPClient\Factory\Response\GetLabelResponseFactory;
 use BitBag\PPClient\Factory\Response\GetOriginOfficeResponseFactory;
 use BitBag\PPClient\Factory\Response\SendEnvelopeResponseFactory;
 use BitBag\PPClient\Normalizer\ArrayNormalizer;
-use BitBagShopwareOrlenPaczkaPlugin\Model\OrlenApiConfig;
+use BitBag\ShopwareOrlenPaczkaPlugin\Model\OrlenApiConfig;
 
 final class PPClientResolver implements PPClientResolverInterface
 {

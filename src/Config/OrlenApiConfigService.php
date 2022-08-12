@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace BitBagShopwareOrlenPaczkaPlugin\Config;
+namespace BitBag\ShopwareOrlenPaczkaPlugin\Config;
 
-use BitBagShopwareOrlenPaczkaPlugin\Exception\InvalidApiConfigException;
-use BitBagShopwareOrlenPaczkaPlugin\Model\OrlenApiConfig;
+use BitBag\ShopwareOrlenPaczkaPlugin\Exception\InvalidApiConfigException;
+use BitBag\ShopwareOrlenPaczkaPlugin\Model\OrlenApiConfig;
 use Shopware\Core\System\SystemConfig\SystemConfigService;
 
 final class OrlenApiConfigService implements OrlenApiConfigServiceInterface

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace BitBagShopwareOrlenPaczkaPlugin\Resolver;
+namespace BitBag\ShopwareOrlenPaczkaPlugin\Resolver;
 
 use BitBag\PPClient\Client\PPClient;
-use BitBagShopwareOrlenPaczkaPlugin\Model\OrlenApiConfig;
+use BitBag\ShopwareOrlenPaczkaPlugin\Model\OrlenApiConfig;
 
 interface PPClientResolverInterface
 {

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace BitBagShopwareOrlenPaczkaPlugin\Test\Factory;
+namespace BitBag\ShopwareOrlenPaczkaPlugin\Test\Factory;
 
-use BitBagShopwareOrlenPaczkaPlugin\Factory\CustomFieldsForPackageDetailsPayloadFactory;
-use BitBagShopwareOrlenPaczkaPlugin\Factory\CustomFieldsForPackageDetailsPayloadFactoryInterface;
+use BitBag\ShopwareOrlenPaczkaPlugin\Factory\CustomFieldsForPackageDetailsPayloadFactory;
+use BitBag\ShopwareOrlenPaczkaPlugin\Factory\CustomFieldsForPackageDetailsPayloadFactoryInterface;
 use PHPUnit\Framework\TestCase;
 use Shopware\Core\System\CustomField\CustomFieldTypes;
 

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace BitBagShopwareOrlenPaczkaPlugin\Factory;
+namespace BitBag\ShopwareOrlenPaczkaPlugin\Factory;
 
 final class DeliveryTimePayloadFactory implements DeliveryTimePayloadFactoryInterface
 {

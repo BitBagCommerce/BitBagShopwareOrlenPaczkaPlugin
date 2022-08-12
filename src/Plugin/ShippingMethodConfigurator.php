@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace BitBagShopwareOrlenPaczkaPlugin\Plugin;
+namespace BitBag\ShopwareOrlenPaczkaPlugin\Plugin;
 
-use BitBagShopwareOrlenPaczkaPlugin\Factory\ShippingMethodPayloadFactoryInterface;
-use BitBagShopwareOrlenPaczkaPlugin\Finder\ShippingMethodFinderInterface;
+use BitBag\ShopwareOrlenPaczkaPlugin\Factory\ShippingMethodPayloadFactoryInterface;
+use BitBag\ShopwareOrlenPaczkaPlugin\Finder\ShippingMethodFinderInterface;
 use Shopware\Core\Checkout\Shipping\ShippingMethodEntity;
 use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;

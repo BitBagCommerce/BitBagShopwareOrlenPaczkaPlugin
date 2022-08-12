@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace BitBagShopwareOrlenPaczkaPlugin\Controller\Api;
+namespace BitBag\ShopwareOrlenPaczkaPlugin\Controller\Api;
 
-use BitBagShopwareOrlenPaczkaPlugin\Exception\InvalidApiConfigException;
-use BitBagShopwareOrlenPaczkaPlugin\Model\OrlenApiConfig;
-use BitBagShopwareOrlenPaczkaPlugin\Resolver\PPClientResolverInterface;
-use BitBagShopwareOrlenPaczkaPlugin\Validator\FormFieldValidator;
+use BitBag\ShopwareOrlenPaczkaPlugin\Exception\InvalidApiConfigException;
+use BitBag\ShopwareOrlenPaczkaPlugin\Model\OrlenApiConfig;
+use BitBag\ShopwareOrlenPaczkaPlugin\Resolver\PPClientResolverInterface;
+use BitBag\ShopwareOrlenPaczkaPlugin\Validator\FormFieldValidator;
 use Shopware\Core\Framework\Routing\Annotation\RouteScope;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;

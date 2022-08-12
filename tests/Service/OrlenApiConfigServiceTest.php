@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace BitBagShopwareOrlenPaczkaPlugin\Test\Service;
+namespace BitBag\ShopwareOrlenPaczkaPlugin\Test\Service;
 
-use BitBagShopwareOrlenPaczkaPlugin\Config\OrlenApiConfigService;
-use BitBagShopwareOrlenPaczkaPlugin\Exception\InvalidApiConfigException;
+use BitBag\ShopwareOrlenPaczkaPlugin\Config\OrlenApiConfigService;
+use BitBag\ShopwareOrlenPaczkaPlugin\Exception\InvalidApiConfigException;
 use PHPUnit\Framework\TestCase;
 use Shopware\Core\System\SystemConfig\SystemConfigService;
 

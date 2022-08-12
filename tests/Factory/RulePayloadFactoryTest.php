@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace BitBagShopwareOrlenPaczkaPlugin\Test\Factory;
+namespace BitBag\ShopwareOrlenPaczkaPlugin\Test\Factory;
 
-use BitBagShopwareOrlenPaczkaPlugin\Factory\RulePayloadFactory;
+use BitBag\ShopwareOrlenPaczkaPlugin\Factory\RulePayloadFactory;
 use PHPUnit\Framework\TestCase;
 
 class RulePayloadFactoryTest extends TestCase
