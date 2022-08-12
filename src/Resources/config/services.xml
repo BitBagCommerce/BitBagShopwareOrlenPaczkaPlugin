@@ -8,19 +8,17 @@
     </imports>
 
     <services>
-        <service class="BitBagShopwareOrlenPaczkaPlugin\BitBagShopwareOrlenPaczkaPlugin"
-                 id="BitBagShopwareOrlenPaczkaPlugin\BitBagShopwareOrlenPaczkaPlugin"
-        >
+        <service id="BitBag\ShopwareOrlenPaczkaPlugin\BitBagShopwareOrlenPaczkaPlugin">
             <call method="setCustomFieldSetConfigurator">
-                <argument type="service" id="BitBagShopwareOrlenPaczkaPlugin\Plugin\CustomFieldSetConfigurator" />
+                <argument type="service" id="BitBag\ShopwareOrlenPaczkaPlugin\Plugin\CustomFieldSetConfigurator" />
             </call>
 
             <call method="setRuleConfigurator">
-                <argument type="service" id="BitBagShopwareOrlenPaczkaPlugin\Plugin\RuleConfigurator" />
+                <argument type="service" id="BitBag\ShopwareOrlenPaczkaPlugin\Plugin\RuleConfigurator" />
             </call>
 
             <call method="setShippingMethodConfigurator">
-                <argument type="service" id="BitBagShopwareOrlenPaczkaPlugin\Plugin\ShippingMethodConfigurator" />
+                <argument type="service" id="BitBag\ShopwareOrlenPaczkaPlugin\Plugin\ShippingMethodConfigurator" />
             </call>
 
             <call method="setConnection">

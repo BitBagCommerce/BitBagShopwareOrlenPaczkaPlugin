@@ -3,6 +3,11 @@
         "notFound": "You need to select a pickup point before creating an order",
         "changePoint": "Change the pickup point"
     },
+    "checkout": {
+        "streetSplittingError": "Street and building number is invalid (valid format is: \"Street 11/2\")",
+        "zipCodeInvalid": "Zip code is invalid (valid format is: 12-345)",
+        "invalidPhoneNumberError": "Phone number is invalid (valid format: 111-222-333)"
+    },
     "config": {
         "apiConfiguration": "API configuration",
         "checkCredentials": "Check credentials",

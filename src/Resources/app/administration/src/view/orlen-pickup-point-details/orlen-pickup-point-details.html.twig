@@ -1,0 +1,12 @@
+<div class="orlen-detail" v-if="showDetails">
+    <div class="image">
+        <img src="orlen.png" :alt="$tc('cardDetails.pointName')" />
+    </div>
+    <div class="information">
+        <p class="text-bold">{{ pickupPoint.name }}</p>
+        <p>{{ pickupPoint.street }}</p>
+        <p>{{ pickupPoint.city }}</p>
+        <p>{{ pickupPoint.zipCode }}</p>
+        <p>{{ pickupPoint.province }}</p>
+    </div>
+</div>

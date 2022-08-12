@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace BitBag\ShopwareOrlenPaczkaPlugin\EventSubscriber;
 
-use BitBag\ShopwareOrlenPaczkaPlugin\Exception\InvalidZipCodeException;
-use BitBag\ShopwareOrlenPaczkaPlugin\Exception\MissingShippingMethodTranslationException;
+use BitBag\ShopwareOrlenPaczkaPlugin\Core\Checkout\Cart\Validator\CartValidator;
 use BitBag\ShopwareOrlenPaczkaPlugin\Exception\NoRequestException;
 use BitBag\ShopwareOrlenPaczkaPlugin\Extension\Order\OrlenOrderExtension;
 use BitBag\ShopwareOrlenPaczkaPlugin\Factory\ShippingMethodPayloadFactoryInterface;
@@ -57,18 +56,18 @@ final class CartConvertedSubscriber implements EventSubscriberInterface
 
         $shippingMethodTranslations = $this->shippingMethodTranslationRepository->search($criteria, $event->getContext());
         if (0 === $shippingMethodTranslations->count()) {
-            throw new MissingShippingMethodTranslationException();
+            return;
         }
 
         /** @var ShippingMethodTranslationEntity|null $shippingMethodTranslation */
         $shippingMethodTranslation = $shippingMethodTranslations->first();
         if (null === $shippingMethodTranslation) {
-            throw new MissingShippingMethodTranslationException();
+            return;
         }
 
         $delivery = $orderData['deliveries'][0];
         if ($delivery['shippingMethodId'] !== $shippingMethodTranslation->getShippingMethodId()) {
-            throw new MissingShippingMethodTranslationException();
+            return;
         }
 
         $pni = $this->formFieldValidator->validatePresenceOrThrow($request, 'orlenPickupPointPni');
@@ -78,11 +77,13 @@ final class CartConvertedSubscriber implements EventSubscriberInterface
         $street = $this->formFieldValidator->validatePresenceOrThrow($request, 'orlenPickupPointStreet');
         $zipCode = $this->formFieldValidator->validatePresenceOrThrow($request, 'orlenPickupPointZipCode');
 
-        $orderZipCode = $delivery['shippingOrderAddress']['zipcode'] ?? '';
-        $validatedZipCode = $this->validateZipCodeOrThrow($orderZipCode);
-        $delivery['shippingOrderAddress']['zipcode'] = trim(substr_replace($validatedZipCode, '-', 2, 0));
+        $deliveryZipCode = $delivery['shippingOrderAddress']['zipcode'];
+        if (!$this->isZipCodeValid($deliveryZipCode)) {
+            $delivery['shippingOrderAddress']['zipcode'] = trim(substr_replace($deliveryZipCode, '-', 2, 0));
 
-        $orderData['deliveries'][0] = $delivery;
+            $orderData['deliveries'][0] = $delivery;
+        }
+
         $orderData['extensions'][OrlenOrderExtension::PROPERTY_KEY] = [
             'id' => Uuid::randomHex(),
             'pickupPointPni' => $pni,
@@ -96,17 +97,8 @@ final class CartConvertedSubscriber implements EventSubscriberInterface
         $event->setConvertedCart($orderData);
     }
 
-    private function validateZipCodeOrThrow(string $zipCode): string
+    private function isZipCodeValid(string $zipCode): bool
     {
-        $matches = [];
-        \preg_match('(\d{5})', $zipCode, $matches);
-
-        $validatedZipCode = $matches[1] ?? '';
-
-        if (5 !== \strlen($validatedZipCode)) {
-            throw new InvalidZipCodeException($validatedZipCode);
-        }
-
-        return $validatedZipCode;
+        return (bool) preg_match(CartValidator::ZIP_CODE_REGEX, $zipCode);
     }
 }

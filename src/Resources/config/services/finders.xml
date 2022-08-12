@@ -5,26 +5,19 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd"
 >
     <services>
-        <service class="BitBagShopwareOrlenPaczkaPlugin\Finder\DeliveryTimeFinder"
-                 id="BitBagShopwareOrlenPaczkaPlugin\Finder\DeliveryTimeFinder"
-        >
+        <service id="BitBag\ShopwareOrlenPaczkaPlugin\Finder\DeliveryTimeFinder">
             <argument type="service" id="delivery_time.repository" />
         </service>
 
-        <service class="BitBagShopwareOrlenPaczkaPlugin\Finder\RuleFinder"
-                 id="BitBagShopwareOrlenPaczkaPlugin\Finder\RuleFinder"
-        >
+        <service id="BitBag\ShopwareOrlenPaczkaPlugin\Finder\RuleFinder">
             <argument type="service" id="rule.repository" />
         </service>
 
-        <service class="BitBagShopwareOrlenPaczkaPlugin\Finder\ShippingMethodFinder"
-                 id="BitBagShopwareOrlenPaczkaPlugin\Finder\ShippingMethodFinder"
-        >
+        <service id="BitBag\ShopwareOrlenPaczkaPlugin\Finder\ShippingMethodFinder">
             <argument type="service" id="shipping_method.repository" />
         </service>
 
-        <service id="BitBagShopwareOrlenPaczkaPlugin\Finder\PackageDetailsCustomFieldSetFinder"
-        >
+        <service id="BitBag\ShopwareOrlenPaczkaPlugin\Finder\PackageDetailsCustomFieldSetFinder">
             <argument type="service" id="custom_field_set.repository" />
         </service>
     </services>

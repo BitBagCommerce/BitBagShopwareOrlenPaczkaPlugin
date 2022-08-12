@@ -4,8 +4,7 @@
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
     <services>
-        <service id="BitBagShopwareOrlenPaczkaPlugin\Config\OrlenApiConfigService"
-        >
+        <service id="BitBagShopwareOrlenPaczkaPlugin\Config\OrlenApiConfigService">
             <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService" />
         </service>
     </services>

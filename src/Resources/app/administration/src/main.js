@@ -1,9 +1,10 @@
+import './view/orlen-detail-card';
+import './view/orlen-pickup-point-details';
+import './extension/sw-order/sw-order-detail-base';
 import './init/orlen-credentials.init';
-import './init/orlen-label.init';
-import './init/orlen-package.init';
 import './bitbag-orlen-pickup-settings-base';
 
-Shopware.Module.register('bitbag-orlen-pickup', {
+Shopware.Module.register('bitbag-orlen', {
     type: 'plugin',
     name: 'Orlen Paczka settings',
     title: 'Orlen Paczka settings',
