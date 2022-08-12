@@ -5,24 +5,21 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd"
 >
     <services>
-        <service id="BitBagShopwareOrlenPaczkaPlugin\Plugin\CustomFieldSetConfigurator"
-        >
-            <argument type="service" id="BitBagShopwareOrlenPaczkaPlugin\Finder\PackageDetailsCustomFieldSetFinder" />
-            <argument type="service" id="BitBagShopwareOrlenPaczkaPlugin\Factory\CustomFieldsForPackageDetailsPayloadFactory" />
+        <service id="BitBag\ShopwareOrlenPaczkaPlugin\Plugin\CustomFieldSetConfigurator">
+            <argument type="service" id="BitBag\ShopwareOrlenPaczkaPlugin\Finder\PackageDetailsCustomFieldSetFinder" />
+            <argument type="service" id="BitBag\ShopwareOrlenPaczkaPlugin\Factory\CustomFieldsForPackageDetailsPayloadFactory" />
             <argument type="service" id="custom_field_set.repository" />
         </service>
 
-        <service id="BitBagShopwareOrlenPaczkaPlugin\Plugin\RuleConfigurator"
-        >
-            <argument type="service" id="BitBagShopwareOrlenPaczkaPlugin\Finder\RuleFinder" />
-            <argument type="service" id="BitBagShopwareOrlenPaczkaPlugin\Factory\RulePayloadFactory" />
+        <service id="BitBag\ShopwareOrlenPaczkaPlugin\Plugin\RuleConfigurator">
+            <argument type="service" id="BitBag\ShopwareOrlenPaczkaPlugin\Finder\RuleFinder" />
+            <argument type="service" id="BitBag\ShopwareOrlenPaczkaPlugin\Factory\RulePayloadFactory" />
             <argument type="service" id="rule.repository" />
         </service>
 
-        <service id="BitBagShopwareOrlenPaczkaPlugin\Plugin\ShippingMethodConfigurator"
-        >
-            <argument type="service" id="BitBagShopwareOrlenPaczkaPlugin\Finder\ShippingMethodFinder" />
-            <argument type="service" id="BitBagShopwareOrlenPaczkaPlugin\Factory\ShippingMethodPayloadFactory" />
+        <service id="BitBag\ShopwareOrlenPaczkaPlugin\Plugin\ShippingMethodConfigurator">
+            <argument type="service" id="BitBag\ShopwareOrlenPaczkaPlugin\Finder\ShippingMethodFinder" />
+            <argument type="service" id="BitBag\ShopwareOrlenPaczkaPlugin\Factory\ShippingMethodPayloadFactory" />
             <argument type="service" id="shipping_method.repository" />
         </service>
     </services>

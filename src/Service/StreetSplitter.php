@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace BitBagShopwareOrlenPaczkaPlugin\Service;
+namespace BitBag\ShopwareOrlenPaczkaPlugin\Service;
 
-use BitBagShopwareOrlenPaczkaPlugin\Exception\StreetCannotBeSplitException;
+use BitBag\ShopwareOrlenPaczkaPlugin\Exception\StreetCannotBeSplitException;
 
 final class StreetSplitter implements StreetSplitterInterface
 {

@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace BitBagShopwareOrlenPaczkaPlugin\Resolver;
+namespace BitBag\ShopwareOrlenPaczkaPlugin\Resolver;
 
-use BitBagShopwareOrlenPaczkaPlugin\Exception\Order\OrderCustomFieldException;
-use BitBagShopwareOrlenPaczkaPlugin\Model\OrderCustomFieldModel;
-use BitBagShopwareOrlenPaczkaPlugin\Validator\OrderCustomFieldValidatorInterface;
+use BitBag\ShopwareOrlenPaczkaPlugin\Exception\Order\OrderCustomFieldException;
+use BitBag\ShopwareOrlenPaczkaPlugin\Model\OrderCustomFieldModel;
+use BitBag\ShopwareOrlenPaczkaPlugin\Validator\OrderCustomFieldValidatorInterface;
 use Shopware\Core\Checkout\Order\OrderEntity;
 
 final class OrderCustomFieldResolver implements OrderCustomFieldResolverInterface

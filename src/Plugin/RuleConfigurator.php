@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace BitBagShopwareOrlenPaczkaPlugin\Plugin;
+namespace BitBag\ShopwareOrlenPaczkaPlugin\Plugin;
 
-use BitBagShopwareOrlenPaczkaPlugin\Exception\RuleNotFoundException;
-use BitBagShopwareOrlenPaczkaPlugin\Factory\RulePayloadFactoryInterface;
-use BitBagShopwareOrlenPaczkaPlugin\Finder\RuleFinderInterface;
+use BitBag\ShopwareOrlenPaczkaPlugin\Exception\RuleNotFoundException;
+use BitBag\ShopwareOrlenPaczkaPlugin\Factory\RulePayloadFactoryInterface;
+use BitBag\ShopwareOrlenPaczkaPlugin\Finder\RuleFinderInterface;
 use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 

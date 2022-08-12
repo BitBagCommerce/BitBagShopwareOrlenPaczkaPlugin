@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace BitBagShopwareOrlenPaczkaPlugin\EventSubscriber;
+namespace BitBag\ShopwareOrlenPaczkaPlugin\EventSubscriber;
 
-use BitBagShopwareOrlenPaczkaPlugin\Core\Checkout\Cart\Validator\CartValidator;
-use BitBagShopwareOrlenPaczkaPlugin\Exception\NoRequestException;
-use BitBagShopwareOrlenPaczkaPlugin\Extension\Order\OrlenOrderExtension;
-use BitBagShopwareOrlenPaczkaPlugin\Factory\ShippingMethodPayloadFactoryInterface;
-use BitBagShopwareOrlenPaczkaPlugin\Validator\FormFieldValidatorInterface;
+use BitBag\ShopwareOrlenPaczkaPlugin\Core\Checkout\Cart\Validator\CartValidator;
+use BitBag\ShopwareOrlenPaczkaPlugin\Exception\NoRequestException;
+use BitBag\ShopwareOrlenPaczkaPlugin\Extension\Order\OrlenOrderExtension;
+use BitBag\ShopwareOrlenPaczkaPlugin\Factory\ShippingMethodPayloadFactoryInterface;
+use BitBag\ShopwareOrlenPaczkaPlugin\Validator\FormFieldValidatorInterface;
 use Shopware\Core\Checkout\Cart\Order\CartConvertedEvent;
 use Shopware\Core\Checkout\Shipping\Aggregate\ShippingMethodTranslation\ShippingMethodTranslationEntity;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace BitBagShopwareOrlenPaczkaPlugin\Plugin;
+namespace BitBag\ShopwareOrlenPaczkaPlugin\Plugin;
 
-use BitBagShopwareOrlenPaczkaPlugin\Factory\CustomFieldsForPackageDetailsPayloadFactoryInterface;
-use BitBagShopwareOrlenPaczkaPlugin\Finder\PackageDetailsCustomFieldSetFinderInterface;
+use BitBag\ShopwareOrlenPaczkaPlugin\Factory\CustomFieldsForPackageDetailsPayloadFactoryInterface;
+use BitBag\ShopwareOrlenPaczkaPlugin\Finder\PackageDetailsCustomFieldSetFinderInterface;
 use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 

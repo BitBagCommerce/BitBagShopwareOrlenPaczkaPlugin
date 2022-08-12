@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace BitBagShopwareOrlenPaczkaPlugin\Plugin;
+namespace BitBag\ShopwareOrlenPaczkaPlugin\Plugin;
 
 use Shopware\Core\Framework\Context;
 

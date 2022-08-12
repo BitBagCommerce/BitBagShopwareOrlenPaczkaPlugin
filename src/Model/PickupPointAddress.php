@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace BitBagShopwareOrlenPaczkaPlugin\Model;
+namespace BitBag\ShopwareOrlenPaczkaPlugin\Model;
 
 final class PickupPointAddress
 {

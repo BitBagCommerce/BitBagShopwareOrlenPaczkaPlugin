@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace BitBagShopwareOrlenPaczkaPlugin\Resolver;
+namespace BitBag\ShopwareOrlenPaczkaPlugin\Resolver;
 
 interface PackageSizeResolverInterface
 {

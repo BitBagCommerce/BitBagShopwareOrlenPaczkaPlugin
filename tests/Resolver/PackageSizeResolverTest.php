@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace BitBagShopwareOrlenPaczkaPlugin\Tests\Resolver;
+namespace BitBag\ShopwareOrlenPaczkaPlugin\Tests\Resolver;
 
 use BitBag\PPClient\Model\PocztexPackageSizeEnum;
-use BitBagShopwareOrlenPaczkaPlugin\Resolver\PackageSizeResolver;
+use BitBag\ShopwareOrlenPaczkaPlugin\Resolver\PackageSizeResolver;
 use PHPUnit\Framework\TestCase;
 
 final class PackageSizeResolverTest extends TestCase

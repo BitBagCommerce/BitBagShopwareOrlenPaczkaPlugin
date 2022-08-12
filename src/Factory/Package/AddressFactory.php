@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace BitBagShopwareOrlenPaczkaPlugin\Factory\Package;
+namespace BitBag\ShopwareOrlenPaczkaPlugin\Factory\Package;
 
 use BitBag\PPClient\Model\Address;
-use BitBagShopwareOrlenPaczkaPlugin\Exception\Order\OrderAddressException;
-use BitBagShopwareOrlenPaczkaPlugin\Service\StreetSplitterInterface;
-use BitBagShopwareOrlenPaczkaPlugin\Validator\IsPhoneNumber;
-use BitBagShopwareOrlenPaczkaPlugin\Validator\IsPostalCode;
+use BitBag\ShopwareOrlenPaczkaPlugin\Exception\Order\OrderAddressException;
+use BitBag\ShopwareOrlenPaczkaPlugin\Service\StreetSplitterInterface;
+use BitBag\ShopwareOrlenPaczkaPlugin\Validator\IsPhoneNumber;
+use BitBag\ShopwareOrlenPaczkaPlugin\Validator\IsPostalCode;
 use Shopware\Core\Checkout\Order\Aggregate\OrderAddress\OrderAddressEntity;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\Validator\ValidatorInterface;

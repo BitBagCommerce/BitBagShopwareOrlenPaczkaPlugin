@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace BitBagShopwareOrlenPaczkaPlugin\Core\Checkout\Cart\Custom\Error;
+namespace BitBag\ShopwareOrlenPaczkaPlugin\Core\Checkout\Cart\Custom\Error;
 
 use Shopware\Core\Checkout\Cart\Error\Error;
 

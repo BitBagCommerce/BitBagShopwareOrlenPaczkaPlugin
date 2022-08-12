@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace BitBagShopwareOrlenPaczkaPlugin\Test\Factory;
+namespace BitBag\ShopwareOrlenPaczkaPlugin\Test\Factory;
 
-use BitBagShopwareOrlenPaczkaPlugin\Factory\DeliveryTimePayloadFactoryInterface;
-use BitBagShopwareOrlenPaczkaPlugin\Factory\ShippingMethodPayloadFactory;
-use BitBagShopwareOrlenPaczkaPlugin\Finder\DeliveryTimeFinderInterface;
+use BitBag\ShopwareOrlenPaczkaPlugin\Factory\DeliveryTimePayloadFactoryInterface;
+use BitBag\ShopwareOrlenPaczkaPlugin\Factory\ShippingMethodPayloadFactory;
+use BitBag\ShopwareOrlenPaczkaPlugin\Finder\DeliveryTimeFinderInterface;
 use PHPUnit\Framework\TestCase;
 use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;

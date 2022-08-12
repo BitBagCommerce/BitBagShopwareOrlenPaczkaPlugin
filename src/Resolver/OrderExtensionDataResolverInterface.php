@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace BitBagShopwareOrlenPaczkaPlugin\Resolver;
+namespace BitBag\ShopwareOrlenPaczkaPlugin\Resolver;
 
-use BitBagShopwareOrlenPaczkaPlugin\Model\PickupPointAddress;
+use BitBag\ShopwareOrlenPaczkaPlugin\Model\PickupPointAddress;
 use Shopware\Core\Checkout\Order\OrderEntity;
 
 interface OrderExtensionDataResolverInterface

@@ -13,8 +13,7 @@
         {% set technicalName = context.shippingMethod.translated.customFields.technical_name %}
     {% endif %}
 
-    {% if (shipping.id is same as(context.shippingMethod.id)) and technicalName == constant('BitBagShopwareOrlenPaczkaPlugin\\Factory\\ShippingMethodPayloadFactoryInterface::SHIPPING_KEY') %}
-
+    {% if (shipping.id is same as(context.shippingMethod.id)) and technicalName == constant('BitBag\\ShopwareOrlenPaczkaPlugin\\Factory\\ShippingMethodPayloadFactoryInterface::SHIPPING_KEY') %}
         <div class="orlen-pickup-point-container">
             <p class="pni-hint" id="orlen-pickup-point-pni-hint"></p>
             <p id="orlen-pickup-point-city-hint"></p>

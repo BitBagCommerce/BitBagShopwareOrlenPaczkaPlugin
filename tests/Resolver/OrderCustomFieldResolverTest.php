@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace BitBagShopwareOrlenPaczkaPlugin\Tests\Resolver;
+namespace BitBag\ShopwareOrlenPaczkaPlugin\Tests\Resolver;
 
-use BitBagShopwareOrlenPaczkaPlugin\Model\OrderCustomFieldModel;
-use BitBagShopwareOrlenPaczkaPlugin\Resolver\OrderCustomFieldResolver;
-use BitBagShopwareOrlenPaczkaPlugin\Resolver\OrderCustomFieldResolverInterface;
-use BitBagShopwareOrlenPaczkaPlugin\Validator\OrderCustomFieldValidatorInterface;
+use BitBag\ShopwareOrlenPaczkaPlugin\Model\OrderCustomFieldModel;
+use BitBag\ShopwareOrlenPaczkaPlugin\Resolver\OrderCustomFieldResolver;
+use BitBag\ShopwareOrlenPaczkaPlugin\Resolver\OrderCustomFieldResolverInterface;
+use BitBag\ShopwareOrlenPaczkaPlugin\Validator\OrderCustomFieldValidatorInterface;
 use PHPUnit\Framework\TestCase;
 use Shopware\Core\Checkout\Order\OrderEntity;
 use Symfony\Component\Validator\Constraints\Length;

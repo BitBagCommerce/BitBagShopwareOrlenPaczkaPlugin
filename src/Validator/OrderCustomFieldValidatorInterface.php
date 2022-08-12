@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace BitBagShopwareOrlenPaczkaPlugin\Validator;
+namespace BitBag\ShopwareOrlenPaczkaPlugin\Validator;
 
 use Symfony\Component\Validator\ConstraintViolationListInterface;
 

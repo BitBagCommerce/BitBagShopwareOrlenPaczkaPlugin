@@ -6,16 +6,16 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "BitBagShopwareOrlenPaczkaPlugin\\": "src/"
+            "BitBag\\ShopwareOrlenPaczkaPlugin\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "BitBagShopwareOrlenPaczkaPlugin\\Tests\\": "tests/"
+            "BitBag\\ShopwareOrlenPaczkaPlugin\\Tests\\": "tests/"
         }
     },
     "extra": {
-        "shopware-plugin-class": "BitBagShopwareOrlenPaczkaPlugin\\BitBagShopwareOrlenPaczkaPlugin",
+        "shopware-plugin-class": "BitBag\\ShopwareOrlenPaczkaPlugin\\BitBagShopwareOrlenPaczkaPlugin",
         "label": {
             "de-DE": "Orlen Paczka",
             "en-GB": "Orlen Paczka"

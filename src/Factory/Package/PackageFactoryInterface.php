@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace BitBagShopwareOrlenPaczkaPlugin\Factory\Package;
+namespace BitBag\ShopwareOrlenPaczkaPlugin\Factory\Package;
 
 use BitBag\PPClient\Model\Address;
 use BitBag\PPClient\Model\RecordedDelivery;

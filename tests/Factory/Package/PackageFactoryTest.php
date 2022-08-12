@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace BitBagShopwareOrlenPaczkaPlugin\Tests\Factory\Package;
+namespace BitBag\ShopwareOrlenPaczkaPlugin\Tests\Factory\Package;
 
 use BitBag\PPClient\Model\Address;
 use BitBag\PPClient\Model\COD;
@@ -14,15 +14,15 @@ use BitBag\PPClient\Model\PaidByReceiverEnum;
 use BitBag\PPClient\Model\PocztexCourier;
 use BitBag\PPClient\Model\PocztexPackageSizeEnum;
 use BitBag\PPClient\Model\PostOffice;
-use BitBagShopwareOrlenPaczkaPlugin\Calculator\OrderWeightCalculatorInterface;
-use BitBagShopwareOrlenPaczkaPlugin\Factory\Package\PackageFactory;
-use BitBagShopwareOrlenPaczkaPlugin\Factory\Package\PackageFactoryInterface;
-use BitBagShopwareOrlenPaczkaPlugin\Factory\Package\PostOfficeFactoryInterface;
-use BitBagShopwareOrlenPaczkaPlugin\Model\OrderCustomFieldModel;
-use BitBagShopwareOrlenPaczkaPlugin\Model\PickupPointAddress;
-use BitBagShopwareOrlenPaczkaPlugin\Resolver\OrderCustomFieldResolverInterface;
-use BitBagShopwareOrlenPaczkaPlugin\Resolver\OrderExtensionDataResolverInterface;
-use BitBagShopwareOrlenPaczkaPlugin\Resolver\PackageSizeResolverInterface;
+use BitBag\ShopwareOrlenPaczkaPlugin\Calculator\OrderWeightCalculatorInterface;
+use BitBag\ShopwareOrlenPaczkaPlugin\Factory\Package\PackageFactory;
+use BitBag\ShopwareOrlenPaczkaPlugin\Factory\Package\PackageFactoryInterface;
+use BitBag\ShopwareOrlenPaczkaPlugin\Factory\Package\PostOfficeFactoryInterface;
+use BitBag\ShopwareOrlenPaczkaPlugin\Model\OrderCustomFieldModel;
+use BitBag\ShopwareOrlenPaczkaPlugin\Model\PickupPointAddress;
+use BitBag\ShopwareOrlenPaczkaPlugin\Resolver\OrderCustomFieldResolverInterface;
+use BitBag\ShopwareOrlenPaczkaPlugin\Resolver\OrderExtensionDataResolverInterface;
+use BitBag\ShopwareOrlenPaczkaPlugin\Resolver\PackageSizeResolverInterface;
 use PHPUnit\Framework\TestCase;
 use Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionCollection;
 use Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionEntity;

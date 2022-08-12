@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace BitBagShopwareOrlenPaczkaPlugin\Core\Checkout\Cart\Validator;
+namespace BitBag\ShopwareOrlenPaczkaPlugin\Core\Checkout\Cart\Validator;
 
-use BitBagShopwareOrlenPaczkaPlugin\Core\Checkout\Cart\Custom\Error\InvalidPhoneNumberError;
-use BitBagShopwareOrlenPaczkaPlugin\Core\Checkout\Cart\Custom\Error\InvalidZipCodeError;
-use BitBagShopwareOrlenPaczkaPlugin\Core\Checkout\Cart\Custom\Error\StreetSplittingError;
-use BitBagShopwareOrlenPaczkaPlugin\Factory\ShippingMethodPayloadFactoryInterface;
+use BitBag\ShopwareOrlenPaczkaPlugin\Core\Checkout\Cart\Custom\Error\InvalidPhoneNumberError;
+use BitBag\ShopwareOrlenPaczkaPlugin\Core\Checkout\Cart\Custom\Error\InvalidZipCodeError;
+use BitBag\ShopwareOrlenPaczkaPlugin\Core\Checkout\Cart\Custom\Error\StreetSplittingError;
+use BitBag\ShopwareOrlenPaczkaPlugin\Factory\ShippingMethodPayloadFactoryInterface;
 use Shopware\Core\Checkout\Cart\Cart;
 use Shopware\Core\Checkout\Cart\CartValidatorInterface;
 use Shopware\Core\Checkout\Cart\Error\ErrorCollection;

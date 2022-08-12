@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace BitBagShopwareOrlenPaczkaPlugin\Tests\Validator;
+namespace BitBag\ShopwareOrlenPaczkaPlugin\Tests\Validator;
 
-use BitBagShopwareOrlenPaczkaPlugin\Validator\IsPhoneNumber;
+use BitBag\ShopwareOrlenPaczkaPlugin\Validator\IsPhoneNumber;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Validator\Validation;
 

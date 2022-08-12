@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace BitBagShopwareOrlenPaczkaPlugin\Service;
+namespace BitBag\ShopwareOrlenPaczkaPlugin\Service;
 
 interface StreetSplitterInterface
 {

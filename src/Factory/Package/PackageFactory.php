@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace BitBagShopwareOrlenPaczkaPlugin\Factory\Package;
+namespace BitBag\ShopwareOrlenPaczkaPlugin\Factory\Package;
 
 use BitBag\PPClient\Guid\Guid;
 use BitBag\PPClient\Model\Address;
@@ -14,10 +14,10 @@ use BitBag\PPClient\Model\PaidByReceiver;
 use BitBag\PPClient\Model\PaidByReceiverEnum;
 use BitBag\PPClient\Model\PocztexCourier;
 use BitBag\PPClient\Model\RecordedDelivery;
-use BitBagShopwareOrlenPaczkaPlugin\Calculator\OrderWeightCalculatorInterface;
-use BitBagShopwareOrlenPaczkaPlugin\Resolver\OrderCustomFieldResolverInterface;
-use BitBagShopwareOrlenPaczkaPlugin\Resolver\OrderExtensionDataResolverInterface;
-use BitBagShopwareOrlenPaczkaPlugin\Resolver\PackageSizeResolverInterface;
+use BitBag\ShopwareOrlenPaczkaPlugin\Calculator\OrderWeightCalculatorInterface;
+use BitBag\ShopwareOrlenPaczkaPlugin\Resolver\OrderCustomFieldResolverInterface;
+use BitBag\ShopwareOrlenPaczkaPlugin\Resolver\OrderExtensionDataResolverInterface;
+use BitBag\ShopwareOrlenPaczkaPlugin\Resolver\PackageSizeResolverInterface;
 use DateTime;
 use Shopware\Core\Checkout\Order\OrderEntity;
 use Shopware\Core\Checkout\Payment\PaymentMethodEntity;

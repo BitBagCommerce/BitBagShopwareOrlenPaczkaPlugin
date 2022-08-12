@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace BitBagShopwareOrlenPaczkaPlugin\Calculator;
+namespace BitBag\ShopwareOrlenPaczkaPlugin\Calculator;
 
 use BitBag\PPClient\Model\PocztexPackageSizeEnum;
-use BitBagShopwareOrlenPaczkaPlugin\Exception\Order\OrderException;
-use BitBagShopwareOrlenPaczkaPlugin\Exception\Order\OrderWeightCalculatorException;
+use BitBag\ShopwareOrlenPaczkaPlugin\Exception\Order\OrderException;
+use BitBag\ShopwareOrlenPaczkaPlugin\Exception\Order\OrderWeightCalculatorException;
 use Shopware\Core\Checkout\Order\Aggregate\OrderLineItem\OrderLineItemEntity;
 use Shopware\Core\Checkout\Order\OrderEntity;
 use Shopware\Core\Content\Product\ProductEntity;

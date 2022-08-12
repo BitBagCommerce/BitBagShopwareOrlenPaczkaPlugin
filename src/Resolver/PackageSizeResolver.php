@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace BitBagShopwareOrlenPaczkaPlugin\Resolver;
+namespace BitBag\ShopwareOrlenPaczkaPlugin\Resolver;
 
 use BitBag\PPClient\Model\PocztexPackageSizeEnum;
-use BitBagShopwareOrlenPaczkaPlugin\Exception\PackageSizeException;
+use BitBag\ShopwareOrlenPaczkaPlugin\Exception\PackageSizeException;
 
 class PackageSizeResolver implements PackageSizeResolverInterface
 {

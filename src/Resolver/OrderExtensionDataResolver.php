@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace BitBagShopwareOrlenPaczkaPlugin\Resolver;
+namespace BitBag\ShopwareOrlenPaczkaPlugin\Resolver;
 
-use BitBagShopwareOrlenPaczkaPlugin\Exception\Order\OrderExtensionNotFoundException;
-use BitBagShopwareOrlenPaczkaPlugin\Extension\Order\OrlenOrderExtension;
-use BitBagShopwareOrlenPaczkaPlugin\Model\PickupPointAddress;
+use BitBag\ShopwareOrlenPaczkaPlugin\Exception\Order\OrderExtensionNotFoundException;
+use BitBag\ShopwareOrlenPaczkaPlugin\Extension\Order\OrlenOrderExtension;
+use BitBag\ShopwareOrlenPaczkaPlugin\Model\PickupPointAddress;
 use Shopware\Core\Checkout\Order\OrderEntity;
 
 final class OrderExtensionDataResolver implements OrderExtensionDataResolverInterface

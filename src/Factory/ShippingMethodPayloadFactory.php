@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace BitBagShopwareOrlenPaczkaPlugin\Factory;
+namespace BitBag\ShopwareOrlenPaczkaPlugin\Factory;
 
-use BitBagShopwareOrlenPaczkaPlugin\Finder\DeliveryTimeFinderInterface;
+use BitBag\ShopwareOrlenPaczkaPlugin\Finder\DeliveryTimeFinderInterface;
 use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 

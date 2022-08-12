@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace BitBagShopwareOrlenPaczkaPlugin\Tests\Factory\Package;
+namespace BitBag\ShopwareOrlenPaczkaPlugin\Tests\Factory\Package;
 
 use BitBag\PPClient\Model\Address;
-use BitBagShopwareOrlenPaczkaPlugin\Factory\Package\AddressFactory;
-use BitBagShopwareOrlenPaczkaPlugin\Service\StreetSplitterInterface;
+use BitBag\ShopwareOrlenPaczkaPlugin\Factory\Package\AddressFactory;
+use BitBag\ShopwareOrlenPaczkaPlugin\Service\StreetSplitterInterface;
 use PHPUnit\Framework\TestCase;
 use Shopware\Core\Checkout\Order\Aggregate\OrderAddress\OrderAddressEntity;
 use Symfony\Component\Validator\ConstraintViolationList;

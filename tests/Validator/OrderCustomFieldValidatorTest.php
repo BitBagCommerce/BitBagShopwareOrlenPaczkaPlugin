@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace BitBagShopwareOrlenPaczkaPlugin\Tests\Validator;
+namespace BitBag\ShopwareOrlenPaczkaPlugin\Tests\Validator;
 
-use BitBagShopwareOrlenPaczkaPlugin\Resolver\OrderCustomFieldResolverInterface;
-use BitBagShopwareOrlenPaczkaPlugin\Validator\OrderCustomFieldValidator;
+use BitBag\ShopwareOrlenPaczkaPlugin\Resolver\OrderCustomFieldResolverInterface;
+use BitBag\ShopwareOrlenPaczkaPlugin\Validator\OrderCustomFieldValidator;
 use PHPUnit\Framework\TestCase;
 
 final class OrderCustomFieldValidatorTest extends TestCase

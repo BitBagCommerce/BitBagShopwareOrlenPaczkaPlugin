@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace BitBagShopwareOrlenPaczkaPlugin\Factory\Package;
+namespace BitBag\ShopwareOrlenPaczkaPlugin\Factory\Package;
 
 use BitBag\PPClient\Model\PostOffice;
-use BitBagShopwareOrlenPaczkaPlugin\Model\PickupPointAddress;
+use BitBag\ShopwareOrlenPaczkaPlugin\Model\PickupPointAddress;
 
 interface PostOfficeFactoryInterface
 {

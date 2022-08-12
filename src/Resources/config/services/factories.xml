@@ -5,35 +5,33 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd"
 >
     <services>
-        <service id="BitBagShopwareOrlenPaczkaPlugin\Factory\ShippingMethodPayloadFactory"
-        >
-            <argument type="service" id="BitBagShopwareOrlenPaczkaPlugin\Finder\DeliveryTimeFinder" />
-            <argument type="service" id="BitBagShopwareOrlenPaczkaPlugin\Factory\DeliveryTimePayloadFactory" />
+        <service id="BitBag\ShopwareOrlenPaczkaPlugin\Factory\ShippingMethodPayloadFactory">
+            <argument type="service" id="BitBag\ShopwareOrlenPaczkaPlugin\Finder\DeliveryTimeFinder" />
+            <argument type="service" id="BitBag\ShopwareOrlenPaczkaPlugin\Factory\DeliveryTimePayloadFactory" />
             <argument type="service" id="delivery_time.repository" />
         </service>
 
-        <service id="BitBagShopwareOrlenPaczkaPlugin\Factory\DeliveryTimePayloadFactory" />
+        <service id="BitBag\ShopwareOrlenPaczkaPlugin\Factory\DeliveryTimePayloadFactory" />
 
-        <service id="BitBagShopwareOrlenPaczkaPlugin\Factory\CustomFieldsForPackageDetailsPayloadFactory"
-        >
+        <service id="BitBag\ShopwareOrlenPaczkaPlugin\Factory\CustomFieldsForPackageDetailsPayloadFactory">
             <argument type="service" id="custom_field_set.repository" />
         </service>
 
-        <service id="BitBagShopwareOrlenPaczkaPlugin\Factory\RulePayloadFactory" />
+        <service id="BitBag\ShopwareOrlenPaczkaPlugin\Factory\RulePayloadFactory" />
 
-        <service id="BitBagShopwareOrlenPaczkaPlugin\Factory\Package\AddressFactory">
-            <argument type="service" id="BitBagShopwareOrlenPaczkaPlugin\Service\StreetSplitter" />
+        <service id="BitBag\ShopwareOrlenPaczkaPlugin\Factory\Package\AddressFactory">
+            <argument type="service" id="BitBag\ShopwareOrlenPaczkaPlugin\Service\StreetSplitter" />
             <argument type="service" id="validator" />
         </service>
 
-        <service id="BitBagShopwareOrlenPaczkaPlugin\Factory\Package\PostOfficeFactory" />
+        <service id="BitBag\ShopwareOrlenPaczkaPlugin\Factory\Package\PostOfficeFactory" />
 
-        <service id="BitBagShopwareOrlenPaczkaPlugin\Factory\Package\PackageFactory">
-            <argument type="service" id="BitBagShopwareOrlenPaczkaPlugin\Calculator\OrderWeightCalculator" />
-            <argument type="service" id="BitBagShopwareOrlenPaczkaPlugin\Resolver\OrderCustomFieldResolver" />
-            <argument type="service" id="BitBagShopwareOrlenPaczkaPlugin\Resolver\PackageSizeResolver" />
-            <argument type="service" id="BitBagShopwareOrlenPaczkaPlugin\Factory\Package\PostOfficeFactory" />
-            <argument type="service" id="BitBagShopwareOrlenPaczkaPlugin\Resolver\OrderExtensionDataResolver" />
+        <service id="BitBag\ShopwareOrlenPaczkaPlugin\Factory\Package\PackageFactory">
+            <argument type="service" id="BitBag\ShopwareOrlenPaczkaPlugin\Calculator\OrderWeightCalculator" />
+            <argument type="service" id="BitBag\ShopwareOrlenPaczkaPlugin\Resolver\OrderCustomFieldResolver" />
+            <argument type="service" id="BitBag\ShopwareOrlenPaczkaPlugin\Resolver\PackageSizeResolver" />
+            <argument type="service" id="BitBag\ShopwareOrlenPaczkaPlugin\Factory\Package\PostOfficeFactory" />
+            <argument type="service" id="BitBag\ShopwareOrlenPaczkaPlugin\Resolver\OrderExtensionDataResolver" />
         </service>
     </services>
 </container>

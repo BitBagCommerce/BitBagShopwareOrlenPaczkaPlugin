@@ -5,12 +5,12 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd"
 >
     <services>
-        <service id="BitBagShopwareOrlenPaczkaPlugin\Resolver\OrderExtensionDataResolver" />
+        <service id="BitBag\ShopwareOrlenPaczkaPlugin\Resolver\OrderExtensionDataResolver" />
 
-        <service id="BitBagShopwareOrlenPaczkaPlugin\Resolver\OrderCustomFieldResolver">
-            <argument type="service" id="BitBagShopwareOrlenPaczkaPlugin\Validator\OrderCustomFieldValidator" />
+        <service id="BitBag\ShopwareOrlenPaczkaPlugin\Resolver\OrderCustomFieldResolver">
+            <argument type="service" id="BitBag\ShopwareOrlenPaczkaPlugin\Validator\OrderCustomFieldValidator" />
         </service>
 
-        <service id="BitBagShopwareOrlenPaczkaPlugin\Resolver\PackageSizeResolver" />
+        <service id="BitBag\ShopwareOrlenPaczkaPlugin\Resolver\PackageSizeResolver" />
     </services>
 </container>

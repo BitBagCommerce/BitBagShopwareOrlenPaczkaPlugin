@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace BitBagShopwareOrlenPaczkaPlugin\Validator;
+namespace BitBag\ShopwareOrlenPaczkaPlugin\Validator;
 
-use BitBagShopwareOrlenPaczkaPlugin\Exception\MissingFormFieldException;
+use BitBag\ShopwareOrlenPaczkaPlugin\Exception\MissingFormFieldException;
 use Symfony\Component\HttpFoundation\Request;
 
 final class FormFieldValidator implements FormFieldValidatorInterface
