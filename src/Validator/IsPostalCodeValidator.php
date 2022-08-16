@@ -27,8 +27,6 @@ final class IsPostalCodeValidator extends ConstraintValidator
 
             $this->context->buildViolation('bitbag.shopware_poczta_polska_app.order.address.post_code_invalid')
                           ->addViolation();
-
-            return;
         }
     }
 
