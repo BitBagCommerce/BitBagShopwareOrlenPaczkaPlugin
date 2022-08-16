@@ -41,7 +41,7 @@ final class AddressFactory implements AddressFactoryInterface
         $phoneNumber = $orderAddress->getPhoneNumber() ?? '';
         $this->throwOnConstraintViolations($phoneNumber, new IsPhoneNumber());
 
-        $postalCode = $orderAddress->zipcode;
+        $postalCode = $orderAddress->getZipcode();
         $this->throwOnConstraintViolations($postalCode, new IsPostalCode());
 
         $address = new Address();

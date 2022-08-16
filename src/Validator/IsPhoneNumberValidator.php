@@ -40,8 +40,6 @@ final class IsPhoneNumberValidator extends ConstraintValidator
         if (self::PHONE_NUMBER_LENGTH !== $phoneNumberLength) {
             $this->context->buildViolation('bitbag.shopware_poczta_polska_app.order.address.phone_number_invalid')
                           ->addViolation();
-
-            return;
         }
     }
 }
