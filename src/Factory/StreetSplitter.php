@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace BitBag\ShopwareOrlenPaczkaPlugin\Factory\Package;
+namespace BitBag\ShopwareOrlenPaczkaPlugin\Factory;
 
 use BitBag\ShopwareOrlenPaczkaPlugin\Exception\StreetCannotBeSplitException;
 
