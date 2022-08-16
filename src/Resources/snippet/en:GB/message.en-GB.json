@@ -7,5 +7,16 @@
         "streetSplittingError": "Street and building number is invalid (valid format is: \"Street 11/2\")",
         "zipCodeInvalid": "Zip code is invalid (valid format is: 12-345)",
         "invalidPhoneNumberError": "Phone number is invalid (valid format: 111-222-333)"
+    },
+    "config": {
+        "apiConfiguration": "API configuration",
+        "checkCredentials": "Check credentials",
+        "invalid": "Provided API config is invalid"
+    },
+    "order": {
+        "zipCode": {
+            "missing": "Zip code is missing",
+            "invalid": "Provided zip code is invalid"
+        }
     }
 }

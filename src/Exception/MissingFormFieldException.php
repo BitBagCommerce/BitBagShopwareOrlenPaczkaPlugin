@@ -11,9 +11,7 @@ final class MissingFormFieldException extends ShopwareHttpException
 {
     public function __construct(string $fieldName)
     {
-        parent::__construct(
-            \sprintf('Required field %s is missing from the form', $fieldName)
-        );
+        parent::__construct($fieldName);
     }
 
     public function getErrorCode(): string

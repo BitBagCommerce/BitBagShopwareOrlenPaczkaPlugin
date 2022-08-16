@@ -25,6 +25,7 @@ CREATE TABLE IF NOT EXISTS `bitbag_orlen_order_extension` (
     `pickup_point_province` VARCHAR(255) NOT NULL,
     `pickup_point_street` VARCHAR(255) NOT NULL,
     `pickup_point_zip_code` VARCHAR(255) NOT NULL,
+    `package_id` VARCHAR(255),
     `order_id` BINARY(16) NULL,
     `created_at` DATETIME(3) NOT NULL,
     `updated_at` DATETIME(3) NULL,

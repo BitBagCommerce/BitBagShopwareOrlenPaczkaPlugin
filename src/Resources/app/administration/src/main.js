@@ -1,6 +1,8 @@
 import './view/orlen-detail-card';
 import './view/orlen-pickup-point-details';
 import './extension/sw-order/sw-order-detail-base';
+import './init/orlen-credentials.init';
+import './component/bitbag-orlen-pickup-settings-base';
 
 Shopware.Module.register('bitbag-orlen', {
     type: 'plugin',
@@ -22,7 +24,7 @@ Shopware.Module.register('bitbag-orlen', {
     },
     settingsItem: {
         group: 'plugins',
-        to: 'bitbag.orlen.pickup.settings.index',
+        to: 'bitbag.orlen.index',
         iconComponent: 'bitbag-orlen-pickup-settings-icon',
         backgroundEnabled: false,
     },

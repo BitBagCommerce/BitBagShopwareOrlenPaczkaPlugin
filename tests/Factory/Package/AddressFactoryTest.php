@@ -6,7 +6,7 @@ namespace BitBag\ShopwareOrlenPaczkaPlugin\Tests\Factory\Package;
 
 use BitBag\PPClient\Model\Address;
 use BitBag\ShopwareOrlenPaczkaPlugin\Factory\Package\AddressFactory;
-use BitBag\ShopwareOrlenPaczkaPlugin\Service\StreetSplitterInterface;
+use BitBag\ShopwareOrlenPaczkaPlugin\Factory\StreetSplitterInterface;
 use PHPUnit\Framework\TestCase;
 use Shopware\Core\Checkout\Order\Aggregate\OrderAddress\OrderAddressEntity;
 use Symfony\Component\Validator\ConstraintViolationList;

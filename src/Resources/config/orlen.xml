@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/platform/trunk/src/Core/System/SystemConfig/Schema/config.xsd">
+    <card>
+        <title>API Configuration</title>
+        <title lang="pl-PL">Konfiguracja API</title>
+
+        <input-field>
+            <name>username</name>
+            <label>Username</label>
+            <placeholder>API Username</placeholder>
+            <label lang="pl-PL">Nazwa użytkownika API</label>
+            <placeholder lang="pl-PL">Nazwa użytkownika</placeholder>
+            <required>true</required>
+        </input-field>
+
+        <input-field>
+            <name>password</name>
+            <label>Password</label>
+            <placeholder>API Password</placeholder>
+            <label lang="pl-PL">Hasło</label>
+            <placeholder lang="pl-PL">Hasło do API</placeholder>
+            <required>true</required>
+        </input-field>
+
+        <input-field type="single-select">
+            <name>environment</name>
+            <label>Environment</label>
+            <placeholder>Choose environment</placeholder>
+            <label lang="pl-PL">Środowisko</label>
+            <placeholder lang="pl-PL">Wybierz środowisko</placeholder>
+            <required>true</required>
+            <options>
+                <option>
+                    <id>sandbox</id>
+                    <name>Sandbox</name>
+                    <name lang="pl-PL">Deweloperskie</name>
+                </option>
+                <option>
+                    <id>production</id>
+                    <name>Production</name>
+                    <name lang="pl-PL">Produkcyjne</name>
+                </option>
+            </options>
+        </input-field>
+    </card>
+</config>

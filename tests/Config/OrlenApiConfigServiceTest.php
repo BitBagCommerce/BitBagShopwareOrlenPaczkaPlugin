@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace BitBag\ShopwareOrlenPaczkaPlugin\Test\Service;
 
-use BitBag\ShopwareOrlenPaczkaPlugin\Exception\ApiConfigNotFoundException;
-use BitBag\ShopwareOrlenPaczkaPlugin\Service\OrlenConfigService;
+use BitBag\ShopwareOrlenPaczkaPlugin\Config\OrlenApiConfigService;
+use BitBag\ShopwareOrlenPaczkaPlugin\Exception\InvalidApiConfigException;
 use PHPUnit\Framework\TestCase;
 use Shopware\Core\System\SystemConfig\SystemConfigService;
 
-final class OrlenConfigServiceTest extends TestCase
+final class OrlenApiConfigServiceTest extends TestCase
 {
     private SystemConfigService $systemConfigService;
 
@@ -20,15 +20,15 @@ final class OrlenConfigServiceTest extends TestCase
 
     public function testMissingData(): void
     {
-        $this->expectException(ApiConfigNotFoundException::class);
+        $this->expectException(InvalidApiConfigException::class);
 
         $this->systemConfigService
             ->method('getString')
             ->willReturnOnConsecutiveCalls('', 'password', 'production');
 
-        $orlenConfigService = new OrlenConfigService($this->systemConfigService);
+        $orlenConfigService = new OrlenApiConfigService($this->systemConfigService);
 
-        $orlenConfigService->getApiConfig();
+        $orlenConfigService->getApiConfig(null);
     }
 
     public function testGetConfig(): void
@@ -37,9 +37,9 @@ final class OrlenConfigServiceTest extends TestCase
             ->method('getString')
             ->willReturnOnConsecutiveCalls('username', 'password', 'sandbox');
 
-        $orlenConfigService = new OrlenConfigService($this->systemConfigService);
+        $orlenConfigService = new OrlenApiConfigService($this->systemConfigService);
 
-        $config = $orlenConfigService->getApiConfig();
+        $config = $orlenConfigService->getApiConfig(null);
 
         self::assertSame('username', $config->getUsername());
         self::assertSame('password', $config->getPassword());

@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace BitBag\ShopwareOrlenPaczkaPlugin\Tests\Service;
+namespace BitBag\ShopwareOrlenPaczkaPlugin\Tests\Factory\Package;
 
 use BitBag\ShopwareOrlenPaczkaPlugin\Exception\StreetCannotBeSplitException;
-use BitBag\ShopwareOrlenPaczkaPlugin\Service\StreetSplitter;
-use BitBag\ShopwareOrlenPaczkaPlugin\Service\StreetSplitterInterface;
+use BitBag\ShopwareOrlenPaczkaPlugin\Factory\StreetSplitter;
+use BitBag\ShopwareOrlenPaczkaPlugin\Factory\StreetSplitterInterface;
 use PHPUnit\Framework\TestCase;
 
 class StreetSplitterTest extends TestCase
