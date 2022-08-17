@@ -3,6 +3,39 @@ import Plugin from 'src/plugin-system/plugin.class';
 export default class OrlenPlugin extends Plugin {
     init() {
         this.assignEventListeners();
+        this.checkIfPickupPointIsSelected();
+    }
+
+    checkIfPickupPointIsSelected() {
+        const confirmFormSubmitButtonEl = document.getElementById('confirmFormSubmit');
+        const pointNameNotSelectedMessageEl = document.querySelector('.point-name-not-selected-message');
+        const orlenPickupPointPni = document.querySelector('#orlen-pickup-point-pni');
+        const orlenPickupPointCity = document.querySelector('#orlen-pickup-point-city');
+        const orlenPickupPointName = document.querySelector('#orlen-pickup-point-name');
+        const orlenPickupPointProvince = document.querySelector('#orlen-pickup-point-province');
+        const orlenPickupPointStreet = document.querySelector('#orlen-pickup-point-street');
+        const orlenPickupPointZipCode = document.querySelector('#orlen-pickup-point-zipCode');
+
+        if (confirmFormSubmitButtonEl) {
+            confirmFormSubmitButtonEl.addEventListener('click', (e) => {
+                if (
+                    !orlenPickupPointPni.value ||
+                    !orlenPickupPointCity.value ||
+                    !orlenPickupPointName.value ||
+                    !orlenPickupPointProvince.value ||
+                    !orlenPickupPointStreet.value ||
+                    !orlenPickupPointZipCode.value
+                ) {
+                    e.preventDefault();
+
+                    document.querySelector('.shipping-methods').scrollIntoView({
+                        behavior: 'smooth'
+                    });
+
+                    pointNameNotSelectedMessageEl.classList.remove('hide');
+                }
+            });
+        }
     }
 
     changePickupPoint(pickupPoint) {
@@ -42,9 +75,12 @@ export default class OrlenPlugin extends Plugin {
                 type: ['ORLEN']
             });
         });
+
+
     }
 
     updatePickupPointHints(pickupPoint) {
+        const pointNameNotSelectedMessageEl = document.querySelector('.point-name-not-selected-message');
         const pniHint = document.querySelector('#orlen-pickup-point-pni-hint');
         const cityHint = document.querySelector('#orlen-pickup-point-city-hint');
         const streetHint = document.querySelector('#orlen-pickup-point-street-hint');
@@ -52,6 +88,8 @@ export default class OrlenPlugin extends Plugin {
         pniHint.innerHTML = pickupPoint.pni;
         cityHint.innerHTML = pickupPoint.city;
         streetHint.innerHTML = pickupPoint.street;
+
+        pointNameNotSelectedMessageEl.classList.add('hide');
     }
 
     getAddress() {
