@@ -18,7 +18,7 @@ class RulePayloadFactoryTest extends TestCase
                 'name' => $name,
                 'priority' => 100,
             ],
-            (new RulePayloadFactory())->create($name)
+            (new RulePayloadFactory())->create($name, '')
         );
     }
 }
