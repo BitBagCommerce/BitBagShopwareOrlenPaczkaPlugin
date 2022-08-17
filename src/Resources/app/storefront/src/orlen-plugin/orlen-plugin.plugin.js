@@ -75,8 +75,6 @@ export default class OrlenPlugin extends Plugin {
                 type: ['ORLEN']
             });
         });
-
-
     }
 
     updatePickupPointHints(pickupPoint) {
