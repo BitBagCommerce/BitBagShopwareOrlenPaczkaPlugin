@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace BitBag\ShopwareOrlenPaczkaPlugin\Tests\Resolver;
 
+use BitBag\ShopwareOrlenPaczkaPlugin\Factory\CustomFieldsForPackageDetailsPayloadFactoryInterface;
 use BitBag\ShopwareOrlenPaczkaPlugin\Model\OrderCustomFieldModel;
 use BitBag\ShopwareOrlenPaczkaPlugin\Resolver\OrderCustomFieldResolver;
-use BitBag\ShopwareOrlenPaczkaPlugin\Resolver\OrderCustomFieldResolverInterface;
 use BitBag\ShopwareOrlenPaczkaPlugin\Validator\OrderCustomFieldValidatorInterface;
 use PHPUnit\Framework\TestCase;
 use Shopware\Core\Checkout\Order\OrderEntity;
@@ -69,11 +69,11 @@ final class OrderCustomFieldResolverTest extends TestCase
         $order = new OrderEntity();
 
         $customFields = [
-            OrderCustomFieldResolverInterface::PACKAGE_DETAILS_KEY . '_depth' => 22,
-            OrderCustomFieldResolverInterface::PACKAGE_DETAILS_KEY . '_height' => 11,
-            OrderCustomFieldResolverInterface::PACKAGE_DETAILS_KEY . '_width' => 33,
-            OrderCustomFieldResolverInterface::PACKAGE_DETAILS_KEY . '_package_contents' => 'package_contents_foo',
-            OrderCustomFieldResolverInterface::PACKAGE_DETAILS_KEY . '_planned_shipping_date' => 'planned_shipping_date_foo',
+            CustomFieldsForPackageDetailsPayloadFactoryInterface::PACKAGE_DETAILS_KEY . '_depth' => 22,
+            CustomFieldsForPackageDetailsPayloadFactoryInterface::PACKAGE_DETAILS_KEY . '_height' => 11,
+            CustomFieldsForPackageDetailsPayloadFactoryInterface::PACKAGE_DETAILS_KEY . '_width' => 33,
+            CustomFieldsForPackageDetailsPayloadFactoryInterface::PACKAGE_DETAILS_KEY . '_package_contents' => 'package_contents_foo',
+            CustomFieldsForPackageDetailsPayloadFactoryInterface::PACKAGE_DETAILS_KEY . '_planned_shipping_date' => 'planned_shipping_date_foo',
         ];
 
         $order->setCustomFields($customFields);

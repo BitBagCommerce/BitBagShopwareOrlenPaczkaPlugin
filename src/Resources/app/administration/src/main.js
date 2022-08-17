@@ -1,6 +1,9 @@
+import './init/custom-api-service.init';
 import './view/orlen-detail-card';
 import './view/orlen-pickup-point-details';
+import './view/orlen-pickup-point-details-create-package';
 import './extension/sw-order/sw-order-detail-base';
+import './core/service/api/orlen-paczka-api.service';
 
 Shopware.Module.register('bitbag-orlen', {
     type: 'plugin',

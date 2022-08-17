@@ -12,14 +12,18 @@ final class OrlenApiConfig
 
     private string $environment;
 
+    private ?int $originOffice;
+
     public function __construct(
         string $username,
         string $password,
-        string $environment
+        string $environment,
+        ?int $originOffice
     ) {
         $this->username = $username;
         $this->password = $password;
         $this->environment = $environment;
+        $this->originOffice = $originOffice;
     }
 
     public function getUsername(): string
@@ -35,5 +39,10 @@ final class OrlenApiConfig
     public function getEnvironment(): string
     {
         return $this->environment;
+    }
+
+    public function getOriginOffice(): ?int
+    {
+        return $this->originOffice;
     }
 }

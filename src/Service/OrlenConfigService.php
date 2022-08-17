@@ -22,11 +22,17 @@ final class OrlenConfigService implements OrlenConfigServiceInterface
         $username = $this->systemConfigService->getString(self:: SYSTEM_CONFIG_PREFIX . '.Username', $salesChannelId) ?: null;
         $password = $this->systemConfigService->getString(self:: SYSTEM_CONFIG_PREFIX . '.Password', $salesChannelId) ?: null;
         $environment = $this->systemConfigService->getString(self:: SYSTEM_CONFIG_PREFIX . '.Environment', $salesChannelId) ?: null;
+        $originOffice = $this->systemConfigService->getInt(self:: SYSTEM_CONFIG_PREFIX . '.OriginOffice', $salesChannelId) ?: null;
 
         if (null === $username || null === $password || null === $environment) {
-            throw new ApiConfigNotFoundException('api.credentialsDataNotFound');
+            throw new ApiConfigNotFoundException('config.notFound');
         }
 
-        return new OrlenApiConfig($username, $password, $environment);
+        return new OrlenApiConfig(
+            $username,
+            $password,
+            $environment,
+            $originOffice
+        );
     }
 }

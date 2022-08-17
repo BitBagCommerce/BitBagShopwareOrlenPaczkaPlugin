@@ -7,5 +7,29 @@
         "streetSplittingError": "Street and building number is invalid (valid format is: \"Street 11/2\")",
         "zipCodeInvalid": "Zip code is invalid (valid format is: 12-345)",
         "invalidPhoneNumberError": "Phone number is invalid (valid format: 111-222-333)"
+    },
+    "order": {
+        "address": {
+            "notFound": "Order address was not found"
+        },
+        "emailNotFound": "Email cannot be empty",
+        "customFields": {
+            "depthInvalid": "Package details: depth is invalid",
+            "heightInvalid": "Package details: height is invalid",
+            "widthInvalid": "Package details: width is invalid",
+            "packageContentsInvalid": "Package details: is package contents invalid",
+            "plannedShippingDateInvalid": "Package details: shipping date is invalid"
+        }
+    },
+    "package": {
+        "alreadyCreated": "A package has already been created"
+    },
+    "config": {
+        "notFound": "Add configuration first",
+        "emptyOriginOffice": "Please select an origin office in the plugin configuration first"
+    },
+    "cardDetails": {
+        "getLabel": "Get label",
+        "createPackage": "Create package"
     }
 }

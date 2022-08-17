@@ -10,5 +10,7 @@ interface OrlenConfigServiceInterface
 {
     public const SYSTEM_CONFIG_PREFIX = 'BitBagShopwareOrlenPaczkaPlugin.orlen';
 
+    public const PRODUCTION_ENVIRONMENT = 'production';
+
     public function getApiConfig(?string $salesChannelId = null): OrlenApiConfig;
 }

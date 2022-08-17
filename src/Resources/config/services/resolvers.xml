@@ -12,5 +12,7 @@
         </service>
 
         <service id="BitBag\ShopwareOrlenPaczkaPlugin\Resolver\PackageSizeResolver" />
+
+        <service id="BitBag\ShopwareOrlenPaczkaPlugin\Resolver\ApiResolver" />
     </services>
 </container>
