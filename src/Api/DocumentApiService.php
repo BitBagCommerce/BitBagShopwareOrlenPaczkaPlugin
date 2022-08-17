@@ -19,7 +19,7 @@ use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 
 final class DocumentApiService implements DocumentApiServiceInterface
 {
-    public const TEMP_NAME = 'image-import-';
+    public const TEMP_NAME = 'document-import-';
 
     public const MEDIA_DIR = '/public/media/';
 

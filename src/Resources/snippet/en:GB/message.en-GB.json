@@ -17,7 +17,7 @@
             "depthInvalid": "Package details: depth is invalid",
             "heightInvalid": "Package details: height is invalid",
             "widthInvalid": "Package details: width is invalid",
-            "packageContentsInvalid": "Package details: is package contents invalid",
+            "packageContentsInvalid": "Package details: package contents is invalid",
             "plannedShippingDateInvalid": "Package details: shipping date is invalid"
         }
     },
@@ -26,7 +26,7 @@
     },
     "config": {
         "notFound": "Add configuration first",
-        "emptyOriginOffice": "Please select an origin office in the plugin configuration first"
+        "emptyOriginOffice": "Select an origin office in the plugin configuration first"
     },
     "cardDetails": {
         "getLabel": "Get label",

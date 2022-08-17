@@ -44,7 +44,7 @@ final class OrderFinder implements OrderFinderInterface
         return $order;
     }
 
-    public function getWithAssociationsByOrdersIds(array $ordersIds, Context $context): EntitySearchResult
+    public function getWithAssociationsByOrderIds(array $ordersIds, Context $context): EntitySearchResult
     {
         $orderCriteria = new Criteria($ordersIds);
         $orderCriteria->addAssociations([

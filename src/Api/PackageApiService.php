@@ -121,11 +121,11 @@ final class PackageApiService implements PackageApiServiceInterface
         $packet = new Packet();
         $packet->setGuid($packageGuid);
 
-        $envelopeRequest = new SendEnvelopeRequest();
-        $envelopeRequest->setPacket($packet);
-        $envelopeRequest->setParcelOriginOffice($originOffice);
+        $sendEnvelopeRequest = new SendEnvelopeRequest();
+        $sendEnvelopeRequest->setPacket($packet);
+        $sendEnvelopeRequest->setParcelOriginOffice($originOffice);
 
-        $sendEnvelope = $client->sendEnvelope($envelopeRequest);
+        $sendEnvelope = $client->sendEnvelope($sendEnvelopeRequest);
         if ([] !== $sendEnvelope->getErrors()) {
             throw new PackageException($sendEnvelope->getErrors()[0]->getErrorDesc());
         }

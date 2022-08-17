@@ -12,5 +12,5 @@ interface OrderFinderInterface
 {
     public function getWithAssociations(string $orderId, Context $context): OrderEntity;
 
-    public function getWithAssociationsByOrdersIds(array $ordersIds, Context $context): EntitySearchResult;
+    public function getWithAssociationsByOrderIds(array $ordersIds, Context $context): EntitySearchResult;
 }

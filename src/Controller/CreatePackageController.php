@@ -86,7 +86,6 @@ final class CreatePackageController
         }
 
         $config = $this->orlenConfigService->getApiConfig();
-
         $package = $this->packageApiService->createPackage($config, $order, $context);
 
         $this->orderRepository->update([

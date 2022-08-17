@@ -18,7 +18,7 @@ final class OrlenApiConfig
         string $username,
         string $password,
         string $environment,
-        ?int $originOffice
+        ?int $originOffice = null
     ) {
         $this->username = $username;
         $this->password = $password;
