@@ -6,7 +6,7 @@ namespace BitBag\ShopwareOrlenPaczkaPlugin\Factory;
 
 interface RulePayloadFactoryInterface
 {
-    public const ALWAYS_VALID = 'Always valid (Default)';
+    public const DISABLE_PAYMENT_CASH_ON_DELIVERY = 'Hide InPost when Cash on Delivery is chosen';
 
-    public function create(string $name): array;
+    public function create(string $name, string $paymentMethodId): array;
 }
