@@ -43,9 +43,9 @@ final class PickupPointAddress
         return (int) $this->id;
     }
 
-    public function getPni(): string
+    public function getPni(): int
     {
-        return $this->pni;
+        return (int) $this->pni;
     }
 
     public function getCity(): string

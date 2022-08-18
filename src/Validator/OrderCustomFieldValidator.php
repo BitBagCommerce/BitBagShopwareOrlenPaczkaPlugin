@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace BitBag\ShopwareOrlenPaczkaPlugin\Validator;
 
-use BitBag\ShopwareOrlenPaczkaPlugin\Resolver\OrderCustomFieldResolverInterface;
+use BitBag\ShopwareOrlenPaczkaPlugin\Factory\CustomFieldsForPackageDetailsPayloadFactoryInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\ConstraintViolationListInterface;
 use Symfony\Component\Validator\Validation;
@@ -13,17 +13,11 @@ final class OrderCustomFieldValidator implements OrderCustomFieldValidatorInterf
 {
     public function validate(array $data): ConstraintViolationListInterface
     {
-        $depthKey = OrderCustomFieldResolverInterface::PACKAGE_DETAILS_KEY . '_depth';
-        $heightKey = OrderCustomFieldResolverInterface::PACKAGE_DETAILS_KEY . '_height';
-        $widthKey = OrderCustomFieldResolverInterface::PACKAGE_DETAILS_KEY . '_width';
-        $packageContentsKey = OrderCustomFieldResolverInterface::PACKAGE_DETAILS_KEY . '_package_contents';
-        $plannedShippingDateKey = OrderCustomFieldResolverInterface::PACKAGE_DETAILS_KEY . '_planned_shipping_date';
-
-        $data[$depthKey] ??= null;
-        $data[$heightKey] ??= null;
-        $data[$widthKey] ??= null;
-        $data[$packageContentsKey] ??= null;
-        $data[$plannedShippingDateKey] ??= null;
+        $depthKey = CustomFieldsForPackageDetailsPayloadFactoryInterface::PACKAGE_DETAILS_KEY . '_depth';
+        $heightKey = CustomFieldsForPackageDetailsPayloadFactoryInterface::PACKAGE_DETAILS_KEY . '_height';
+        $widthKey = CustomFieldsForPackageDetailsPayloadFactoryInterface::PACKAGE_DETAILS_KEY . '_width';
+        $packageContentsKey = CustomFieldsForPackageDetailsPayloadFactoryInterface::PACKAGE_DETAILS_KEY . '_package_contents';
+        $plannedShippingDateKey = CustomFieldsForPackageDetailsPayloadFactoryInterface::PACKAGE_DETAILS_KEY . '_planned_shipping_date';
 
         $constraint = new Assert\Collection([
             $depthKey => [
@@ -56,12 +50,16 @@ final class OrderCustomFieldValidator implements OrderCustomFieldValidatorInterf
                 ]),
                 new Assert\NotEqualTo(0, null, 'order.customFields.widthInvalid'),
             ],
-            $packageContentsKey => new Assert\NotBlank([
-                'message' => 'order.customFields.package_contentsInvalid',
-            ]),
-            $plannedShippingDateKey => new Assert\NotBlank([
-                'message' => 'order.customFields.plannedShippingDateInvalid',
-            ]),
+            $packageContentsKey => [
+                new Assert\NotBlank([
+                    'message' => 'order.customFields.packageContentsInvalid',
+                ]),
+            ],
+            $plannedShippingDateKey => [
+                new Assert\NotBlank([
+                    'message' => 'order.customFields.plannedShippingDateInvalid',
+                ]),
+            ],
         ]);
 
         return Validation::createValidator()->validate($data, $constraint);

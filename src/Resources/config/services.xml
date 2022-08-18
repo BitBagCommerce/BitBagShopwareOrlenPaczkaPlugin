@@ -8,7 +8,9 @@
     </imports>
 
     <services>
-        <service id="BitBag\ShopwareOrlenPaczkaPlugin\BitBagShopwareOrlenPaczkaPlugin">
+        <service class="BitBag\ShopwareOrlenPaczkaPlugin\BitBagShopwareOrlenPaczkaPlugin"
+                 id="BitBag\ShopwareOrlenPaczkaPlugin\BitBagShopwareOrlenPaczkaPlugin"
+        >
             <call method="setCustomFieldSetConfigurator">
                 <argument type="service" id="BitBag\ShopwareOrlenPaczkaPlugin\Plugin\CustomFieldSetConfigurator" />
             </call>

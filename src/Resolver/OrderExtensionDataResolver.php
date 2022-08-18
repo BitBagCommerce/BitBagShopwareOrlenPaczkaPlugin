@@ -30,4 +30,14 @@ final class OrderExtensionDataResolver implements OrderExtensionDataResolverInte
             $data['pickupPointZipCode'],
         );
     }
+
+    public function getData(OrderEntity $order): array
+    {
+        $orderExtension = $order->getExtension(OrlenOrderExtension::PROPERTY_KEY);
+        if (null === $orderExtension) {
+            throw new OrderExtensionNotFoundException('order.extension.notFound');
+        }
+
+        return $orderExtension->getVars()['data'];
+    }
 }

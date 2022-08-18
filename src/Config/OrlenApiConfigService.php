@@ -22,11 +22,17 @@ final class OrlenApiConfigService implements OrlenApiConfigServiceInterface
         $username = $this->systemConfigService->getString(self:: SYSTEM_CONFIG_PREFIX . 'username', $salesChannelId) ?: null;
         $password = $this->systemConfigService->getString(self:: SYSTEM_CONFIG_PREFIX . 'password', $salesChannelId) ?: null;
         $environment = $this->systemConfigService->getString(self:: SYSTEM_CONFIG_PREFIX . 'environment', $salesChannelId) ?: null;
+        $originOffice = $this->systemConfigService->getInt(self:: SYSTEM_CONFIG_PREFIX . 'originOffice', $salesChannelId) ?: null;
 
         if (null === $username || null === $password || null === $environment) {
-            throw new InvalidApiConfigException();
+            throw new InvalidApiConfigException('config.invalid');
         }
 
-        return new OrlenApiConfig($username, $password, $environment);
+        return new OrlenApiConfig(
+            $username,
+            $password,
+            $environment,
+            $originOffice
+        );
     }
 }

@@ -45,7 +45,7 @@ final class CredentialsController
             $client->getOriginOffices();
         } catch (\SoapFault $e) {
             if (self::STATUS_UNAUTHORIZED === $e->getMessage()) {
-                throw new InvalidApiConfigException();
+                throw new InvalidApiConfigException('config.invalid');
             }
         }
 
