@@ -9,8 +9,9 @@ use PHPUnit\Framework\TestCase;
 
 class RulePayloadFactoryTest extends TestCase
 {
-    const NAME = 'rule-factory';
-    const PAYMENT_METHOD_ID = '123';
+    public const NAME = 'rule-factory';
+
+    public const PAYMENT_METHOD_ID = '123';
 
     public function testCreate(): void
     {
