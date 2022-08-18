@@ -93,7 +93,7 @@ final class PackageApiService implements PackageApiServiceInterface
 
         $firstPackageResponse = $shipment->getAddDeliveryResponseItems()[0];
         if ([] !== $firstPackageResponse->getErrors()) {
-            throw new PackageException($firstPackageResponse->getErrors()[0]->getErrorDesc());
+            throw new PackageException('api.' . $firstPackageResponse->getErrors()[0]->getErrorDesc());
         }
 
         $this->documentApiService->uploadOrderLabel(
@@ -127,7 +127,7 @@ final class PackageApiService implements PackageApiServiceInterface
 
         $sendEnvelope = $client->sendEnvelope($sendEnvelopeRequest);
         if ([] !== $sendEnvelope->getErrors()) {
-            throw new PackageException($sendEnvelope->getErrors()[0]->getErrorDesc());
+            throw new PackageException('api.' . $sendEnvelope->getErrors()[0]->getErrorDesc());
         }
     }
 }

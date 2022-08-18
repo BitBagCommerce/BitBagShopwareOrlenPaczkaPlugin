@@ -10,7 +10,6 @@ use Shopware\Core\Checkout\Order\OrderEntity;
 use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
-use Shopware\Core\Framework\DataAbstractionLayer\Search\EntitySearchResult;
 
 final class OrderFinder implements OrderFinderInterface
 {
@@ -34,6 +33,8 @@ final class OrderFinder implements OrderFinderInterface
             'transactions.paymentMethod',
             OrlenOrderExtension::PROPERTY_KEY,
             'salesChannel',
+            'documents',
+            'documents.documentMediaFile',
         ]);
 
         $order = $this->orderRepository->search($orderCriteria, $context)->first();
@@ -42,23 +43,5 @@ final class OrderFinder implements OrderFinderInterface
         }
 
         return $order;
-    }
-
-    public function getWithAssociationsByOrderIds(array $ordersIds, Context $context): EntitySearchResult
-    {
-        $orderCriteria = new Criteria($ordersIds);
-        $orderCriteria->addAssociations([
-            'deliveries',
-            'lineItems',
-            'lineItems.product',
-            'deliveries.shippingMethod',
-            'addresses',
-            'transactions',
-            'transactions.paymentMethod',
-            OrlenOrderExtension::PROPERTY_KEY,
-            'salesChannel',
-        ]);
-
-        return $this->orderRepository->search($orderCriteria, $context);
     }
 }

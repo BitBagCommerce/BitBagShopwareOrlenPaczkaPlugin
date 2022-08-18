@@ -2,6 +2,7 @@ import './init/custom-api-service.init';
 import './component/orlen-detail-card';
 import './component/orlen-pickup-point-details';
 import './component/orlen-pickup-point-details-create-package';
+import './component/orlen-pickup-point-details-get-label';
 import './extension/sw-order/sw-order-detail-base';
 import './init/orlen-credentials.init';
 import './component/orlen-pickup-point-settings-base';

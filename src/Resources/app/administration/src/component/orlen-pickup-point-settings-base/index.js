@@ -40,13 +40,6 @@ Shopware.Component.register('orlen-pickup-point-settings-base', {
                 return configValue;
             };
 
-            const createMissingFieldNotification = (name) => {
-                return this.createNotificationError({
-                    title: this.$tc('config.field.missing'),
-                    message: this.$tc('config.field.missing') + ': ' + this.$tc('config.field.' + name)
-                })
-            }
-
             const username = getConfigValue('username');
             const password = getConfigValue('password');
             const environment = getConfigValue('environment');
@@ -55,11 +48,13 @@ Shopware.Component.register('orlen-pickup-point-settings-base', {
                 await this.orlenCredentialsService.checkCredentials(username, password, environment);
 
                 this.createNotificationSuccess({
-                    message: this.$tc('config.saved')
+                    message: this.$tc('config.credentialsDataValid')
                 });
             } catch (e) {
-                const field = e.response.data?.errors[0]?.detail;
-                createMissingFieldNotification(field);
+                const message = e.response.data?.errors[0]?.detail;
+                this.createNotificationError({
+                    message: this.$tc(message)
+                });
             }
         },
 

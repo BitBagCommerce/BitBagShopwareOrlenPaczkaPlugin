@@ -19,7 +19,7 @@ Component.register('orlen-pickup-point-details-create-package', {
     created() {
         const order = this.order;
 
-        if (order?.extensions?.orlenPaczka?.packageId) {
+        if (order?.extensions?.orlen?.packageId) {
             this.showButton = false;
         }
     },
@@ -38,13 +38,16 @@ Component.register('orlen-pickup-point-details-create-package', {
                 .catch((err) => {
                     if (err.response && err.response.data) {
                         const responseData = err.response.data;
-
                         if (responseData && responseData.errors && responseData.errors.length > 0) {
                             const error = responseData.errors[0];
-
                             if (error) {
+                                let errorMessage = error.detail;
+                                if (errorMessage.at(-1) === '.') {
+                                    errorMessage = error.detail.slice(0, -1)
+                                }
+
                                 this.createNotificationError({
-                                    message: this.$tc(error.detail).replace('%s', orderId)
+                                    message: this.$tc(errorMessage).replace('%s', orderId)
                                 });
                             }
                         }

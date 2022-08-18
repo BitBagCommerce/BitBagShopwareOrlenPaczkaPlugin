@@ -18,6 +18,15 @@ class OrlenPaczkaApiService extends ApiService {
                 }
             });
     }
+
+    getLabel(orderId) {
+        const apiRoute = `${this.getApiBasePath()}/_action/bitbag-orlen-paczka-plugin/label/${orderId}`;
+
+        return this.httpClient
+            .get(apiRoute, { responseType: 'blob' }, {
+                headers: this.getBasicHeaders()
+            });
+    }
 }
 
 export default OrlenPaczkaApiService;
