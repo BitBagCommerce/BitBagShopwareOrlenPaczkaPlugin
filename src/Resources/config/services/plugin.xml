@@ -13,6 +13,7 @@
 
         <service id="BitBag\ShopwareOrlenPaczkaPlugin\Plugin\RuleConfigurator">
             <argument type="service" id="BitBag\ShopwareOrlenPaczkaPlugin\Finder\RuleFinder" />
+            <argument type="service" id="BitBag\ShopwareOrlenPaczkaPlugin\Finder\CashOnDeliveryPaymentMethodFinder" />
             <argument type="service" id="BitBag\ShopwareOrlenPaczkaPlugin\Factory\RulePayloadFactory" />
             <argument type="service" id="rule.repository" />
         </service>
