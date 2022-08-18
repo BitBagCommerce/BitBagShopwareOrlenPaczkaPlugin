@@ -24,9 +24,5 @@
         <service id="BitBag\ShopwareOrlenPaczkaPlugin\Finder\OrderFinder">
             <argument type="service" id="order.repository"/>
         </service>
-
-        <service id="BitBag\ShopwareOrlenPaczkaPlugin\Finder\CashOnDeliveryPaymentMethodFinder">
-            <argument type="service" id="payment_method.repository" />
-        </service>
     </services>
 </container>
