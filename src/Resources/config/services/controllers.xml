@@ -20,5 +20,13 @@
 
             <tag name="controller.service_arguments"/>
         </service>
+
+        <service id="BitBag\ShopwareOrlenPaczkaPlugin\Controller\LabelController">
+            <argument type="service" id="BitBag\ShopwareOrlenPaczkaPlugin\Finder\OrderFinder" />
+            <argument type="service" id="BitBag\ShopwareOrlenPaczkaPlugin\Resolver\OrderExtensionDataResolver" />
+            <argument type="service" id="Shopware\Core\Content\Media\MediaService" />
+
+            <tag name="controller.service_arguments"/>
+        </service>
     </services>
 </container>

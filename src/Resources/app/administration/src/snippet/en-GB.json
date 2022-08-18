@@ -10,7 +10,9 @@
         },
         "invalid": "Provided API config is invalid",
         "emptyOriginOffice": "Select an origin office in the plugin configuration first",
-        "apiConfiguration": "API configuration"
+        "apiConfiguration": "API configuration",
+        "credentialsDataValid": "Provided data is valid",
+        "credentialsDataNotValid": "Provided data is not valid"
     },
     "order": {
         "emailNotFound": "Email cannot be empty",
@@ -22,7 +24,10 @@
             "notFound": "Order address was not found",
             "phoneNumberEmpty": "Phone number cannot be empty",
             "phoneNumberInvalid": "Phone number is invalid",
-            "postCodeInvalid": "Post code is invalid"
+            "postCodeInvalid": "Post code is invalid",
+            "shippingMethod": {
+                "notOrlenPaczka": "Selected shipping method is not Orlen Paczka"
+            }
         },
         "products": {
             "nullWeight": "Package weight must be greater than 0.0 kg",
@@ -37,6 +42,7 @@
         }
     },
     "package": {
+        "notFound": "Package was not found",
         "alreadyCreated": "A package has already been created",
         "depthTooLarge": "Package is too large (depth cannot be larger than 120cm)",
         "tooLarge": "Package is too large (area of height, width and depth cannot be larger than 250cm)"
@@ -44,5 +50,13 @@
     "cardDetails": {
         "getLabel": "Get label",
         "createPackage": "Create package"
+    },
+    "document": {
+        "notFound": "Document was not found",
+        "mediaNotFound": "Media in document was not found"
+    },
+    "api": {
+        "Przekazana planowana data nadania dla przesyłki jest w przeszłości": "Planned shipping date is in the past",
+        "Numer nie należy do sieci mobilnej": "Phone number is incorrect (The number is not a mobile number)"
     }
 }

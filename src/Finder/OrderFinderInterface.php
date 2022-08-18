@@ -6,11 +6,8 @@ namespace BitBag\ShopwareOrlenPaczkaPlugin\Finder;
 
 use Shopware\Core\Checkout\Order\OrderEntity;
 use Shopware\Core\Framework\Context;
-use Shopware\Core\Framework\DataAbstractionLayer\Search\EntitySearchResult;
 
 interface OrderFinderInterface
 {
     public function getWithAssociations(string $orderId, Context $context): OrderEntity;
-
-    public function getWithAssociationsByOrderIds(array $ordersIds, Context $context): EntitySearchResult;
 }
