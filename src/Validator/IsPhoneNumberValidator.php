@@ -22,7 +22,7 @@ final class IsPhoneNumberValidator extends ConstraintValidator
 
         $phoneNumber = str_replace(['+48', '+', '-', ' '], '', (string) $value);
         if ('' === $phoneNumber) {
-            $this->context->buildViolation('bitbag.shopware_poczta_polska_app.order.address.phone_number_empty')
+            $this->context->buildViolation('order.address.phoneNumberEmpty')
                          ->addViolation();
 
             return;
@@ -30,7 +30,7 @@ final class IsPhoneNumberValidator extends ConstraintValidator
 
         preg_match(self::PHONE_NUMBER_REGEX, $phoneNumber, $phoneNumberMatches);
         if ([] === $phoneNumberMatches) {
-            $this->context->buildViolation('bitbag.shopware_poczta_polska_app.order.address.phone_number_invalid')
+            $this->context->buildViolation('order.address.phoneNumberInvalid')
                           ->addViolation();
 
             return;
@@ -38,7 +38,7 @@ final class IsPhoneNumberValidator extends ConstraintValidator
 
         $phoneNumberLength = strlen($phoneNumberMatches[0]);
         if (self::PHONE_NUMBER_LENGTH !== $phoneNumberLength) {
-            $this->context->buildViolation('bitbag.shopware_poczta_polska_app.order.address.phone_number_invalid')
+            $this->context->buildViolation('order.address.phoneNumberInvalid')
                           ->addViolation();
         }
     }

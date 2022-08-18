@@ -1,8 +1,12 @@
-import './view/orlen-detail-card';
-import './view/orlen-pickup-point-details';
+import './init/custom-api-service.init';
+import './component/orlen-detail-card';
+import './component/orlen-pickup-point-details';
+import './component/orlen-pickup-point-details-create-package';
 import './extension/sw-order/sw-order-detail-base';
 import './init/orlen-credentials.init';
-import './component/bitbag-orlen-pickup-settings-base';
+import './component/orlen-pickup-point-settings-base';
+import './component/orlen-pickup-point-settings-icon';
+import './service/api/orlen-paczka-api.service';
 
 Shopware.Module.register('bitbag-orlen', {
     type: 'plugin',
@@ -15,7 +19,7 @@ Shopware.Module.register('bitbag-orlen', {
     icon: 'default-action-settings',
     routes: {
         index: {
-            component: 'bitbag-orlen-pickup-settings-base',
+            component: 'orlen-pickup-point-settings-base',
             path: 'index',
             meta: {
                 parentPath: 'sw.settings.index',
@@ -25,7 +29,7 @@ Shopware.Module.register('bitbag-orlen', {
     settingsItem: {
         group: 'plugins',
         to: 'bitbag.orlen.index',
-        iconComponent: 'bitbag-orlen-pickup-settings-icon',
+        iconComponent: 'orlen-pickup-point-settings-icon',
         backgroundEnabled: false,
     },
 });

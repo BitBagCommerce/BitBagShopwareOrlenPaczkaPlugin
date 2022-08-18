@@ -15,16 +15,13 @@ use BitBag\PPClient\Factory\Response\SendEnvelopeResponseFactory;
 use BitBag\PPClient\Normalizer\ArrayNormalizer;
 use BitBag\ShopwareOrlenPaczkaPlugin\Model\OrlenApiConfig;
 
-final class PPClientResolver implements PPClientResolverInterface
+final class ApiResolver implements ApiResolverInterface
 {
-    public const PRODUCTION_ENVIRONMENT = 'production';
-
-    public function resolve(OrlenApiConfig $config): PPClient
+    public function getClient(OrlenApiConfig $config): PPClient
     {
         $arrayNormalizer = new ArrayNormalizer();
         $soapClientFactory = new SoapClientFactory();
-
-        $wsdlFile = self::PRODUCTION_ENVIRONMENT === $config->getEnvironment() ?
+        $wsdlFile = PPClientResolver::PRODUCTION_ENVIRONMENT === $config->getEnvironment() ?
             'client_prod.wsdl' :
             'client_dev.wsdl';
         $ppClientConfiguration = new PPClientConfiguration(

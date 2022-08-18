@@ -8,8 +8,8 @@
         <input-field>
             <name>username</name>
             <label>Username</label>
-            <placeholder>API Username</placeholder>
-            <label lang="pl-PL">Nazwa użytkownika API</label>
+            <placeholder>Username</placeholder>
+            <label lang="pl-PL">Nazwa użytkownika</label>
             <placeholder lang="pl-PL">Nazwa użytkownika</placeholder>
             <required>true</required>
         </input-field>
@@ -17,9 +17,9 @@
         <input-field>
             <name>password</name>
             <label>Password</label>
-            <placeholder>API Password</placeholder>
+            <placeholder>Password</placeholder>
             <label lang="pl-PL">Hasło</label>
-            <placeholder lang="pl-PL">Hasło do API</placeholder>
+            <placeholder lang="pl-PL">Hasło</placeholder>
             <required>true</required>
         </input-field>
 

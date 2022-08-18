@@ -5,18 +5,14 @@ declare(strict_types=1);
 namespace BitBag\ShopwareOrlenPaczkaPlugin\Tests\Factory\Package;
 
 use BitBag\PPClient\Model\Address;
-use BitBag\PPClient\Model\COD;
 use BitBag\PPClient\Model\EpoSimple;
 use BitBag\PPClient\Model\PackageContent;
 use BitBag\PPClient\Model\PaidByEnum;
-use BitBag\PPClient\Model\PaidByReceiver;
-use BitBag\PPClient\Model\PaidByReceiverEnum;
 use BitBag\PPClient\Model\PocztexCourier;
 use BitBag\PPClient\Model\PocztexPackageSizeEnum;
 use BitBag\PPClient\Model\PostOffice;
 use BitBag\ShopwareOrlenPaczkaPlugin\Calculator\OrderWeightCalculatorInterface;
 use BitBag\ShopwareOrlenPaczkaPlugin\Factory\Package\PackageFactory;
-use BitBag\ShopwareOrlenPaczkaPlugin\Factory\Package\PackageFactoryInterface;
 use BitBag\ShopwareOrlenPaczkaPlugin\Factory\Package\PostOfficeFactoryInterface;
 use BitBag\ShopwareOrlenPaczkaPlugin\Model\OrderCustomFieldModel;
 use BitBag\ShopwareOrlenPaczkaPlugin\Model\PickupPointAddress;
@@ -24,10 +20,7 @@ use BitBag\ShopwareOrlenPaczkaPlugin\Resolver\OrderCustomFieldResolverInterface;
 use BitBag\ShopwareOrlenPaczkaPlugin\Resolver\OrderExtensionDataResolverInterface;
 use BitBag\ShopwareOrlenPaczkaPlugin\Resolver\PackageSizeResolverInterface;
 use PHPUnit\Framework\TestCase;
-use Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionCollection;
-use Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionEntity;
 use Shopware\Core\Checkout\Order\OrderEntity;
-use Shopware\Core\Checkout\Payment\PaymentMethodEntity;
 use Shopware\Core\Framework\Context;
 
 final class PackageFactoryTest extends TestCase
@@ -38,10 +31,6 @@ final class PackageFactoryTest extends TestCase
 
     private const PACKAGE_CONTENTS = 'T-shirt';
 
-    private const TOTAL_AMOUNT = 10.0;
-
-    private const TOTAL_AMOUNT_INT = 1000;
-
     private const DEPTH = 10;
 
     private const HEIGHT = 10;
@@ -51,7 +40,6 @@ final class PackageFactoryTest extends TestCase
     public function testCreateWithPaymentPaidInAdvance(): void
     {
         $order = new OrderEntity();
-        $order->setAmountTotal(self::TOTAL_AMOUNT);
         $order->setCustomFields($this->getCustomFields());
 
         $orderWeightCalculator = $this->createMock(OrderWeightCalculatorInterface::class);
@@ -86,73 +74,6 @@ final class PackageFactoryTest extends TestCase
             $packageFactory->getPacketGuid(),
             $packageFactory->getPackagingGuid()
         );
-
-        self::assertEquals(
-            $package,
-            $packageFactory
-        );
-    }
-
-    public function testCreateWithPaymentCashOnDelivery(): void
-    {
-        $order = new OrderEntity();
-        $order->setAmountTotal(self::TOTAL_AMOUNT);
-        $order->setCustomFields($this->getCustomFields());
-
-        $paymentMethod = new PaymentMethodEntity();
-        $paymentMethod->setHandlerIdentifier(PackageFactoryInterface::CASH_PAYMENT_CLASS);
-
-        $orderTransaction = new OrderTransactionEntity();
-        $orderTransaction->setPaymentMethod($paymentMethod);
-        $orderTransaction->setUniqueIdentifier('foo');
-
-        $order->setTransactions(new OrderTransactionCollection([$orderTransaction]));
-
-        $context = $this->createMock(Context::class);
-
-        $orderWeightCalculator = $this->createMock(OrderWeightCalculatorInterface::class);
-        $orderWeightCalculator->method('calculate')->willReturn(self::ORDER_WEIGHT);
-
-        $orderCustomFieldResolver = $this->createMock(OrderCustomFieldResolverInterface::class);
-        $orderCustomFieldResolver->method('resolve')->willReturn($this->getCustomFieldsModel());
-
-        $packageSizeResolver = $this->createMock(PackageSizeResolverInterface::class);
-        $packageSizeResolver->method('resolve')->willReturn(PocztexPackageSizeEnum::S);
-
-        $postOfficeFactory = $this->createMock(PostOfficeFactoryInterface::class);
-        $postOfficeFactory->method('create')->willReturn(new PostOffice());
-
-        $orderExtensionDataResolver = $this->createMock(OrderExtensionDataResolverInterface::class);
-        $orderExtensionDataResolver->method('getPickupPointAddress')
-                                   ->willReturn($this->getPickupPointAddress());
-
-        $packageFactory = new PackageFactory(
-            $orderWeightCalculator,
-            $orderCustomFieldResolver,
-            $packageSizeResolver,
-            $postOfficeFactory,
-            $orderExtensionDataResolver
-        );
-        $packageFactory = $packageFactory->create($order, new Address(), $context);
-
-        $package = $this->createPackage(
-            $packageFactory->getGuid(),
-            $packageFactory->getPacketGuid(),
-            $packageFactory->getPackagingGuid()
-        );
-        $package->setPaidBy(PaidByEnum::RECEIVER);
-
-        $paidByReceiver = new PaidByReceiver();
-        $paidByReceiver->setType(PaidByReceiverEnum::INDIVIDUAL_RECEIVER);
-
-        $package->setPaidByReceiver($paidByReceiver);
-
-        $cod = new COD();
-        $cod->setTotalAmount(self::TOTAL_AMOUNT_INT);
-        $cod->setCodType(COD::COD_TYPE_POSTAL_ORDER);
-        $cod->setToBeCheckedByReceiver(false);
-
-        $package->setCod($cod);
 
         self::assertEquals(
             $package,
@@ -192,7 +113,6 @@ final class PackageFactoryTest extends TestCase
         $package->setAddress(new Address());
         $package->setPlannedShippingDate(new \DateTime(self::PLANNED_SHIPPING_DATE));
         $package->setWeight((int) (self::ORDER_WEIGHT * 1000));
-        $package->setTotalAmount(self::TOTAL_AMOUNT_INT);
         $package->setPacketGuid($packetGuid);
         $package->setPackagingGuid($packagingGuid);
         $package->setDescription(self::PACKAGE_CONTENTS);

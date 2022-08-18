@@ -4,6 +4,14 @@ declare(strict_types=1);
 
 namespace BitBag\ShopwareOrlenPaczkaPlugin;
 
+if (file_exists(\dirname(__DIR__) . '/vendor/autoload.php')) {
+    $loader = require \dirname(__DIR__) . '/vendor/autoload.php';
+    if (true !== $loader) {
+        spl_autoload_unregister([$loader, 'loadClass']);
+        $loader->register(false);
+    }
+}
+
 use BitBag\ShopwareOrlenPaczkaPlugin\Config\OrlenApiConfigServiceInterface;
 use BitBag\ShopwareOrlenPaczkaPlugin\Extension\Order\OrlenOrderExtensionDefinition;
 use BitBag\ShopwareOrlenPaczkaPlugin\Factory\CustomFieldsForPackageDetailsPayloadFactoryInterface;

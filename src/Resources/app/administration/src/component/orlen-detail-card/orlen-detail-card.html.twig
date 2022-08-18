@@ -2,6 +2,10 @@
     <sw-card title="Orlen Paczka">
         <div class="container">
             <orlen-pickup-point-details :order="order" />
+
+            <div class="actions">
+                <orlen-pickup-point-details-create-package :order="order" />
+            </div>
         </div>
     </sw-card>
 </div>

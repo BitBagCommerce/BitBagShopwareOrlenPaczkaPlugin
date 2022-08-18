@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace BitBag\ShopwareOrlenPaczkaPlugin\Test\Factory;
+namespace BitBag\ShopwareOrlenPaczkaPlugin\Tests\Factory;
 
 use BitBag\ShopwareOrlenPaczkaPlugin\Factory\DeliveryTimePayloadFactory;
 use PHPUnit\Framework\TestCase;

@@ -10,4 +10,6 @@ use Shopware\Core\Checkout\Order\OrderEntity;
 interface OrderExtensionDataResolverInterface
 {
     public function getPickupPointAddress(OrderEntity $order): PickupPointAddress;
+
+    public function getData(OrderEntity $order): array;
 }

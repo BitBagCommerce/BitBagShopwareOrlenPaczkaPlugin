@@ -10,7 +10,6 @@ use Shopware\Core\Framework\DataAbstractionLayer\Field\FkField;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\Flag\PrimaryKey;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\Flag\Required;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\IdField;
-use Shopware\Core\Framework\DataAbstractionLayer\Field\IntField;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\OneToOneAssociationField;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\StringField;
 use Shopware\Core\Framework\DataAbstractionLayer\FieldCollection;
@@ -34,7 +33,7 @@ final class OrlenOrderExtensionDefinition extends EntityDefinition
             (new StringField('pickup_point_province', 'pickupPointProvince'))->addFlags(new Required()),
             (new StringField('pickup_point_street', 'pickupPointStreet'))->addFlags(new Required()),
             (new StringField('pickup_point_zip_code', 'pickupPointZipCode'))->addFlags(new Required()),
-            new IntField('package_id', 'packageId'),
+            new StringField('package_id', 'packageId'),
             new FkField('order_id', 'orderId', OrderDefinition::class),
             new OneToOneAssociationField('order', 'order_id', 'id', OrderDefinition::class, false),
         ]);

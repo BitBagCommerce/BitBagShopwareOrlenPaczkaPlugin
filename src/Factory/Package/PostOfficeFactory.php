@@ -12,7 +12,7 @@ final class PostOfficeFactory implements PostOfficeFactoryInterface
     public function create(PickupPointAddress $pickupPointAddress): PostOffice
     {
         $postOffice = new PostOffice();
-        $postOffice->setId($pickupPointAddress->getId());
+        $postOffice->setId($pickupPointAddress->getPni());
         $postOffice->setPrefix('URZAD');
         $postOffice->setName($pickupPointAddress->getName());
         $postOffice->setPostalNetwork('ORLEN');

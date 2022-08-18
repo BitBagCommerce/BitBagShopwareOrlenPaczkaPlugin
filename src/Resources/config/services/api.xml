@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <service id="BitBag\ShopwareOrlenPaczkaPlugin\Api\PackageApiService">
+            <argument type="service" id="BitBag\ShopwareOrlenPaczkaPlugin\Factory\Package\AddressFactory" />
+            <argument type="service" id="BitBag\ShopwareOrlenPaczkaPlugin\Factory\Package\PackageFactory" />
+            <argument type="service" id="BitBag\ShopwareOrlenPaczkaPlugin\Resolver\ApiResolver" />
+            <argument type="service" id="BitBag\ShopwareOrlenPaczkaPlugin\Api\DocumentApiService" />
+        </service>
+
+        <service id="BitBag\ShopwareOrlenPaczkaPlugin\Api\DocumentApiService">
+            <argument type="service" id="Shopware\Core\Checkout\Document\DocumentService" />
+            <argument type="service" id="Shopware\Core\Content\Media\MediaService" />
+            <argument type="service" id="Shopware\Core\Content\Media\File\FileSaver" />
+            <argument type="service" id="document.repository" />
+            <argument type="service" id="media.repository" />
+        </service>
+    </services>
+</container>

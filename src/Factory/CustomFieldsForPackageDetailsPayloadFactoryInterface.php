@@ -6,7 +6,7 @@ namespace BitBag\ShopwareOrlenPaczkaPlugin\Factory;
 
 interface CustomFieldsForPackageDetailsPayloadFactoryInterface
 {
-    public const PACKAGE_DETAILS_KEY = 'bitbag_orlen_package_details';
+    public const PACKAGE_DETAILS_KEY = 'bitbag_shopware_orlen_paczka_plugin_package_details';
 
     public const TECHNICAL_NAME = 'config.technical_name';
 

@@ -1,6 +1,6 @@
-import template from './bitbag-orlen-pickup-settings-base.html.twig';
+import template from './orlen-pickup-point-settings-base.html.twig';
 
-Shopware.Component.register('bitbag-orlen-pickup-settings-base', {
+Shopware.Component.register('orlen-pickup-point-settings-base', {
     template,
     inject: [
         'systemConfigApiService',
