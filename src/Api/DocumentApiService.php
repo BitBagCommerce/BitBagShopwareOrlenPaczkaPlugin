@@ -82,7 +82,7 @@ final class DocumentApiService implements DocumentApiServiceInterface
                 'pdf',
                 $fileSize
             );
-            $mediaId = $this->mediaService->createMediaInFolder(self::MEDIA_FOLDER, $context, true);
+            $mediaId = $this->mediaService->createMediaInFolder(self::MEDIA_FOLDER, $context, false);
             $this->fileSaver->persistFileToMedia(
                 $mediaFile,
                 $fileName,
@@ -91,28 +91,32 @@ final class DocumentApiService implements DocumentApiServiceInterface
             );
         } catch (DuplicatedMediaFileNameException $e) {
             $this->mediaCleanup($mediaId, $context);
-            $mediaId = null;
+
+            unlink($filenameWithExtension);
+
+            throw $e;
         } catch (\Exception $e) {
             $this->mediaCleanup($mediaId, $context);
-            $mediaId = null;
+
+            unlink($filenameWithExtension);
+
+            throw $e;
         }
 
-        if (null !== $mediaId) {
-            $createdDocument = $this->documentService->create(
-                $orderId,
-                'delivery_note',
-                'pdf',
-                new DocumentConfiguration(),
-                $context
-            );
+        $createdDocument = $this->documentService->create(
+            $orderId,
+            'delivery_note',
+            'pdf',
+            new DocumentConfiguration(),
+            $context
+        );
 
-            $this->documentRepository->update([
-                [
-                    'id' => $createdDocument->getId(),
-                    'documentMediaFileId' => $mediaId,
-                ],
-            ], $context);
-        }
+        $this->documentRepository->update([
+            [
+                'id' => $createdDocument->getId(),
+                'documentMediaFileId' => $mediaId,
+            ],
+        ], $context);
 
         unlink($filenameWithExtension);
     }
