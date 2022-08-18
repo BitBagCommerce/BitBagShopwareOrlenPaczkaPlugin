@@ -22,7 +22,7 @@
         </service>
 
         <service id="BitBag\ShopwareOrlenPaczkaPlugin\Finder\CashOnDeliveryPaymentMethodFinder">
-            <argument type="service" id="app_payment_method.repository"/>
+            <argument type="service" id="payment_method.repository" />
         </service>
     </services>
 </container>

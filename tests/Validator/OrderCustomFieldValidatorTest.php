@@ -14,6 +14,7 @@ final class OrderCustomFieldValidatorTest extends TestCase
     public function testValidator(string $key, string $value): void
     {
         $orderCustomFieldValidator = new OrderCustomFieldValidator();
+
         self::assertEquals(
             4,
             $orderCustomFieldValidator->validate([$key => $value])->count()
@@ -23,9 +24,9 @@ final class OrderCustomFieldValidatorTest extends TestCase
     public function provideData(): array
     {
         return [
-           [OrderCustomFieldResolverInterface::PACKAGE_DETAILS_KEY . '_depth', 'foo'],
-           [OrderCustomFieldResolverInterface::PACKAGE_DETAILS_KEY . '_height', 'foo'],
-           [OrderCustomFieldResolverInterface::PACKAGE_DETAILS_KEY . '_width', 'foo'],
+           [OrderCustomFieldResolverInterface::PACKAGE_DETAILS_KEY . '_depth', '11'],
+           [OrderCustomFieldResolverInterface::PACKAGE_DETAILS_KEY . '_height', '11'],
+           [OrderCustomFieldResolverInterface::PACKAGE_DETAILS_KEY . '_width', '11'],
            [OrderCustomFieldResolverInterface::PACKAGE_DETAILS_KEY . '_package_contents', 'foo'],
            [OrderCustomFieldResolverInterface::PACKAGE_DETAILS_KEY . '_planned_shipping_date', 'foo'],
         ];

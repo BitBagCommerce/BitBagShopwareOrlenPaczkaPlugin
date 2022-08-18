@@ -9,16 +9,26 @@ use PHPUnit\Framework\TestCase;
 
 class RulePayloadFactoryTest extends TestCase
 {
+    const NAME = 'rule-factory';
+    const PAYMENT_METHOD_ID = '123';
+
     public function testCreate(): void
     {
-        $name = 'rule-factory';
-
         self::assertEquals(
             [
-                'name' => $name,
+                'name' => self::NAME,
                 'priority' => 100,
+                'conditions' => [
+                    [
+                        'type' => 'paymentMethod',
+                        'value' => [
+                            'paymentMethodIds' => [self::PAYMENT_METHOD_ID],
+                            'operator' => '!=',
+                        ],
+                    ],
+                ],
             ],
-            (new RulePayloadFactory())->create($name, '')
+            (new RulePayloadFactory())->create(self::NAME, self::PAYMENT_METHOD_ID)
         );
     }
 }
