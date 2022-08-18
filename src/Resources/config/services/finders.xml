@@ -21,6 +21,10 @@
             <argument type="service" id="custom_field_set.repository" />
         </service>
 
+        <service id="BitBag\ShopwareOrlenPaczkaPlugin\Finder\OrderFinder">
+            <argument type="service" id="order.repository"/>
+        </service>
+
         <service id="BitBag\ShopwareOrlenPaczkaPlugin\Finder\CashOnDeliveryPaymentMethodFinder">
             <argument type="service" id="payment_method.repository" />
         </service>
