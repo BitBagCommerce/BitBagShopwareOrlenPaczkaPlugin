@@ -9,12 +9,12 @@ use Symfony\Component\HttpFoundation\Request;
 
 final class FormFieldValidator implements FormFieldValidatorInterface
 {
-    public function validatePresenceOrThrow(Request $request, string $fieldName): string
+    public function validatePresenceOrThrow(Request $request, string $fieldName, bool $allowEmpty = false): string
     {
         /** @var string|null $field */
         $field = $request->request->get($fieldName);
 
-        if (null !== $field && '' !== $field) {
+        if (null !== $field && ($allowEmpty || '' !== $field)) {
             return $field;
         }
 
