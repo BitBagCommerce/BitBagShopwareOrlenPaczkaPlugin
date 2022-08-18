@@ -7,29 +7,5 @@
         "streetSplittingError": "Podana ulica jest niepoprawna (wymagany format: \"Polna 11/2\")",
         "zipCodeInvalid": "Podany kod pocztowy jest niepoprawny (wymagany format: 12-345)",
         "invalidPhoneNumberError": "Podany numer telefonu jest niepoprawny (wymagany format: 111-222-333)"
-    },
-    "order": {
-        "address": {
-            "notFound": "Adres nie został znaleziony"
-        },
-        "emailNotFound": "Email nie może być pusty",
-        "customFields": {
-            "depthInvalid": "Szczegóły paczki: głębokość jest niepoprawna",
-            "heightInvalid": "Szczegóły paczki: wysokość jest niepoprawna",
-            "widthInvalid": "Szczegóły paczki: szerokość jest niepoprawna",
-            "packageContentsInvalid": "Szczegóły paczki: zawartość paczki jest niepoprawna",
-            "plannedShippingDateInvalid": "Szczegóły paczki: data nadania jest niepoprawna"
-        }
-    },
-    "package": {
-        "alreadyCreated": "Paczka została już utworzona"
-    },
-    "config": {
-        "notFound": "Skonfiguruj dane do API",
-        "emptyOriginOffice": "Dodaj urząd nadania"
-    },
-    "cardDetails": {
-        "getLabel": "Pobierz etykietę",
-        "createPackage": "Utwórz paczkę"
     }
 }

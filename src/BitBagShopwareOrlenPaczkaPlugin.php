@@ -12,12 +12,12 @@ if (file_exists(\dirname(__DIR__) . '/vendor/autoload.php')) {
     }
 }
 
+use BitBag\ShopwareOrlenPaczkaPlugin\Config\OrlenApiConfigServiceInterface;
 use BitBag\ShopwareOrlenPaczkaPlugin\Extension\Order\OrlenOrderExtensionDefinition;
 use BitBag\ShopwareOrlenPaczkaPlugin\Factory\CustomFieldsForPackageDetailsPayloadFactoryInterface;
 use BitBag\ShopwareOrlenPaczkaPlugin\Plugin\CustomFieldSetConfiguratorInterface;
 use BitBag\ShopwareOrlenPaczkaPlugin\Plugin\RuleConfiguratorInterface;
 use BitBag\ShopwareOrlenPaczkaPlugin\Plugin\ShippingMethodConfiguratorInterface;
-use BitBag\ShopwareOrlenPaczkaPlugin\Service\OrlenConfigServiceInterface;
 use Doctrine\DBAL\Connection;
 use Shopware\Core\Framework\Plugin;
 use Shopware\Core\Framework\Plugin\Context\ActivateContext;
@@ -84,7 +84,7 @@ final class BitBagShopwareOrlenPaczkaPlugin extends Plugin
             'DELETE FROM system_config
             WHERE configuration_key LIKE :domain',
             [
-                'domain' => OrlenConfigServiceInterface::SYSTEM_CONFIG_PREFIX . '.%',
+                'domain' => OrlenApiConfigServiceInterface::SYSTEM_CONFIG_PREFIX . '.%',
             ],
         );
 

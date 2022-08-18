@@ -5,11 +5,11 @@ declare(strict_types=1);
 namespace BitBag\ShopwareOrlenPaczkaPlugin\Controller;
 
 use BitBag\ShopwareOrlenPaczkaPlugin\Api\PackageApiServiceInterface;
+use BitBag\ShopwareOrlenPaczkaPlugin\Config\OrlenApiConfigServiceInterface;
 use BitBag\ShopwareOrlenPaczkaPlugin\Exception\PackageException;
 use BitBag\ShopwareOrlenPaczkaPlugin\Extension\Order\OrlenOrderExtension;
 use BitBag\ShopwareOrlenPaczkaPlugin\Finder\OrderFinderInterface;
 use BitBag\ShopwareOrlenPaczkaPlugin\Resolver\OrderExtensionDataResolverInterface;
-use BitBag\ShopwareOrlenPaczkaPlugin\Service\OrlenConfigServiceInterface;
 use OpenApi\Annotations as OA;
 use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
@@ -31,20 +31,20 @@ final class CreatePackageController
 
     private OrderExtensionDataResolverInterface $orderExtensionDataResolver;
 
-    private OrlenConfigServiceInterface $orlenConfigService;
+    private OrlenApiConfigServiceInterface $orlenApiConfigService;
 
     public function __construct(
         EntityRepository $orderRepository,
         OrderFinderInterface $orderFinder,
         PackageApiServiceInterface $packageApiService,
         OrderExtensionDataResolverInterface $orderExtensionDataResolver,
-        OrlenConfigServiceInterface $orlenConfigService
+        OrlenApiConfigServiceInterface $orlenApiConfigService
     ) {
         $this->orderRepository = $orderRepository;
         $this->orderFinder = $orderFinder;
         $this->packageApiService = $packageApiService;
         $this->orderExtensionDataResolver = $orderExtensionDataResolver;
-        $this->orlenConfigService = $orlenConfigService;
+        $this->orlenApiConfigService = $orlenApiConfigService;
     }
 
     /**
@@ -74,7 +74,7 @@ final class CreatePackageController
      *         description="Not found"
      *     )
      * )
-     * @Route("/api/_action/bitbag-orlen-paczka-plugin/package/{orderId}", name="api.action.bitbag_orlen_paczka_plugin.package", methods={"POST"}})
+     * @Route("/api/_action/bitbag-orlen-paczka-plugin/package/{orderId}", name="api.action.bitbag_orlen_paczka_plugin.package", methods={"POST"})
      */
     public function create(string $orderId, Context $context): JsonResponse
     {
@@ -85,7 +85,7 @@ final class CreatePackageController
             throw new PackageException('package.alreadyCreated');
         }
 
-        $config = $this->orlenConfigService->getApiConfig();
+        $config = $this->orlenApiConfigService->getApiConfig($order->getSalesChannelId());
         $package = $this->packageApiService->createPackage($config, $order, $context);
 
         $this->orderRepository->update([

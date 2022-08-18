@@ -1,10 +1,28 @@
 {
+    "config": {
+        "credentialsWarning": "Poczta Polska has the right to block your account after three unsuccessful attempts to log in. This includes testing the credentials for validity.",
+        "checkCredentials": "Check credentials",
+        "saved": "Config saved successfully",
+        "field": {
+            "missing": "Missing field",
+            "username": "username",
+            "password": "password"
+        },
+        "invalid": "Provided API config is invalid",
+        "emptyOriginOffice": "Select an origin office in the plugin configuration first",
+        "apiConfiguration": "API configuration"
+    },
     "order": {
+        "emailNotFound": "Email cannot be empty",
         "extension": {
             "notFound": "Orlen Paczka data cannot be empty"
         },
-        "orderAddress": {
-            "invalid_street": "Invalid street value"
+        "address": {
+            "invalid_street": "Invalid street value",
+            "notFound": "Order address was not found",
+            "phoneNumberEmpty": "Phone number cannot be empty",
+            "phoneNumberInvalid": "Phone number is invalid",
+            "postCodeInvalid": "Post code is invalid"
         },
         "products": {
             "nullWeight": "Package weight must be greater than 0.0 kg",
@@ -19,7 +37,12 @@
         }
     },
     "package": {
+        "alreadyCreated": "A package has already been created",
         "depthTooLarge": "Package is too large (depth cannot be larger than 120cm)",
         "tooLarge": "Package is too large (area of height, width and depth cannot be larger than 250cm)"
+    },
+    "cardDetails": {
+        "getLabel": "Get label",
+        "createPackage": "Create package"
     }
 }

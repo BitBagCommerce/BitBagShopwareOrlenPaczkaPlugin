@@ -1,4 +1,4 @@
-import OrlenPaczkaApiService from '../core/service/api/orlen-paczka-api.service';
+import OrlenPaczkaApiService from '../service/api/orlen-paczka-api.service';
 
 const Application = Shopware.Application;
 

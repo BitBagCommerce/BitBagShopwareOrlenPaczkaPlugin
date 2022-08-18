@@ -29,5 +29,7 @@
         <input type="hidden" id="orlen-pickup-point-province" name="orlenPickupPointProvince" form="confirmOrderForm">
         <input type="hidden" id="orlen-pickup-point-street" name="orlenPickupPointStreet" form="confirmOrderForm">
         <input type="hidden" id="orlen-pickup-point-zipCode" name="orlenPickupPointZipCode" form="confirmOrderForm">
+
+        <p class="error-message point-name-not-selected-message hide">{{ 'pointName.notFound'|trans }}</p>
     {% endif %}
 {% endblock %}

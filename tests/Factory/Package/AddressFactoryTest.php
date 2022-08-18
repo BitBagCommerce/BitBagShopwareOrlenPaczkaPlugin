@@ -6,7 +6,7 @@ namespace BitBag\ShopwareOrlenPaczkaPlugin\Tests\Factory\Package;
 
 use BitBag\PPClient\Model\Address;
 use BitBag\ShopwareOrlenPaczkaPlugin\Factory\Package\AddressFactory;
-use BitBag\ShopwareOrlenPaczkaPlugin\Service\StreetSplitterInterface;
+use BitBag\ShopwareOrlenPaczkaPlugin\Factory\StreetSplitterInterface;
 use PHPUnit\Framework\TestCase;
 use Shopware\Core\Checkout\Order\Aggregate\OrderAddress\OrderAddressEntity;
 use Symfony\Component\Validator\ConstraintViolationList;
@@ -24,12 +24,12 @@ final class AddressFactoryTest extends TestCase
         $validator->method('validate')->willReturn(new ConstraintViolationList());
 
         $orderAddressEntity = new OrderAddressEntity();
-        $orderAddressEntity->firstName = 'Jan';
-        $orderAddressEntity->lastName = 'Kowalski';
-        $orderAddressEntity->street = 'Jasna 4/5';
-        $orderAddressEntity->city = 'Warszawa';
-        $orderAddressEntity->zipcode = '02-495';
-        $orderAddressEntity->phoneNumber = '500-000-000';
+        $orderAddressEntity->setFirstName('Jan');
+        $orderAddressEntity->setLastName('Kowalski');
+        $orderAddressEntity->setStreet('Jasna 4/5');
+        $orderAddressEntity->setCity('Warszawa');
+        $orderAddressEntity->setZipcode('02-495');
+        $orderAddressEntity->setPhoneNumber('500-000-000');
 
         $address = new Address();
         $address->setName('Jan Kowalski');
