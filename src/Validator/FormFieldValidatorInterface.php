@@ -8,5 +8,9 @@ use Symfony\Component\HttpFoundation\Request;
 
 interface FormFieldValidatorInterface
 {
-    public function validatePresenceOrThrow(Request $request, string $fieldName): string;
+    public function validatePresenceOrThrow(
+        Request $request,
+        string $fieldName,
+        bool $allowEmpty = false
+    ): string;
 }
