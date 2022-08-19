@@ -43,6 +43,7 @@
         "emailNotFound": "Email nie może być pusty"
     },
     "package": {
+        "created": "Paczka została utworzona",
         "notFound": "Paczka nie została znaleziona",
         "alreadyCreated": "Paczka została już utworzona",
         "depthTooLarge": "Paczka jest za duża (głębokość nie może być większa niż 120cm)",

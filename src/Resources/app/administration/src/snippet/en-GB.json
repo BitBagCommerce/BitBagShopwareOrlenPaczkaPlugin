@@ -46,7 +46,8 @@
         "notFound": "Package was not found",
         "alreadyCreated": "A package has already been created",
         "depthTooLarge": "Package is too large (depth cannot be larger than 120cm)",
-        "tooLarge": "Package is too large (area of height, width and depth cannot be larger than 250cm)"
+        "tooLarge": "Package is too large (area of height, width and depth cannot be larger than 250cm)",
+        "created": "Package has been created"
     },
     "cardDetails": {
         "getLabel": "Get label",
