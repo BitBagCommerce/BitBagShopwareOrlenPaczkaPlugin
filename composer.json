@@ -24,7 +24,8 @@
     "require": {
         "php": "^7.4 || ^8.0",
         "shopware/core": "^6.4",
-        "bitbag/pp-client": "^0.3"
+        "bitbag/pp-client": "^0.3",
+        "ext-soap": "*"
     },
     "require-dev": {
         "bitbag/coding-standard": "^1.0",
