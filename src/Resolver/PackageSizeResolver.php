@@ -47,13 +47,13 @@ class PackageSizeResolver implements PackageSizeResolverInterface
             return PocztexPackageSizeEnum::XL;
         }
 
-        if (PocztexPackageSizeEnum::MAX_DEPTH_2XL < $depth) {
-            throw new PackageSizeException('package.depthTooLarge');
-        }
-
         $packageDimensions = $depth + $height + $width;
         if (PocztexPackageSizeEnum::MAX_DIMENSIONS_2XL < $packageDimensions) {
             throw new PackageSizeException('package.tooLarge');
+        }
+
+        if (PocztexPackageSizeEnum::MAX_DEPTH_2XL < $depth) {
+            throw new PackageSizeException('package.depthTooLarge');
         }
 
         return PocztexPackageSizeEnum::DOUBLE_XL;

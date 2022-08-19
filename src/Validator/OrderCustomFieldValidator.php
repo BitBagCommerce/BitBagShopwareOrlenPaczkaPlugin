@@ -19,7 +19,24 @@ final class OrderCustomFieldValidator implements OrderCustomFieldValidatorInterf
         $packageContentsKey = CustomFieldsForPackageDetailsPayloadFactoryInterface::PACKAGE_DETAILS_KEY . '_package_contents';
         $plannedShippingDateKey = CustomFieldsForPackageDetailsPayloadFactoryInterface::PACKAGE_DETAILS_KEY . '_planned_shipping_date';
 
+        $data['dimensions'] = 1;
+        $dimensions = [$data[$depthKey] ?? null, $data[$heightKey] ?? null, $data[$widthKey] ?? null];
+
+        $zeros = 0;
+        foreach ($dimensions as $dimension) {
+            if (1 > $dimension || null === $dimension) {
+                ++$zeros;
+            }
+        }
+
+        if (2 <= $zeros) {
+            $data['dimensions'] = 0;
+        }
+
         $constraint = new Assert\Collection([
+            'dimensions' => [
+                new Assert\NotEqualTo(0, null, 'order.customFields.invalidDimensions'),
+            ],
             $depthKey => [
                 new Assert\NotBlank([
                     'message' => 'order.customFields.depthInvalid',

@@ -34,6 +34,7 @@
             "tooHeavy": "Package is too heavy (maximum 50 kg)"
         },
         "customFields": {
+            "invalidDimensions": "Package details: invalid package dimensions",
             "depthInvalid": "Package details: depth is invalid",
             "heightInvalid": "Package details: height is invalid",
             "widthInvalid": "Package details: width is invalid",
@@ -57,6 +58,8 @@
     },
     "api": {
         "Przekazana planowana data nadania dla przesyłki jest w przeszłości": "Planned shipping date is in the past",
-        "Numer nie należy do sieci mobilnej": "Phone number is incorrect (The number is not a mobile number)"
+        "Numer nie należy do sieci mobilnej": "Phone number is incorrect (The number is not a mobile number)",
+        "Niedozwolony format przesyłki dla usługi Odbiór w punkcie": "Unauthorized shipment format for Pickup at point service",
+        "Wybrany urząd nadania jest nieprawidłowy": "The selected sending office is incorrect"
     }
 }

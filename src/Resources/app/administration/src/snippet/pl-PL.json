@@ -33,6 +33,7 @@
             "tooHeavy": "Paczka jest za ciężka (maksymalnie 50 kg)"
         },
         "customFields": {
+            "invalidDimensions": "Nieprawidłowe wymiary paczki",
             "depthInvalid": "Głębokość w szczegółach paczki jest niepoprawna",
             "heightInvalid": "Wysokość w szczegółach paczki jest niepoprawna",
             "widthInvalid": "Szerokość w szczegółach paczki jest niepoprawna",
@@ -57,6 +58,9 @@
     },
     "api": {
         "Przekazana planowana data nadania dla przesyłki jest w przeszłości": "Przekazana planowana data nadania dla przesyłki jest w przeszłości",
-        "Numer nie należy do sieci mobilnej": "Numer nie należy do sieci mobilnej"
+        "Numer nie należy do sieci mobilnej": "Numer nie należy do sieci mobilnej",
+        "Niedozwolony format przesyłki dla usługi Odbiór w punkcie": "Niedozwolony format przesyłki dla usługi Odbiór w punkcie",
+        "Wybrany urząd nadania jest nieprawidłowy": "Wybrany urząd nadania jest nieprawidłowy"
+
     }
 }

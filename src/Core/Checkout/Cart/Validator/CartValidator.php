@@ -17,7 +17,7 @@ final class CartValidator implements CartValidatorInterface
 {
     public const STREET_FIRST_REGEX = "/(?<streetName>[[:alnum:].'\- ]+)\s+(?<houseNumber>\d{1,10}((\s)?\w{1,3})?(\/\d{1,10})?)$/";
 
-    public const STREET_WITH_BUILDING_NUMBER_REGEX = "/^([^\d]*[^\d\s]) *(\d.*)$/";
+    public const STREET_WITH_BUILDING_NUMBER_REGEX = "/^(.+)\s(\d.*)/";
 
     public const ZIP_CODE_REGEX = "/^(\d{2})(-\d{3})?$/i";
 

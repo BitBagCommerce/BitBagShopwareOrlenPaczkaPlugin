@@ -16,7 +16,7 @@ final class OrderCustomFieldValidatorTest extends TestCase
         $orderCustomFieldValidator = new OrderCustomFieldValidator();
 
         self::assertEquals(
-            4,
+            5,
             $orderCustomFieldValidator->validate([$key => $value])->count()
         );
     }
