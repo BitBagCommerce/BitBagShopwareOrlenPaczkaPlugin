@@ -1,19 +1,15 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace BitBag\ShopwareOrlenPaczkaPlugin\Controller\Api;
 
-use BitBag\PPClient\Model\OriginOffice;
 use BitBag\ShopwareOrlenPaczkaPlugin\Config\OrlenApiConfigServiceInterface;
 use BitBag\ShopwareOrlenPaczkaPlugin\Resolver\PPClientResolverInterface;
-use BitBag\ShopwareOrlenPaczkaPlugin\Validator\FormFieldValidator;
-use Shopware\Core\Framework\Context;
-use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
+use OpenApi\Annotations as OA;
 use Shopware\Core\Framework\Routing\Annotation\RouteScope;
-use Shopware\Core\System\SalesChannel\Entity\SalesChannelRepository;
-use Shopware\Core\System\SalesChannel\SalesChannelCollection;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -21,55 +17,60 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 final class OriginOfficesController
 {
-    private FormFieldValidator $formFieldValidator;
-
     private PPClientResolverInterface $clientResolver;
 
     private OrlenApiConfigServiceInterface $orlenApiConfigService;
 
     public function __construct(
-        FormFieldValidator $formFieldValidator,
         PPClientResolverInterface $clientResolver,
         OrlenApiConfigServiceInterface $orlenApiConfigService
-    )
-    {
-        $this->formFieldValidator = $formFieldValidator;
+    ) {
         $this->orlenApiConfigService = $orlenApiConfigService;
         $this->clientResolver = $clientResolver;
     }
 
     /**
-     * @Route("/api/_action/bitbag-orlen-paczka-plugin/origin-offices", name="api.action.bitbag_orlen_paczka_plugin.origin_offices", methods={"POST"})
+     * @OA\Get(
+     *     path="/api/_action/bitbag-orlen-paczka-plugin/origin-offices",
+     *     summary="Gets an Orlen Paczka package label for an order",
+     *     operationId="originOffices",
+     *     tags={"Admin API", "Orlen Paczka"},
+     *     @OA\Parameter(
+     *         name="salesChannelId",
+     *         description="Identifier of the sales channel",
+     *         @OA\Schema(type="string", pattern="^[0-9a-f]{32}$"),
+     *         in="query",
+     *         required=false
+     *     ),
+     *     @OA\Response(
+     *         response="200",
+     *         description="Render origin offices"
+     *     ),
+     *     @OA\Response(
+     *         response="400",
+     *         description="Error while rendering origin offices"
+     *     )
+     * )
+     * @Route("/api/_action/bitbag-orlen-paczka-plugin/origin-offices", name="api.action.bitbag_orlen_paczka_plugin.origin_offices", methods={"GET"})
      */
-    public function __invoke(Request $request): Response
+    public function __invoke(Request $request): JsonResponse
     {
-        $salesChannelId = $this->formFieldValidator->validatePresenceOrThrow($request, 'salesChannelId', true);
+        /** @var string $salesChannelId */
+        $salesChannelId = $request->query->get('salesChannelId', '');
         $client = $this->clientResolver->resolve(
             $this->orlenApiConfigService->getApiConfig($salesChannelId)
         );
 
         $response = $client->getOriginOffices();
         $originOffices = $response->getOriginOffices();
-
-//        $jsonResponse = array_map(
-//            fn (OriginOffice $o) => [$o->getId() => $o->getName()],
-//            $originOffices
-//        );
-
-        $jsonResponse['placeholder'] = ['en-GB' => 'Origin office', 'de-DE' => 'Scheisse', 'pl-PL' => 'Urząd nadania'];
-        $jsonResponse['label'] = ['en-GB' => 'Origin office', 'de-DE' => 'Scheisse', 'pl-PL' => 'Urząd nadania'];
+        $jsonResponse = [];
 
         foreach ($originOffices as $office) {
             $jsonResponse['options'][] = [
-                'label' => [
-                    'en-GB' => $office->getDescription(),
-                    'de-DE' => $office->getDescription(),
-                    'pl-PL' => $office->getDescription(),
-                ],
-
+                'name' => $office->getDescription(),
                 'value' => $office->getId(),
+                'id' => (string) $office->getId(),
             ];
-
         }
 
         return new JsonResponse($jsonResponse);

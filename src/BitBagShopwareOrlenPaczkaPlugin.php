@@ -25,8 +25,6 @@ use Shopware\Core\Framework\Plugin\Context\DeactivateContext;
 use Shopware\Core\Framework\Plugin\Context\UninstallContext;
 
 final class BitBagShopwareOrlenPaczkaPlugin extends Plugin
-
-
 {
     private CustomFieldSetConfiguratorInterface $customFieldSetConfigurator;
 

@@ -5,13 +5,10 @@ export default class OrlenOriginOfficeService extends ApiService {
         super(httpClient, loginService, apiEndpoint);
     }
 
-    async getOriginOffices(salesChannelId = '') {
-        return await this.httpClient.post(
-            `_action/${this.getApiBasePath()}/origin-offices`,
-            {
-                salesChannelId
-            },
-            { headers: this.getBasicHeaders() }
+    getOriginOffices(salesChannelId = '') {
+        return this.httpClient.get(
+            `_action/${this.getApiBasePath()}/origin-offices?salesChannelId=${salesChannelId}`,
+            {headers: this.getBasicHeaders()}
         );
     }
 }

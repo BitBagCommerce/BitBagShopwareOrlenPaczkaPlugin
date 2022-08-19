@@ -24,15 +24,15 @@
         </input-field>
 
         <input-field type="single-select">
-            <name>originoffice</name>
+            <name>originOffice</name>
             <label>Origin offices</label>
             <label lang="pl-PL">Urzędy nadania</label>
             <placeholder>Origin office</placeholder>
-            <placeholder lang="pl-PL">Origin office</placeholder>
+            <placeholder lang="pl-PL">Urząd nadania</placeholder>
             <required>true</required>
             <options>
                 <option>
-                    <id>pendingauthentication</id>
+                    <id></id>
                     <name>Authenticate first</name>
                     <name lang="pl-PL">Uwierzytelnij się danymi swojego konta</name>
                 </option>
