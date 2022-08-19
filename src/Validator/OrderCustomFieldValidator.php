@@ -20,7 +20,7 @@ final class OrderCustomFieldValidator implements OrderCustomFieldValidatorInterf
         $plannedShippingDateKey = CustomFieldsForPackageDetailsPayloadFactoryInterface::PACKAGE_DETAILS_KEY . '_planned_shipping_date';
 
         $data['dimensions'] = 1;
-        $dimensions = [$data[$depthKey], $data[$heightKey], $data[$widthKey]];
+        $dimensions = [$data[$depthKey] ?? null, $data[$heightKey] ?? null, $data[$widthKey] ?? null];
 
         $zeros = 0;
         foreach ($dimensions as $dimension) {
