@@ -4,6 +4,11 @@
     "version": "1.0.0",
     "type": "shopware-platform-plugin",
     "license": "MIT",
+    "authors": [
+        {
+            "name": "BitBag"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "BitBag\\ShopwareOrlenPaczkaPlugin\\": "src/"
@@ -18,14 +23,21 @@
         "shopware-plugin-class": "BitBag\\ShopwareOrlenPaczkaPlugin\\BitBagShopwareOrlenPaczkaPlugin",
         "label": {
             "de-DE": "Orlen Paczka",
-            "en-GB": "Orlen Paczka"
+            "en-GB": "Orlen Paczka",
+            "pl-PL": "Orlen Paczka"
+        },
+        "description": {
+            "en-GB": "This plugin allow to checkout order with Orlen Paczka shipping method",
+            "de-DE": "This plugin allow to checkout order with Orlen Paczka shipping method",
+            "pl-PL": "Wtyczka umożliwia realizację zamówienia metodą wysyłki Orlen Paczka"
         }
     },
     "require": {
+        "ext-soap": "*",
         "php": "^7.4 || ^8.0",
         "shopware/core": "^6.4",
-        "bitbag/pp-client": "^0.3",
-        "ext-soap": "*"
+        "bitbag/pp-client": "^0.3"
+
     },
     "require-dev": {
         "bitbag/coding-standard": "^1.0",
