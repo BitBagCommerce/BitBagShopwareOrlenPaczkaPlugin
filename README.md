@@ -51,6 +51,7 @@ We work on stable, supported and up-to-date versions of packages. We recommend y
 | Package           | Version        |
 |-------------------|----------------|
 | PHP               | ^7.4.3 or ^8.0 |
+| ext-soap          | *              |
 | shopware/platform | ^6.4           |
 
 
@@ -78,7 +79,7 @@ You need to set the phone number field as required.
 
 ![Required phone number in settings](./doc/images/phone-numer-required-admin-panel.png)
 
-### Products weight
+### Product weight
 You need to set the weight of all products in your store. The Orlen Paczka parcel weight is calculated automatically according to the products ordered.
 
 ![Products weight](./doc/images/product-weight-admin-panel.png)
