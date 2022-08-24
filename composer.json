@@ -22,10 +22,12 @@
     "extra": {
         "shopware-plugin-class": "BitBag\\ShopwareOrlenPaczkaPlugin\\BitBagShopwareOrlenPaczkaPlugin",
         "label": {
+            "de-DE": "Orlen-Paket",
             "en-GB": "Orlen Paczka",
             "pl-PL": "Orlen Paczka"
         },
         "description": {
+            "de-DE": "Das Plug-in ermöglicht die Ausführung der Bestellung mit der Versandart Orlen Parcel",
             "en-GB": "This plugin allow to checkout order with Orlen Paczka shipping method",
             "pl-PL": "Wtyczka umożliwia realizację zamówienia metodą wysyłki Orlen Paczka"
         }
