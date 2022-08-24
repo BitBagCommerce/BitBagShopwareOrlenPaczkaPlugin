@@ -12,6 +12,7 @@ namespace BitBag\ShopwareOrlenPaczkaPlugin\Controller;
 
 use BitBag\ShopwareOrlenPaczkaPlugin\Api\PackageApiServiceInterface;
 use BitBag\ShopwareOrlenPaczkaPlugin\Config\OrlenApiConfigServiceInterface;
+use BitBag\ShopwareOrlenPaczkaPlugin\Exception\InvalidApiConfigException;
 use BitBag\ShopwareOrlenPaczkaPlugin\Exception\PackageException;
 use BitBag\ShopwareOrlenPaczkaPlugin\Extension\Order\OrlenOrderExtension;
 use BitBag\ShopwareOrlenPaczkaPlugin\Finder\OrderFinderInterface;
@@ -92,6 +93,10 @@ final class CreatePackageController
         }
 
         $config = $this->orlenApiConfigService->getApiConfig($order->getSalesChannelId());
+        if (null === $config->getOriginOffice()) {
+            throw new InvalidApiConfigException('config.emptyOriginOffice');
+        }
+
         $package = $this->packageApiService->createPackage($config, $order, $context);
 
         $this->orderRepository->update([

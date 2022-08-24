@@ -27,13 +27,13 @@ final class OrlenApiConfigServiceTest extends TestCase
     public function testMissingData(): void
     {
         $this->expectException(InvalidApiConfigException::class);
+        $this->expectErrorMessage('config.invalid');
 
         $this->systemConfigService
             ->method('getString')
             ->willReturnOnConsecutiveCalls('', 'password', 'production', '');
 
         $orlenConfigService = new OrlenApiConfigService($this->systemConfigService);
-
         $orlenConfigService->getApiConfig(null);
     }
 

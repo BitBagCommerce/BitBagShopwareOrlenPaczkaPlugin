@@ -11,9 +11,11 @@ declare(strict_types=1);
 namespace BitBag\ShopwareOrlenPaczkaPlugin\Controller\Api;
 
 use BitBag\ShopwareOrlenPaczkaPlugin\Config\OrlenApiConfigServiceInterface;
+use BitBag\ShopwareOrlenPaczkaPlugin\Exception\InvalidApiConfigException;
 use BitBag\ShopwareOrlenPaczkaPlugin\Resolver\PPClientResolverInterface;
 use OpenApi\Annotations as OA;
 use Shopware\Core\Framework\Routing\Annotation\RouteScope;
+use Shopware\Core\System\SystemConfig\SystemConfigService;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -27,12 +29,16 @@ final class OriginOfficesController
 
     private OrlenApiConfigServiceInterface $orlenApiConfigService;
 
+    private SystemConfigService $systemConfigService;
+
     public function __construct(
         PPClientResolverInterface $clientResolver,
-        OrlenApiConfigServiceInterface $orlenApiConfigService
+        OrlenApiConfigServiceInterface $orlenApiConfigService,
+        SystemConfigService $systemConfigService
     ) {
         $this->orlenApiConfigService = $orlenApiConfigService;
         $this->clientResolver = $clientResolver;
+        $this->systemConfigService = $systemConfigService;
     }
 
     /**
@@ -67,7 +73,18 @@ final class OriginOfficesController
             $this->orlenApiConfigService->getApiConfig($salesChannelId)
         );
 
-        $response = $client->getOriginOffices();
+        try {
+            $response = $client->getOriginOffices();
+        } catch (\SoapFault $e) {
+            if (CredentialsController::STATUS_UNAUTHORIZED === $e->getMessage()) {
+                $this->systemConfigService->delete(OrlenApiConfigServiceInterface::SYSTEM_CONFIG_PREFIX . 'originOffice');
+
+                throw new InvalidApiConfigException('config.credentialsDataNotValid');
+            }
+
+            throw $e;
+        }
+
         $originOffices = $response->getOriginOffices();
         $jsonResponse = [];
 

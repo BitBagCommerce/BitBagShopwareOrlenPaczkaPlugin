@@ -24,7 +24,7 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 final class CredentialsController
 {
-    private const STATUS_UNAUTHORIZED = 'Unauthorized';
+    public const STATUS_UNAUTHORIZED = 'Unauthorized';
 
     private FormFieldValidator $formFieldValidator;
 

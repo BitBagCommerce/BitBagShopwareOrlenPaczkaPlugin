@@ -30,8 +30,9 @@
         </service>
 
         <service id="BitBag\ShopwareOrlenPaczkaPlugin\Controller\Api\OriginOfficesController">
-            <argument id="BitBag\ShopwareOrlenPaczkaPlugin\Resolver\PPClientResolver" type="service"/>
-            <argument id="BitBag\ShopwareOrlenPaczkaPlugin\Config\OrlenApiConfigService" type="service"/>
+            <argument type="service" id="BitBag\ShopwareOrlenPaczkaPlugin\Resolver\PPClientResolver" />
+            <argument type="service" id="BitBag\ShopwareOrlenPaczkaPlugin\Config\OrlenApiConfigService" />
+            <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService" />
 
             <tag name="controller.service_arguments"/>
         </service>
