@@ -101,6 +101,13 @@ final class BitBagShopwareOrlenPaczkaPlugin extends Plugin
             ],
         );
 
+        $db->executeStatement(
+            'DELETE FROM snippet WHERE translation_key LIKE :translationKey',
+            [
+                'translationKey' => '%customFields.' . CustomFieldsForPackageDetailsPayloadFactoryInterface::PACKAGE_DETAILS_KEY . '%',
+            ],
+        );
+
         $this->shippingMethodConfigurator->toggleActiveShippingMethod(false, $uninstallContext->getContext());
     }
 }
