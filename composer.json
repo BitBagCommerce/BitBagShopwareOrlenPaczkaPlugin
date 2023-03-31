@@ -1,7 +1,7 @@
 {
     "name": "bitbag/shopware-orlen-paczka-plugin",
     "description": "Orlen Paczka plugin",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "type": "shopware-platform-plugin",
     "license": "MIT",
     "authors": [
