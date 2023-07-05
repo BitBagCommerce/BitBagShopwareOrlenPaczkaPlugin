@@ -50,6 +50,7 @@ final class CartValidator implements CartValidatorInterface
             return;
         }
 
+        /** @var string $zipCode */
         $zipCode = $address->getZipcode();
 
         $this->checkZipCodeValidity($zipCode, $address->getId(), $errors);

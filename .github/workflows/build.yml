@@ -17,14 +17,14 @@ on:
 
 jobs:
     tests:
-        runs-on: ubuntu-18.04
+        runs-on: ubuntu-latest
 
         name: "PHP ${{ matrix.php }}"
 
         strategy:
             fail-fast: false
             matrix:
-                php: ["7.4", "8.0"]
+                php: ["8.1"]
 
         steps:
             -

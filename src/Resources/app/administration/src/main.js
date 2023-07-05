@@ -4,6 +4,7 @@ import './component/orlen-pickup-point-details';
 import './component/orlen-pickup-point-details-create-package';
 import './component/orlen-pickup-point-details-get-label';
 import './extension/sw-order/sw-order-detail-base';
+import './extension/sw-order/sw-order-detail-details';
 import './extension/sw-settings/sw-system-config';
 import './init/orlen-origin-office.init';
 import './init/orlen-credentials.init';

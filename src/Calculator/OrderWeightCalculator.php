@@ -43,7 +43,8 @@ final class OrderWeightCalculator implements OrderWeightCalculatorInterface
         $products = array_filter($products);
         $parentIds = array_filter($products, static fn (ProductEntity $product) => null !== $product->getParentId());
 
-        $criteria = new Criteria(array_column($parentIds, 'parentId'));
+        $parentIds = array_column($parentIds, 'parentId');
+        $criteria = new Criteria(empty($parentIds) ? null : $parentIds);
         $searchResult = $this->productRepository->search($criteria, $context);
 
         $parentProducts = $searchResult->getEntities()->getElements();

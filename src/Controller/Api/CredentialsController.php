@@ -14,13 +14,12 @@ use BitBag\ShopwareOrlenPaczkaPlugin\Exception\InvalidApiConfigException;
 use BitBag\ShopwareOrlenPaczkaPlugin\Model\OrlenApiConfig;
 use BitBag\ShopwareOrlenPaczkaPlugin\Resolver\PPClientResolverInterface;
 use BitBag\ShopwareOrlenPaczkaPlugin\Validator\FormFieldValidator;
-use Shopware\Core\Framework\Routing\Annotation\RouteScope;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @RouteScope(scopes={"api"})
+ * @Route(defaults={"_routeScope"={"api"}}))
  */
 final class CredentialsController
 {
