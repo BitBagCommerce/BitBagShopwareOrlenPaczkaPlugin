@@ -43,7 +43,7 @@ final class OrderFinder implements OrderFinderInterface
             'documents.documentMediaFile',
         ]);
 
-        /** @var null|OrderEntity $order */
+        /** @var OrderEntity|null $order */
         $order = $this->orderRepository->search($orderCriteria, $context)->first();
         if (null === $order) {
             throw new OrderNotFoundException('order.notFound');
