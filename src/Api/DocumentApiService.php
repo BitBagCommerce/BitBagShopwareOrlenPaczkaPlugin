@@ -13,25 +13,27 @@ namespace BitBag\ShopwareOrlenPaczkaPlugin\Api;
 use BitBag\PPClient\Client\PPClientInterface;
 use BitBag\PPClient\Model\Request\LabelRequest;
 use BitBag\ShopwareOrlenPaczkaPlugin\Exception\LabelException;
+use Doctrine\DBAL\Connection;
+use Shopware\Core\Checkout\Document\Aggregate\DocumentBaseConfig\DocumentBaseConfigEntity;
 use Shopware\Core\Checkout\Document\DocumentConfiguration;
-use Shopware\Core\Checkout\Document\DocumentService;
-use Shopware\Core\Content\Media\DataAbstractionLayer\MediaRepositoryDecorator;
+use Shopware\Core\Checkout\Document\DocumentConfigurationFactory;
+use Shopware\Core\Checkout\Document\DocumentIdStruct;
+use Shopware\Core\Checkout\Document\Exception\InvalidDocumentGeneratorTypeException;
+use Shopware\Core\Checkout\Order\OrderEntity;
 use Shopware\Core\Content\Media\Exception\DuplicatedMediaFileNameException;
 use Shopware\Core\Content\Media\File\FileSaver;
 use Shopware\Core\Content\Media\File\MediaFile;
 use Shopware\Core\Content\Media\MediaService;
 use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
+use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
+use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\EqualsFilter;
+use Shopware\Core\Framework\Util\Random;
+use Shopware\Core\Framework\Uuid\Uuid;
 
 final class DocumentApiService implements DocumentApiServiceInterface
 {
-    public const TEMP_NAME = 'document-import-';
-
-    public const MEDIA_DIR = '/public/media/';
-
     public const MEDIA_FOLDER = 'Document';
-
-    private DocumentService $documentService;
 
     private MediaService $mediaService;
 
@@ -39,26 +41,35 @@ final class DocumentApiService implements DocumentApiServiceInterface
 
     private EntityRepository $documentRepository;
 
-    private MediaRepositoryDecorator $mediaRepository;
+    private EntityRepository $mediaRepository;
+
+    private EntityRepository $documentConfigRepository;
+
+    private EntityRepository $orderRepository;
+
+    private Connection $connection;
 
     public function __construct(
-        DocumentService $documentService,
         MediaService $mediaService,
         FileSaver $fileSaver,
         EntityRepository $documentRepository,
-        MediaRepositoryDecorator $mediaRepository
+        EntityRepository $mediaRepository,
+        EntityRepository $documentConfigRepository,
+        EntityRepository $orderRepository,
+        Connection $connection
     ) {
-        $this->documentService = $documentService;
         $this->mediaService = $mediaService;
         $this->fileSaver = $fileSaver;
         $this->documentRepository = $documentRepository;
         $this->mediaRepository = $mediaRepository;
+        $this->documentConfigRepository = $documentConfigRepository;
+        $this->orderRepository = $orderRepository;
+        $this->connection = $connection;
     }
 
     public function uploadOrderLabel(
         string $packageGuid,
-        string $orderId,
-        string $orderNumber,
+        OrderEntity $order,
         PPClientInterface $client,
         Context $context
     ): void {
@@ -72,7 +83,7 @@ final class DocumentApiService implements DocumentApiServiceInterface
 
         $labelPdfContent = $label->getAddressLabels()[0]->getPdfContent();
 
-        $fileName = "bitbag_shopware_orlen_paczka_plugin_$orderNumber";
+        $fileName = "bitbag_shopware_orlen_paczka_plugin_{$order->getOrderNumber()}";
         $filenameWithExtension = $fileName . '.pdf';
 
         file_put_contents($filenameWithExtension, $labelPdfContent);
@@ -109,11 +120,8 @@ final class DocumentApiService implements DocumentApiServiceInterface
             throw $e;
         }
 
-        $createdDocument = $this->documentService->create(
-            $orderId,
-            'delivery_note',
-            'pdf',
-            new DocumentConfiguration(),
+        $createdDocument = $this->createDeliveryNoteDocument(
+            $order,
             $context
         );
 
@@ -134,5 +142,83 @@ final class DocumentApiService implements DocumentApiServiceInterface
         }
 
         $this->mediaRepository->delete([['id' => $mediaId]], $context);
+    }
+
+    private function createDeliveryNoteDocument(
+        OrderEntity $order,
+        Context $context
+    ): DocumentIdStruct {
+        $documentTypeName = 'delivery_note';
+        $fileType = 'pdf';
+
+        $documentTypeId = $this->getDocumentTypeIdByName($documentTypeName);
+
+        if (null === $documentTypeId) {
+            throw new InvalidDocumentGeneratorTypeException($documentTypeName);
+        }
+
+        $documentConfiguration = $this->getConfiguration(
+            $context,
+            $documentTypeId,
+            $order
+        );
+
+        $orderVersionId = $this->orderRepository->createVersion($order->getId(), $context, 'document');
+
+        $documentId = Uuid::randomHex();
+        $deepLinkCode = Random::getAlphanumericString(32);
+        $this->documentRepository->create(
+            [
+                [
+                    'id' => $documentId,
+                    'documentTypeId' => $documentTypeId,
+                    'fileType' => $fileType,
+                    'orderId' => $order->getId(),
+                    'orderVersionId' => $orderVersionId,
+                    'config' => $documentConfiguration->jsonSerialize(),
+                    'static' => false,
+                    'deepLinkCode' => $deepLinkCode,
+                ],
+            ],
+            $context
+        );
+
+        return new DocumentIdStruct($documentId, $deepLinkCode);
+    }
+
+    private function getDocumentTypeIdByName(string $documentType): ?string
+    {
+        $id = $this->connection->fetchOne(
+            'SELECT LOWER(HEX(id)) as id FROM document_type WHERE technical_name = :technicalName',
+            ['technicalName' => $documentType]
+        );
+
+        return $id ?: null;
+    }
+
+    private function getConfiguration(
+        Context $context,
+        string $documentTypeId,
+        OrderEntity $order,
+        ): DocumentConfiguration {
+        $specificConfiguration = [];
+        $criteria = new Criteria();
+        $criteria->addFilter(new EqualsFilter('documentTypeId', $documentTypeId));
+        $criteria->addAssociation('logo');
+        $criteria->addFilter(new EqualsFilter('global', true));
+
+        /** @var DocumentBaseConfigEntity $globalConfig */
+        $globalConfig = $this->documentConfigRepository->search($criteria, $context)->first();
+
+        $criteria = new Criteria();
+        $criteria->addFilter(new EqualsFilter('documentTypeId', $documentTypeId));
+        $criteria->addAssociation('logo');
+        $criteria->addFilter(new EqualsFilter('salesChannels.salesChannelId', $order->getSalesChannelId()));
+        $criteria->addFilter(new EqualsFilter('salesChannels.documentTypeId', $documentTypeId));
+
+        /** @var DocumentBaseConfigEntity $salesChannelConfig */
+        $salesChannelConfig = $this->documentConfigRepository->search($criteria, $context)->first();
+
+        return DocumentConfigurationFactory::createConfiguration($specificConfiguration, $globalConfig, $salesChannelConfig);
     }
 }

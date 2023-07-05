@@ -12,11 +12,13 @@
         </service>
 
         <service id="BitBag\ShopwareOrlenPaczkaPlugin\Api\DocumentApiService">
-            <argument type="service" id="Shopware\Core\Checkout\Document\DocumentService" />
             <argument type="service" id="Shopware\Core\Content\Media\MediaService" />
             <argument type="service" id="Shopware\Core\Content\Media\File\FileSaver" />
             <argument type="service" id="document.repository" />
             <argument type="service" id="media.repository" />
+            <argument type="service" id="document_base_config.repository" />
+            <argument type="service" id="order.repository" />
+            <argument type="service" id="Doctrine\DBAL\Connection" />
         </service>
     </services>
 </container>

@@ -21,12 +21,11 @@ use Shopware\Core\Checkout\Document\DocumentEntity;
 use Shopware\Core\Checkout\Order\Aggregate\OrderDelivery\OrderDeliveryEntity;
 use Shopware\Core\Content\Media\MediaService;
 use Shopware\Core\Framework\Context;
-use Shopware\Core\Framework\Routing\Annotation\RouteScope;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @RouteScope(scopes={"api"})
+ * @Route(defaults={"_routeScope"={"api"}}))
  */
 final class LabelController
 {

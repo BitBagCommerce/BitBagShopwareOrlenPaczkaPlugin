@@ -18,7 +18,7 @@ final class IsPostalCodeValidator extends ConstraintValidator
 {
     public const POST_CODE_REGEX = "/^(\d{2})(-\d{3})?$/i";
 
-    public function validate($value, Constraint $constraint): void
+    public function validate(mixed $value, Constraint $constraint): void
     {
         if (!$constraint instanceof IsPostalCode) {
             throw new UnexpectedTypeException($constraint, IsPostalCode::class);

@@ -14,14 +14,13 @@ use BitBag\ShopwareOrlenPaczkaPlugin\Config\OrlenApiConfigServiceInterface;
 use BitBag\ShopwareOrlenPaczkaPlugin\Exception\InvalidApiConfigException;
 use BitBag\ShopwareOrlenPaczkaPlugin\Resolver\PPClientResolverInterface;
 use OpenApi\Annotations as OA;
-use Shopware\Core\Framework\Routing\Annotation\RouteScope;
 use Shopware\Core\System\SystemConfig\SystemConfigService;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @RouteScope(scopes={"api"})
+ * @Route(defaults={"_routeScope"={"api"}}))
  */
 final class OriginOfficesController
 {

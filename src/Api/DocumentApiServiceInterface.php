@@ -11,14 +11,14 @@ declare(strict_types=1);
 namespace BitBag\ShopwareOrlenPaczkaPlugin\Api;
 
 use BitBag\PPClient\Client\PPClientInterface;
+use Shopware\Core\Checkout\Order\OrderEntity;
 use Shopware\Core\Framework\Context;
 
 interface DocumentApiServiceInterface
 {
     public function uploadOrderLabel(
         string $packageGuid,
-        string $orderId,
-        string $orderNumber,
+        OrderEntity $order,
         PPClientInterface $client,
         Context $context
     ): void;

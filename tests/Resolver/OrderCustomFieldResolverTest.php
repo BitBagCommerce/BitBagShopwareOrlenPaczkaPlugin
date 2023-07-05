@@ -56,6 +56,7 @@ final class OrderCustomFieldResolverTest extends TestCase
             null,
             null,
             null,
+            null,
             'bitbag.shopware_poczta_polska_app.order.custom_fields.depth_invalid'
         );
 

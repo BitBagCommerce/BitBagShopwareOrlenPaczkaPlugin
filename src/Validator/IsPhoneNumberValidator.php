@@ -20,7 +20,7 @@ final class IsPhoneNumberValidator extends ConstraintValidator
 
     public const PHONE_NUMBER_LENGTH = 9;
 
-    public function validate($value, Constraint $constraint): void
+    public function validate(mixed $value, Constraint $constraint): void
     {
         if (!$constraint instanceof IsPhoneNumber) {
             throw new UnexpectedTypeException($constraint, IsPhoneNumber::class);

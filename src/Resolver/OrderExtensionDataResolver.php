@@ -24,7 +24,7 @@ final class OrderExtensionDataResolver implements OrderExtensionDataResolverInte
             throw new OrderExtensionNotFoundException('order.extension.notFound');
         }
 
-        $data = $orderExtension->getVars()['data'];
+        $data = $orderExtension->getVars();
 
         return new PickupPointAddress(
             $data['id'],
@@ -44,6 +44,6 @@ final class OrderExtensionDataResolver implements OrderExtensionDataResolverInte
             throw new OrderExtensionNotFoundException('order.extension.notFound');
         }
 
-        return $orderExtension->getVars()['data'];
+        return $orderExtension->getVars();
     }
 }

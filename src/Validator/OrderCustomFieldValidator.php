@@ -27,7 +27,7 @@ final class OrderCustomFieldValidator implements OrderCustomFieldValidatorInterf
 
         $data['dimensions'] = 1;
         $dimensions = [$data[$depthKey] ?? null, $data[$heightKey] ?? null, $data[$widthKey] ?? null];
-
+        //var_dump($dimensions);
         $zeros = 0;
         foreach ($dimensions as $dimension) {
             if (1 > $dimension || null === $dimension) {

@@ -104,8 +104,7 @@ final class PackageApiService implements PackageApiServiceInterface
 
         $this->documentApiService->uploadOrderLabel(
             $package->getGuid(),
-            $order->id,
-            $order->orderNumber,
+            $order,
             $client,
             $context
         );
